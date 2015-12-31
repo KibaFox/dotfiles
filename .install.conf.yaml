@@ -3,6 +3,7 @@
 - link:
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
+    ~/.pam_environment: pam_environment
 
 - shell:
   - git submodule update --init --recursive # Update submodules
