@@ -1,0 +1,8 @@
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.gitconfig: gitconfig
+
+- shell:
+  - git submodule update --init --recursive # Update submodules
