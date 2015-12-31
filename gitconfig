@@ -4,6 +4,9 @@
 [core]
 	excludesfile = ~/.dotfiles/gitignore_global
 
+[push]
+	default = simple
+
 # Allow local customizations in the .gitconfig_local file
 [include]
 	path = ~/.gitconfig_local
