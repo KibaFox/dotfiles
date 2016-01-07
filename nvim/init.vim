@@ -43,6 +43,10 @@ set smartcase
 " Allow buffers with unsaved changes to be hidden
 set hidden
 
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
 " Mappings
 " ========
 
@@ -52,6 +56,12 @@ nnoremap <Leader>s :set spell!<CR>
 " Buffer navigation
 map <C-n> :bnext<CR>
 map <C-p> :bprev<CR>
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " Plugin Configuration
 " ====================
