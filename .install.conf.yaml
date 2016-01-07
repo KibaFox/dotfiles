@@ -5,6 +5,7 @@
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
     ~/.pam_environment: pam_environment
+    ~/.Xresources: Xresources
 
 - shell:
   - git submodule update --init --recursive # Update submodules
