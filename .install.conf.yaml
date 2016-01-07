@@ -5,6 +5,7 @@
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
     ~/.pam_environment: pam_environment
+    ~/.tmux.conf: tmux.conf
     ~/.Xresources: Xresources
 
 - shell:
