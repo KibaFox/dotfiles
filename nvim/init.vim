@@ -51,7 +51,7 @@ nnoremap <Leader>s :set spell!<CR>
 
 " Buffer navigation
 map <C-n> :bnext<CR>
-map <C-p> :bpref<CR>
+map <C-p> :bprev<CR>
 
 " Plugin Configuration
 " ====================
