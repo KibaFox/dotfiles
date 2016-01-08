@@ -1,6 +1,7 @@
 - clean: ['~', '~/.config']
 
 - link:
+    ~/.config/fish: fish/
     ~/.config/nvim: nvim/
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
