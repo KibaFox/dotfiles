@@ -2,6 +2,7 @@
 
 - link:
     ~/.config/fish: fish/
+    ~/.config/i3: i3/
     ~/.config/nvim: nvim/
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
