@@ -5,9 +5,14 @@ let mapleader = "\<Space>"
 " Load Plugins
 " ============
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+call plug#begin()
+
+Plug 'bling/vim-airline'
+Plug 'w0ng/vim-hybrid'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-git'
+
+call plug#end()
 
 " Syntax Highlighting and Indentation
 " ===================================
