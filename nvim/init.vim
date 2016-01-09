@@ -83,5 +83,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Hybrid Colorscheme
 " ------------------
 
-set background=dark
-colorscheme hybrid
+if !empty(glob("~/.config/nvim/plugged/vim-hybrid"))
+    set background=dark
+    colorscheme hybrid
+endif
