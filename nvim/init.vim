@@ -14,6 +14,27 @@ Plug 'tpope/vim-git'
 
 call plug#end()
 
+" Plugin Configuration
+" ====================
+
+" Airline
+" -------
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'hybridline'
+
+" Enable tabline
+let g:airline#extensions#tabline#enabled = 1
+
+" Hybrid Colorscheme
+" ------------------
+
+if !empty(glob("~/.config/nvim/plugged/vim-hybrid"))
+    set background=dark
+    let g:hybrid_custom_term_colors = 1
+    colorscheme hybrid
+endif
+
 " Syntax Highlighting and Indentation
 " ===================================
 
@@ -67,24 +88,3 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-" Plugin Configuration
-" ====================
-
-" Airline
-" -------
-
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'hybridline'
-
-" Enable tabline
-let g:airline#extensions#tabline#enabled = 1
-
-" Hybrid Colorscheme
-" ------------------
-
-if !empty(glob("~/.config/nvim/plugged/vim-hybrid"))
-    set background=dark
-    let g:hybrid_custom_term_colors = 1
-    colorscheme hybrid
-endif
