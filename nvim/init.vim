@@ -7,9 +7,22 @@ let mapleader = "\<Space>"
 
 call plug#begin()
 
-Plug 'bling/vim-airline'
+" Look and feel
+" ----------
 Plug 'w0ng/vim-hybrid'
+Plug 'bling/vim-airline'
+
+" Coding
+" ------
 Plug 'editorconfig/editorconfig-vim'
+
+" Writing
+" ------
+Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-pencil'
+
+" Language & Syntax
+" -----------------
 Plug 'tpope/vim-git'
 
 call plug#end()
@@ -17,22 +30,44 @@ call plug#end()
 " Plugin Configuration
 " ====================
 
+" Hybrid Colorscheme
+" ------------------
+if !empty(glob("~/.config/nvim/plugged/vim-hybrid"))
+    set background=dark
+    let g:hybrid_custom_term_colors = 1
+    colorscheme hybrid
+endif
+
 " Airline
 " -------
-
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'hybridline'
 
 " Enable tabline
 let g:airline#extensions#tabline#enabled = 1
 
-" Hybrid Colorscheme
-" ------------------
+" Goyo
+" ----
 
-if !empty(glob("~/.config/nvim/plugged/vim-hybrid"))
-    set background=dark
-    let g:hybrid_custom_term_colors = 1
-    colorscheme hybrid
+let g:goyo_width = 80
+
+" Goyo Mappings
+" -------------
+
+" Toggle distraction-free mode
+nnoremap <leader>w :Goyo<CR>
+
+" Pencil
+" ------
+let g:pencil#textwidth = 80             " Set pencil's width
+let g:pencil#wrapModeDefault = 'soft'   " Use soft wrap
+let g:pencil#joinspaces = 1             " Use two spaces after a period
+if !empty(glob("~/.config/nvim/plugged/goyo.vim"))
+    augroup pencil
+        autocmd!
+        autocmd FileType markdown call pencil#init()
+        autocmd FileType text     call pencil#init()
+    augroup END
 endif
 
 " Syntax Highlighting and Indentation
