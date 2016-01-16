@@ -24,6 +24,7 @@ Plug 'reedes/vim-pencil'
 " Language & Syntax
 " -----------------
 Plug 'tpope/vim-git'
+Plug 'LnL7/vim-nix'
 
 call plug#end()
 
