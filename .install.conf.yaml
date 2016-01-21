@@ -16,6 +16,7 @@
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
     ~/.pam_environment: pam_environment
+    ~/.spectrwm.conf: spectrwm.conf
     ~/.tmux.conf: tmux.conf
     ~/.Xresources: Xresources
 
