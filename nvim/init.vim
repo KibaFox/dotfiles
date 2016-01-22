@@ -9,7 +9,7 @@ call plug#begin()
 
 " Look and feel
 " ----------
-Plug 'w0ng/vim-hybrid'
+Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
 
 " Coding
@@ -33,10 +33,10 @@ call plug#end()
 
 " Hybrid Colorscheme
 " ------------------
-if !empty(glob("~/.config/nvim/plugged/vim-hybrid"))
+if !empty(glob("~/.config/nvim/plugged/gruvbox"))
+    let g:gruvbox_italic = 1
     set background=dark
-    let g:hybrid_custom_term_colors = 1
-    colorscheme hybrid
+    colorscheme gruvbox
 endif
 
 " Airline
