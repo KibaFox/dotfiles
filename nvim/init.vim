@@ -73,9 +73,6 @@ filetype plugin indent on
 " Turn on syntax highlighting
 syntax on
 
-" Italic comments
-highlight Comment cterm=italic
-
 " Editing Options
 " ===============
 
