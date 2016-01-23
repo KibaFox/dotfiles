@@ -113,9 +113,6 @@ set numberwidth=5
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
 
-" Location of my spellfile
-set spellfile=$HOME/.dotfiles_local/nvim/spell/en.utf-8.add
-
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning

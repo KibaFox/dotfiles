@@ -2,6 +2,7 @@
     - '~'
     - '~/.config'
     - '~/.config/git'
+    - '~/.config/nvim'
 
 - link:
     ~/.config/fish/config.fish:
@@ -13,9 +14,15 @@
     ~/.config/git/ignore_global:
         create: true
         path: git/ignore_global
-    ~/.config/nvim:
+    ~/.config/nvim/init.vim:
         create: true
-        path: nvim/
+        path: nvim/init.vim
+    ~/.config/nvim/ftplugin:
+        create: true
+        path: nvim/ftplugin/
+    ~/.config/nvim/autoload:
+        create: true
+        path: nvim/autoload/
     ~/.pam_environment: pam_environment
     ~/.spectrwm.conf: spectrwm.conf
     ~/.tmux.conf: tmux.conf
