@@ -6,9 +6,9 @@
     - '~/.config/i3status'
 
 - link:
-    ~/.config/fish:
+    ~/.config/fish/config.fish:
         create: true
-        path: fish/
+        path: fish/config.fish
     ~/.config/git/config:
         create: true
         path: git/config
