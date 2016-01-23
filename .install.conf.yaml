@@ -18,7 +18,6 @@
     ~/.pam_environment: pam_environment
     ~/.spectrwm.conf: spectrwm.conf
     ~/.tmux.conf: tmux.conf
-    ~/.Xresources: Xresources
 
 - shell:
   - git submodule update --init --recursive # Update submodules
