@@ -8,6 +8,12 @@
     ~/.config/fish:
         create: true
         path: fish/
+    ~/.config/git/config:
+        create: true
+        path: git/config
+    ~/.config/git/ignore_global:
+        create: true
+        path: git/ignore_global
     ~/.config/i3/config:
         create: true
         path: i3/config
@@ -18,7 +24,6 @@
         create: true
         path: nvim/
     ~/.dotfiles: ''
-    ~/.gitconfig: gitconfig
     ~/.pam_environment: pam_environment
     ~/.spectrwm.conf: spectrwm.conf
     ~/.tmux.conf: tmux.conf

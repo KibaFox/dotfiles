@@ -1,0 +1,12 @@
+[color]
+	ui = auto
+
+[core]
+	excludesfile = ~/.config/git/ignore_global
+
+[push]
+	default = simple
+
+# Allow local customizations
+[include]
+	path = ~/.config/git/config_local
