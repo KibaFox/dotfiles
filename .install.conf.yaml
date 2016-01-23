@@ -30,4 +30,3 @@
 
 - shell:
   - git submodule update --init --recursive # Update submodules
-  - mkdir -p ~/.local/share/lynx
