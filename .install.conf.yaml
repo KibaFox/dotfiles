@@ -5,14 +5,18 @@
     - '~/.config/i3status'
 
 - link:
-    ~/.config/fish: fish/
+    ~/.config/fish:
+        create: true
+        path: fish/
     ~/.config/i3/config:
         create: true
         path: i3/config
     ~/.config/i3status/config:
         create: true
         path: i3/i3status.conf
-    ~/.config/nvim: nvim/
+    ~/.config/nvim:
+        create: true
+        path: nvim/
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
     ~/.pam_environment: pam_environment
