@@ -2,8 +2,6 @@
     - '~'
     - '~/.config'
     - '~/.config/git'
-    - '~/.config/i3'
-    - '~/.config/i3status'
 
 - link:
     ~/.config/fish/config.fish:
@@ -15,12 +13,6 @@
     ~/.config/git/ignore_global:
         create: true
         path: git/ignore_global
-    ~/.config/i3/config:
-        create: true
-        path: i3/config
-    ~/.config/i3status/config:
-        create: true
-        path: i3/i3status.conf
     ~/.config/nvim:
         create: true
         path: nvim/
