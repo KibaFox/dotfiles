@@ -50,7 +50,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Goyo
 " ----
 
-let g:goyo_width = 80
+let g:goyo_width = 82 " Give some room to avoid side-scrolling on hard wrap
 
 " Goyo Mappings
 " -------------
