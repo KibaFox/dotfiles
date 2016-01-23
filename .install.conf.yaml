@@ -1,6 +1,7 @@
 - clean:
     - '~'
     - '~/.config'
+    - '~/.config/git'
     - '~/.config/i3'
     - '~/.config/i3status'
 
