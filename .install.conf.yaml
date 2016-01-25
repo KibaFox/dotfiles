@@ -28,4 +28,14 @@
     ~/.tmux.conf: tmux.conf
 
 - shell:
-  - git submodule update --init --recursive # Update submodules
+    # Update git submodules
+    - git submodule update --init --recursive
+    # Install Neovim spelling dictionary and suggestions
+    - >
+        [ -f ~/.config/nvim/spell/en.utf-8.spl ] ||
+        curl -o ~/.config/nvim/spell/en.utf-8.spl
+        ftp://ftp.vim.org/pub/vim/runtime/spell/en.utf-8.spl
+    - >
+        [ -f ~/.config/nvim/spell/en.utf-8.sug ] ||
+        curl -o ~/.config/nvim/spell/en.utf-8.sug
+        ftp://ftp.vim.org/pub/vim/runtime/spell/en.utf-8.sug
