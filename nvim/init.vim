@@ -11,10 +11,13 @@ call plug#begin()
 " ----------
 Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
+Plug 'mhinz/vim-startify'
+Plug 'airblade/vim-gitgutter'
 
 " Coding
 " ------
 Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive'
 
 " Writing
 " ------
