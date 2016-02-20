@@ -4,4 +4,4 @@ update_interval 5.0
 total_run_times 0
 use_spacer none
 TEXT
-${time %I:%M %p |%a, %b %d} |Bat:${battery_short} |RAM:$memperc% |CPU:${cpu}%
+${time %I:%M %p} |${time %a, %b %d} |Bat:${battery_short} |RAM:$memperc% |CPU:${cpu}%
