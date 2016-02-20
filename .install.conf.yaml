@@ -24,7 +24,7 @@
         create: true
         path: nvim/autoload/
     ~/.conkyrc: conkyrc
-    ~/.pam_environment: pam_environment
+    ~/.profile: profile
     ~/.spectrwm.conf: spectrwm.conf
     ~/.tmux.conf: tmux.conf
 
