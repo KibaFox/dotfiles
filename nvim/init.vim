@@ -14,11 +14,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
+Plug 'Shougo/deoplete.nvim'
+Plug 'majutsushi/tagbar'
 
 " Coding
 " ------
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
 
 " Writing
 " ------
@@ -29,6 +32,13 @@ Plug 'reedes/vim-pencil'
 " -----------------
 Plug 'tpope/vim-git'
 Plug 'LnL7/vim-nix'
+
+" Golang
+" ------
+
+Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go'
+Plug 'garyburd/go-explorer'
 
 call plug#end()
 
