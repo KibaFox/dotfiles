@@ -83,6 +83,19 @@ let g:pencil#textwidth = 80             " Set pencil's width
 let g:pencil#wrapModeDefault = 'soft'   " Use soft wrap
 let g:pencil#joinspaces = 1             " Use two spaces after a period
 
+" Vim-Go
+" ------
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+
+" Fix syntastic lagging while saving and opening files with vim-go
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
 " Syntax Highlighting and Indentation
 " ===================================
 
@@ -142,3 +155,22 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" Go-Specific
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <leader>l :GoLint<CR>
+au FileType go nmap <leader>q :GoImport<space>
+au FileType go nmap <Leader>g <Plug>(go-implements)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <Leader>s <Plug>(go-install)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>v <Plug>(go-vet)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>gs <Plug>(go-doc-split)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
