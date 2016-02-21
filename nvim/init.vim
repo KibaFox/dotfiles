@@ -2,6 +2,11 @@
 " Set this before everything else.
 let mapleader = "\<Space>"
 
+" Use a POSIX shell for compatibility
+if $SHELL =~ 'fish'
+  set shell='/bin/sh'
+endif
+
 " Load Plugins
 " ============
 
