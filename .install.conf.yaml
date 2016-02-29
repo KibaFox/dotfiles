@@ -44,5 +44,5 @@
         ftp://ftp.vim.org/pub/vim/runtime/spell/en.utf-8.sug
 
     # Keep vim-plug updated and install or update neovim plugins
-    - nvim -i NONE -c PlugUpgrade -c PlugUpdate -c quitall > /dev/null
+    - nvim -i NONE -c PlugClean! -c PlugUpgrade -c PlugUpdate -c quitall > /dev/null
 
