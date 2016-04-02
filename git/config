@@ -10,3 +10,22 @@
 # Allow local customizations
 [include]
 	path = ~/.config/git/config_local
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
+[difftool "vimdiff"]
+	path = nvim
+
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+
+[mergetool]
+	prompt = false
+
+[mergetool "vimdiff"]
+	path = nvim
