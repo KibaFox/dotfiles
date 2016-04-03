@@ -8,6 +8,7 @@ TEXT
 ${time %I:%M %p} | \
 ${time %a, %b %d} |\
 Bat:${battery_short} |\
+♪ ${if_mixer_mute}Off${else}${mixer}${endif} |\
 RAM:${memperc}% |\
 CPU:${cpu}% |\
 ${if_up tun0}VPN |${endif}\
