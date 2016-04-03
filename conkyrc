@@ -3,5 +3,12 @@ out_to_console yes
 update_interval 5.0
 total_run_times 0
 use_spacer none
+
 TEXT
-${time %I:%M %p} |${time %a, %b %d} |Bat:${battery_short} |RAM:$memperc% |CPU:${cpu}%
+${time %I:%M %p} | \
+${time %a, %b %d} |\
+Bat:${battery_short} |\
+RAM:${memperc}% |\
+CPU:${cpu}% |\
+${if_up tun0}VPN |${endif}\
+${if_up wlp3s0}WiFi:${wireless_link_qual_perc wlp3s0}% ${wireless_essid wlp3s0}${endif}
