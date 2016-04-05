@@ -5,3 +5,5 @@ set -g -x fish_greeting ''
 set -x EDITOR nvim
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 set -x GOPATH "$HOME/gocode"
+
+source ~/.config/fish/fish_prompt.fish
