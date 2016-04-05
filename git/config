@@ -29,3 +29,5 @@
 
 [mergetool "vimdiff"]
 	path = nvim
+
+# vi:syntax=gitconfig
