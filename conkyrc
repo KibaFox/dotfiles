@@ -1,13 +1,13 @@
 out_to_x no
 out_to_console yes
-update_interval 5.0
+update_intervall 2.5
 total_run_times 0
 use_spacer none
 
 TEXT
 ${time %I:%M %p} | \
 ${time %a, %b %d} |\
-Bat:${battery_short} |\
+Bat:${battery_short} ${battery_time} |\
 ♪ ${if_mixer_mute}Off${else}${mixer}${endif} |\
 RAM:${memperc}% |\
 CPU:${cpu}% |\
