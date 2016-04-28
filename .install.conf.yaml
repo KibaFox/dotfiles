@@ -17,6 +17,9 @@
     ~/.config/git/ignore_global:
         create: true
         path: git/ignore_global
+    ~/.config/i3/config:
+        create: true
+        path: i3/config
     ~/.config/nvim/init.vim:
         create: true
         path: nvim/init.vim
