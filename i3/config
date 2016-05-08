@@ -137,3 +137,15 @@ bar {
     status_command i3status
     tray_output primary
 }
+
+# Extra button bindings
+
+bindsym XF86AudioMute         exec "amixer sset Master toggle"
+bindsym XF86AudioLowerVolume  exec "amixer sset Master 5%-"
+bindsym XF86AudioRaiseVolume  exec "amixer sset Master 5%+"
+bindsym XF86AudioMicMute      exec "amixer sset Capture toggle"
+bindsym XF86MonBrightnessUp   exec "xbacklight -inc 5"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
+bindsym XF86AudioPrev         exec "playerctl previous"
+bindsym XF86AudioNext         exec "playerctl next"
+bindsym XF86AudioPlay         exec "playerctl play-pause"
