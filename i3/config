@@ -138,6 +138,18 @@ bar {
     tray_output primary
 }
 
+# Scratchpad
+# ----------
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Show KeeyPass scratchpad window, if any
+bindsym mod1+k [title="KeePassX"] scratchpad show
+
 # Extra button bindings
 
 bindsym XF86AudioMute         exec "amixer sset Master toggle"
