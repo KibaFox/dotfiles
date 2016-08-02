@@ -37,6 +37,7 @@ Plug 'reedes/vim-pencil'
 " -----------------
 Plug 'tpope/vim-git'
 Plug 'LnL7/vim-nix'
+Plug 'elixir-lang/vim-elixir'
 
 " Golang
 " ------
