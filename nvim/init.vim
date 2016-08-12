@@ -151,6 +151,11 @@ set complete+=kspell
 " Toggle spell check
 nnoremap <Leader>s :set spell!<CR>
 
+" Buffer navigation and management
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
+nnoremap <C-x> :bdelete<CR>
+
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
