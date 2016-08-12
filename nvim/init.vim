@@ -21,6 +21,7 @@ Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim'
 Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-vinegar'
 
 " Coding
 " ------
