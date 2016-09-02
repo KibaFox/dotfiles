@@ -85,7 +85,7 @@ nnoremap <leader>w :Goyo<CR>
 " Pencil
 " ------
 let g:pencil#textwidth = 80             " Set pencil's width
-let g:pencil#wrapModeDefault = 'soft'   " Use soft wrap
+let g:pencil#wrapModeDefault = 'hard'   " Use hard wrap
 let g:pencil#joinspaces = 1             " Use two spaces after a period
 
 " Vim-Go
