@@ -22,6 +22,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim'
 Plug 'majutsushi/tagbar'
 Plug 'justinmk/vim-dirvish'
+Plug 'qpkorr/vim-bufkill'
 
 " Coding
 " ------
@@ -155,7 +156,9 @@ nnoremap <Leader>s :set spell!<CR>
 " Buffer navigation and management
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
-nnoremap <C-x> :bdelete<CR>
+" Delete a buffer without closing the split using vim-buffkill
+nnoremap <C-x> :BD<CR>
+
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
