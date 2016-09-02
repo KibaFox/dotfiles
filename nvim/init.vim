@@ -38,11 +38,14 @@ Plug 'reedes/vim-pencil'
 " -----------------
 Plug 'tpope/vim-git'
 Plug 'LnL7/vim-nix'
+
+" Elixir
+" ------
 Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 
 " Golang
 " ------
-
 Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go'
 Plug 'garyburd/go-explorer'
