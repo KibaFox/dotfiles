@@ -23,6 +23,7 @@
     ~/.profile: profile
     ~/.spectrwm.conf: spectrwm.conf
     ~/.tmux.conf: tmux.conf
+    ~/.Xresources: Xresources
 
 - shell:
     # Update git submodules
