@@ -38,6 +38,7 @@ Plug 'reedes/vim-pencil'
 " -----------------
 Plug 'tpope/vim-git'
 Plug 'LnL7/vim-nix'
+Plug 'dag/vim-fish'
 
 " Elixir
 " ------
