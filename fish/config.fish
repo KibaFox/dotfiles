@@ -10,3 +10,8 @@ set -x GOPATH "$HOME/gocode"
 alias rdp "xfreerdp +compression +clipboard +fonts /cert-ignore /size:1400x1050"
 
 source ~/.config/fish/fish_prompt.fish
+
+# Allow extension via local configuration
+if test -f ~/.config/fish/config_local.fish
+    source ~/.config/fish/config_local.fish
+end
