@@ -162,12 +162,17 @@ nnoremap <C-p> :bprev<CR>
 " Delete a buffer without closing the split using vim-buffkill
 nnoremap <C-x> :BD<CR>
 
-
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" Auto formatting for manually converting to hard wrap
+" Format paragraph
+nnoremap <silent> <leader>q gqap
+" Format selection (visual mode)
+xnoremap <silent> <leader>q gq
 
 " Go-Specific
 au FileType go nmap <leader>b <Plug>(go-build)
