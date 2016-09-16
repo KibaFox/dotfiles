@@ -20,6 +20,7 @@
     ~/.config/nvim/ftplugin: nvim/ftplugin/
     ~/.config/nvim/autoload: nvim/autoload/
     ~/.conkyrc: conkyrc
+    ~/.minttyrc: minttyrc
     ~/.profile: profile
     ~/.spectrwm.conf: spectrwm.conf
     ~/.tmux.conf: tmux.conf
