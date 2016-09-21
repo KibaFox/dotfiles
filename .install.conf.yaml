@@ -22,6 +22,7 @@
     ~/.conkyrc: conkyrc
     ~/.minttyrc: minttyrc
     ~/.profile: profile
+    ~/.spacemacs: spacemacs
     ~/.spectrwm.conf: spectrwm.conf
     ~/.tmux.conf: tmux.conf
     ~/.Xresources: Xresources
