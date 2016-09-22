@@ -8,6 +8,7 @@
     - '~/.config'
     - '~/.config/git'
     - '~/.config/nvim'
+    - '~/.config/termite'
 
 - link:
     ~/.config/fish/config.fish: fish/config.fish
@@ -19,6 +20,7 @@
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.config/nvim/ftplugin: nvim/ftplugin/
     ~/.config/nvim/autoload: nvim/autoload/
+    ~/.config/termite/config: termite/config
     ~/.conkyrc: conkyrc
     ~/.minttyrc: minttyrc
     ~/.profile: profile
