@@ -39,6 +39,8 @@ Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-git'
 Plug 'LnL7/vim-nix'
 Plug 'dag/vim-fish'
+Plug 'plasticboy/vim-markdown'
+Plug 'cespare/vim-toml'
 
 " Elixir
 " ------
@@ -76,6 +78,12 @@ let g:airline#extensions#tabline#enabled = 1
 " ----
 
 let g:goyo_width = 82 " Give some room to avoid side-scrolling on hard wrap
+
+" Markdown
+" --------
+
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
 
 " Goyo Mappings
 " -------------
