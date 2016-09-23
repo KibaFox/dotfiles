@@ -22,6 +22,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'majutsushi/tagbar'
 Plug 'justinmk/vim-dirvish'
 Plug 'qpkorr/vim-bufkill'
+Plug 'godlygeek/tabular'
 
 " Coding
 " ------
