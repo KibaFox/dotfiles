@@ -7,7 +7,7 @@ set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 set -x GOPATH "$HOME/gocode"
 
 # Aliases
-alias rdp "xfreerdp +compression +clipboard +fonts /cert-ignore /size:1400x1050"
+alias rdp "xfreerdp +compression +clipboard +fonts /home-drive /cert-ignore /size:1400x1050"
 
 source ~/.config/fish/fish_prompt.fish
 
