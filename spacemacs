@@ -36,7 +36,6 @@ values."
      syntax-checking
      version-control
 
-     shell      ;; Configures various shells available in Emacs
      nixos      ;; Adds tools for better integration of emacs in NixOS
      erc        ;; Layer for ERC IRC chat
 
