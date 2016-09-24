@@ -2,7 +2,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -148,7 +148,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Show KeeyPass scratchpad window, if any
-bindsym mod1+k [title="KeePassX"] scratchpad show
+bindsym Mod4+k [title="KeePassX"] scratchpad show
 
 # Extra button bindings
 
