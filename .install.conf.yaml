@@ -17,9 +17,9 @@
     ~/.config/git/ignore_global: git/ignore_global
     ~/.config/i3/config: i3/config
     ~/.config/i3status/config: i3status/config
-    ~/.config/nvim/init.vim: nvim/init.vim
-    ~/.config/nvim/ftplugin: nvim/ftplugin/
     ~/.config/nvim/autoload: nvim/autoload/
+    ~/.config/nvim/ftplugin: nvim/ftplugin/
+    ~/.config/nvim/init.vim: nvim/init.vim
     ~/.config/termite/config: termite/config
     ~/.conkyrc: conkyrc
     ~/.minttyrc: minttyrc
