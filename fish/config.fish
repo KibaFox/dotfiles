@@ -8,6 +8,7 @@ set -x GOPATH "$HOME/gocode"
 
 # Aliases
 alias rdp "xfreerdp +compression +clipboard +fonts /home-drive /cert-ignore /size:1400x1050"
+alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
 
 source ~/.config/fish/fish_prompt.fish
 
