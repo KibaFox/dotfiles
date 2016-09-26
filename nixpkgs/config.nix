@@ -6,6 +6,10 @@
 
   packageOverrides = pkgs : rec {
 
+    st = with pkgs; (pkgs.st.override {
+      conf = builtins.readFile ../st/config.def.h;
+    });
+
     # Bundle collections of packages.
     # https://nixos.org/wiki/Howto_keep_multiple_packages_up_to_date_at_once
     # Gilligan's nixpks configuration: https://github.com/gilligan/nixconfig
