@@ -33,6 +33,7 @@
         pngnq           # Lossy PNG compressor
         psmisc          # includes killall
         pwgen           # Password generator
+        keybase         # Keybase.io client
         python
         silver-searcher # A code-searching tool similar to ack, but faster
         tmux            # Terminal multiplexer
