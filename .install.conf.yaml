@@ -9,6 +9,7 @@
     - '~/.config/git'
     - '~/.config/nvim'
     - '~/.config/termite'
+    - '~/.nixpkgs'
 
 - link:
     ~/.config/fish/config.fish: fish/config.fish
@@ -23,6 +24,7 @@
     ~/.config/termite/config: termite/config
     ~/.conkyrc: conkyrc
     ~/.minttyrc: minttyrc
+    ~/.nixpkgs/config.nix: nixpkgs/config.nix
     ~/.profile: profile
     ~/.spacemacs: spacemacs
     ~/.spectrwm.conf: spectrwm.conf
