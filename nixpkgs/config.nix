@@ -17,7 +17,7 @@
     toolsEnv = with pkgs; buildEnv {
       name = "toolsEnv";
       paths = [
-        (gnupg.override {
+        (gnupg20.override { # gnupg21 will not import my keys
           pinentry = pinentry_ncurses;
           x11Support = false;
         })
