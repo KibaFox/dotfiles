@@ -22,8 +22,6 @@ function fish_disable_keypad_transmit --on-event fish_preexec
 end
 # end of - Fix the delete key when using st
 
-source ~/.config/fish/fish_prompt.fish
-
 # Allow extension via local configuration
 if test -f ~/.config/fish/config_local.fish
     source ~/.config/fish/config_local.fish
