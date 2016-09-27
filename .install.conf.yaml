@@ -6,6 +6,7 @@
 - clean:
     - '~'
     - '~/.config'
+    - '~/.config/fish'
     - '~/.config/git'
     - '~/.config/nvim'
     - '~/.config/termite'
