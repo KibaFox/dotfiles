@@ -4,6 +4,7 @@ set -g theme_display_date no
 
 # Environment Variables
 set -x EDITOR nvim
+set -x TERMINAL 'st'
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 set -x GOPATH "$HOME/gocode"
 
