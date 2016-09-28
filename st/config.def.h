@@ -83,6 +83,11 @@ static char termname[] = "st-256color";
  */
 static unsigned int tabspaces = 8;
 
+/*
+ * gruvbox-dark colorscheme
+ * https://github.com/morhetz/gruvbox-contrib
+ */
+
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
