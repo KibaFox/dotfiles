@@ -23,7 +23,6 @@
         })
         bind            # Provides nslookup, dig
         dos2unix        # Convert between dos and unix line endings
-        fish            # Smart and user-friendly command line shell
         git             # Source control
         htop            # An interactive process viewer for Linux
         lsof            # Tool to list open files
