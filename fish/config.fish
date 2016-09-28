@@ -1,5 +1,6 @@
-# Turn off greeting on start
-set -g -x fish_greeting ''
+# bobthefish prompt options
+set -g theme_color_scheme gruvbox
+set -g theme_display_date no
 
 # Environment Variables
 set -x EDITOR nvim
