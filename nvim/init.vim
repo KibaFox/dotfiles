@@ -85,6 +85,8 @@ let g:goyo_width = 82 " Give some room to avoid side-scrolling on hard wrap
 
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
 
 " Goyo Mappings
 " -------------
