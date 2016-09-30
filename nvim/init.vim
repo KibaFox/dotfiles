@@ -4,7 +4,7 @@ let mapleader = "\<Space>"
 
 " Use a POSIX shell for compatibility
 if $SHELL =~ 'fish'
-  set shell='/bin/sh'
+  let &shell='/usr/bin/env bash'
 endif
 
 " Load Plugins
