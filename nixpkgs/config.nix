@@ -4,6 +4,9 @@
   allowBroken = false;
   allowUnfree = true;
 
+  # Verify new pkgs with this on before submitting a pull request to nixpkgs
+  #build-use-sandbox = true;
+
   packageOverrides = pkgs : rec {
 
     st = with pkgs; (pkgs.st.override {
