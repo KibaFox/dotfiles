@@ -13,6 +13,13 @@
       conf = builtins.readFile ../st/config.def.h;
     });
 
+    # Use gnupg without gui
+    # Pin to gnupg20 since gnupg21 has a bug where it won't import my keys
+    gnupg = with pkgs; gnupg20.override {
+      pinentry = pkgs.pinentry_ncurses;
+      x11Support = false;
+    };
+
     # Bundle collections of packages.
     # https://nixos.org/wiki/Howto_keep_multiple_packages_up_to_date_at_once
     # Gilligan's nixpks configuration: https://github.com/gilligan/nixconfig
@@ -20,13 +27,10 @@
     toolsEnv = with pkgs; buildEnv {
       name = "toolsEnv";
       paths = [
-        (gnupg20.override { # gnupg21 will not import my keys
-          pinentry = pinentry_ncurses;
-          x11Support = false;
-        })
         bind            # Provides nslookup, dig
         dos2unix        # Convert between dos and unix line endings
         git             # Source control
+        gnupg           # GnuPG for encrypting and signing
         htop            # An interactive process viewer for Linux
         lsof            # Tool to list open files
         mosh            # The mobile shell
