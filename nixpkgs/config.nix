@@ -9,9 +9,9 @@
 
   packageOverrides = pkgs : rec {
 
-    st = with pkgs; (pkgs.st.override {
+    st = with pkgs; pkgs.st.override {
       conf = builtins.readFile ../st/config.def.h;
-    });
+    };
 
     # Use gnupg without gui
     # Pin to gnupg20 since gnupg21 has a bug where it won't import my keys
