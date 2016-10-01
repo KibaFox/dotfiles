@@ -41,6 +41,7 @@
         psmisc          # includes killall
         pwgen           # Password generator
         python
+        ranger          # Vim-like, curses, file manager
         silver-searcher # A code-searching tool similar to ack, but faster
         tmux            # Terminal multiplexer
         tree            # Produces a depth indented directory listing
