@@ -43,6 +43,7 @@
         python
         silver-searcher # A code-searching tool similar to ack, but faster
         tmux            # Terminal multiplexer
+        tree            # Produces a depth indented directory listing
         unzip
         wget
       ];
