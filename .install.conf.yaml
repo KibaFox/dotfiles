@@ -10,6 +10,7 @@
     - '~/.config/git'
     - '~/.config/nvim'
     - '~/.config/termite'
+    - '~/.config/tinyfugue'
     - '~/.nixpkgs'
 
 - link:
@@ -23,6 +24,7 @@
     ~/.config/nvim/ftplugin: nvim/ftplugin/
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.config/termite/config: termite/config
+    ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
     ~/.conkyrc: conkyrc
     ~/.minttyrc: minttyrc
     ~/.nixpkgs/config.nix: nixpkgs/config.nix

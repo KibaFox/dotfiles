@@ -12,6 +12,11 @@ set -x GOPATH "$HOME/gocode"
 alias rdp "xfreerdp +compression +clipboard +fonts /home-drive /cert-ignore /size:1400x1050"
 alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
 
+# Tinyfugue
+# Don't auto-connect on start
+# Load config in xdg style
+alias tf "tf -n -f~/.config/tinyfugue/config.tf"
+
 # Fix the delete key when using st
 # https://github.com/fish-shell/fish-shell/issues/2139#issuecomment-137228149
 tput smkx ^/dev/null
