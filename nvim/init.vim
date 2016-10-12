@@ -160,15 +160,19 @@ nnoremap <Leader>s :set spell!<CR>
 
 " Buffer navigation and management
 nnoremap <C-n> :bnext<CR>
+nnoremap <leader>bn :bnext<CR>
 nnoremap <C-p> :bprev<CR>
+nnoremap <leader>bp :bprev<CR>
 " Delete a buffer without closing the split using vim-buffkill
 nnoremap <C-x> :BD<CR>
+nnoremap <leader>bx :BD<CR>
 
 " Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+nnoremap <leader>ww <C-w>w
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wl <C-w>l
 
 " Auto formatting for manually converting to hard wrap
 " Format paragraph
