@@ -28,7 +28,7 @@ Plug 'godlygeek/tabular'
 " ------
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 
 " Writing
 " ------
