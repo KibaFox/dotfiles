@@ -113,15 +113,6 @@ let g:go_fmt_command = "goimports"
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
-" Syntax Highlighting and Indentation
-" ===================================
-
-" Use filetype detection
-filetype plugin indent on
-
-" Turn on syntax highlighting
-syntax on
-
 " Editing Options
 " ===============
 
