@@ -147,6 +147,11 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+# KeePass
+
+# Start KeePass with floating enabled
+for_window [class="(?i)keepass"] floating enable
+
 # Show KeeyPass scratchpad window, if any
 bindsym Mod4+k [title="KeePassX"] scratchpad show
 
