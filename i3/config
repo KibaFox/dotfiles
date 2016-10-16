@@ -166,3 +166,6 @@ bindsym XF86MonBrightnessDown exec "light -U 5"
 bindsym XF86AudioPrev         exec "playerctl previous"
 bindsym XF86AudioNext         exec "playerctl next"
 bindsym XF86AudioPlay         exec "playerctl play-pause"
+
+# Autostart Dropbox
+exec dropbox
