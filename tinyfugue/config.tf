@@ -26,6 +26,9 @@
 /def -p15 -aCgray -mregexp -t'^>> ' hl_events1
 /def -p15 -aCgray -mregexp -t'^##' hl_events2
 
+; Teleport summons
+/def -p16 -abCcyan -mregexp -t'would like you to teleport to them' hl_tp1
+
 ; Local Configuration
 ; -------------------
 /load ~/.config/tinyfugue/config_local.tf
