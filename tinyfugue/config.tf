@@ -29,6 +29,9 @@
 ; Teleport summons
 /def -p16 -abCcyan -mregexp -t'would like you to teleport to them' hl_tp1
 
+; Page Mail
+/def -p16 -abCcyan -mregexp -t'[Yy]ou sense that you have new mail' hl_mail1
+
 ; Local Configuration
 ; -------------------
 /load ~/.config/tinyfugue/config_local.tf
