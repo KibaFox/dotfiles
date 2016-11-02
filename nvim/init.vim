@@ -140,10 +140,6 @@ set smartcase
 " Allow buffers with unsaved changes to be hidden
 set hidden
 
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
-
 " Make it obvious where 80 characters is
 set colorcolumn=81
 
