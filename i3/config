@@ -152,6 +152,9 @@ bindsym $mod+minus scratchpad show
 # Start KeePass with floating enabled
 for_window [class="(?i)keepass"] floating enable
 
+# Take Screenshot of Active Window
+bindsym $mod+Shift+s exec "mkdir -p ~/screenshots; maim -i $(xdotool getactivewindow) ~/screenshots/$(date +%F--%H-%M-%S).png"
+
 # Extra button bindings
 
 bindsym XF86AudioMute         exec "amixer sset Master toggle"
