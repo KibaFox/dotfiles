@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Clean Nix (cleans up old generations so use with caution)
+# Run as root or with sudo
+# Solution from @mogorman
+# https://github.com/NixOS/nixpkgs/issues/12240#issuecomment-170049023
+
+nix-env --delete-generations old
+nix-collect-garbage
+nix-collect-garbage -d
+nix-store --gc --print-dead

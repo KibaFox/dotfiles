@@ -12,6 +12,7 @@
     - '~/.config/termite'
     - '~/.config/tinyfugue'
     - '~/.nixpkgs'
+    - '~/bin'
 
 - link:
     ~/.config/fish/config.fish: fish/config.fish
@@ -46,6 +47,7 @@
     ~/.weechat/weechat.conf: weechat/weechat.conf
     ~/.weechat/xfer.conf: weechat/xfer.conf
     ~/.Xresources: Xresources
+    ~/bin/clean-nix: bin/clean-nix
 
 - shell:
     # Update git submodules
