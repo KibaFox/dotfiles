@@ -47,6 +47,7 @@
     ~/.weechat/weechat.conf: weechat/weechat.conf
     ~/.weechat/xfer.conf: weechat/xfer.conf
     ~/.Xresources: Xresources
+    ~/bin/clean-journal: bin/clean-journal
     ~/bin/clean-nix: bin/clean-nix
 
 - shell:

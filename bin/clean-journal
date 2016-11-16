@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Clears up journalctl logs
+# Run as root or with sudo
+
+journalctl --vacuum-time=2d
