@@ -44,6 +44,7 @@ Plug 'LnL7/vim-nix'
 Plug 'dag/vim-fish'
 Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
 
 " Elixir
 " ------
@@ -114,6 +115,10 @@ let g:go_fmt_command = "goimports"
 " Fix syntastic lagging while saving and opening files with vim-go
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+" Rust.vim
+" --------
+let g:rustfmt_autosave = 1
 
 " Editing Options
 " ===============
