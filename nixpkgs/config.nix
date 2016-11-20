@@ -22,7 +22,7 @@
     # Pin to gnupg20 since gnupg21 has a bug where it won't import my keys
     gnupg = with pkgs; gnupg20.override {
       pinentry = pkgs.pinentry_ncurses;
-      x11Support = false;
+      guiSupport = false;
     };
 
     # Bundle collections of packages.
