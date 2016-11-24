@@ -51,20 +51,28 @@
     ~/bin/clean-nix: bin/clean-nix
 
 - shell:
-    # Update git submodules
-    - git submodule update --init --recursive
+    - |
+        # Update git submodules
+        git submodule update --init --recursive
 
-    # Install Neovim spelling dictionary and suggestions
-    - mkdir -p ~/.config/nvim/spell
-    - >
-        [ -f ~/.config/nvim/spell/en.utf-8.spl ] ||
-        curl -o ~/.config/nvim/spell/en.utf-8.spl
-        ftp://ftp.vim.org/pub/vim/runtime/spell/en.utf-8.spl
-    - >
-        [ -f ~/.config/nvim/spell/en.utf-8.sug ] ||
-        curl -o ~/.config/nvim/spell/en.utf-8.sug
-        ftp://ftp.vim.org/pub/vim/runtime/spell/en.utf-8.sug
+    - |
+        # Install Neovim spelling dictionary and suggestions
+        if type nvim > /dev/null 2>&1; then
+          mkdir -p ~/.config/nvim/spell
 
-    # Keep vim-plug updated and install or update neovim plugins
-    - nvim -i NONE -c PlugClean! -c PlugUpdate -c quitall > /dev/null
+          if ! [ -f ~/.config/nvim/spell/en.utf-8.spl ]; then
+            curl -o ~/.config/nvim/spell/en.utf-8.spl \
+              ftp://ftp.vim.org/pub/vim/runtime/spell/en.utf-8.spl
+          fi
 
+          if ! [ -f ~/.config/nvim/spell/en.utf-8.sug ]; then
+            curl -o ~/.config/nvim/spell/en.utf-8.sug \
+              ftp://ftp.vim.org/pub/vim/runtime/spell/en.utf-8.sug
+          fi
+        fi
+
+    - |
+        # Keep vim-plug updated and install or update neovim plugins
+        if type nvim > /dev/null 2>&1; then
+          nvim -i NONE -c PlugClean! -c PlugUpdate -c quitall > /dev/null
+        fi
