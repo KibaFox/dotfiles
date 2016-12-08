@@ -25,6 +25,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'godlygeek/tabular'
 Plug 'rbgrouleff/bclose.vim' " Dependency for ranger.vim
 Plug 'francoiscabrol/ranger.vim'
+Plug 'ervandew/supertab'
 
 " Coding
 " ------
