@@ -18,7 +18,7 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'majutsushi/tagbar'
 Plug 'justinmk/vim-dirvish'
 Plug 'qpkorr/vim-bufkill'
@@ -102,6 +102,17 @@ nnoremap <leader>w :Goyo<CR>
 let g:pencil#textwidth = 80             " Set pencil's width
 let g:pencil#wrapModeDefault = 'soft'   " Use soft wrap
 let g:pencil#joinspaces = 1             " Use two spaces after a period
+
+" Deoplete.nvim
+" -------------
+let g:deoplete#enable_at_startup = 1
+
+" Deoplete-go
+" -----------
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#use_cache = 1
+let g:deoplete#sources#go#json_directory = 	'~/.cache/deoplete/go/$GOOS_$GOARCH'
 
 " Vim-Go
 " ------
