@@ -12,6 +12,12 @@ set -x GOPATH "$HOME/gocode"
 alias rdp "xfreerdp +compression +clipboard +fonts /home-drive /cert-ignore /size:1400x1050"
 alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
 
+# Clean out neovim swp files
+alias clean-swp "rm -f ~/.local/share/nvim/swap/*.swp"
+
+# Cleanup unused docker images
+alias clean-dkr-img 'docker rmi (docker images | grep "^<none>" | awk \'{print $3}\')'
+
 # Tinyfugue
 # Don't auto-connect on start
 # Load config in xdg style
