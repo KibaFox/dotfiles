@@ -8,6 +8,11 @@ set -x TERMINAL 'st'
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 set -x GOPATH "$HOME/gocode"
 
+# Set PATH so it includes user's private bin directories (if they exist)
+if test -d "$GOPATH/bin"; set PATH "$GOPATH/bin" $PATH; end
+if test -d "$HOME/.local/bin"; set PATH "$HOME/.local/bin" $PATH; end
+if test -d "$HOME/bin"; set PATH "$HOME/bin" $PATH; end
+
 # Aliases
 alias rdp "xfreerdp +compression +clipboard +fonts /home-drive /cert-ignore /size:1400x1050"
 alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
