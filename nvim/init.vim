@@ -46,6 +46,7 @@ Plug 'dag/vim-fish'
 Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
+Plug 'robbles/logstash.vim'
 
 " Elixir
 " ------
