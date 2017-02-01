@@ -4,3 +4,6 @@
 [submodule "fish_plugins/bobthefish"]
 	path = fish_plugins/bobthefish
 	url = https://github.com/oh-my-fish/theme-bobthefish.git
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm

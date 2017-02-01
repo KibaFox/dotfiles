@@ -26,6 +26,7 @@ Plug 'godlygeek/tabular'
 Plug 'rbgrouleff/bclose.vim' " Dependency for ranger.vim
 Plug 'francoiscabrol/ranger.vim'
 Plug 'ervandew/supertab'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Coding
 " ------
@@ -133,6 +134,13 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " --------
 let g:rustfmt_autosave = 1
 
+" Tmux Navigator
+" --------------
+" Hacky solution to C-h sending backspace, which causes C-h to not work when
+" switching panes to the left.
+" https://github.com/christoomey/vim-tmux-navigator#it-doesnt-work-in-neovim-specifically-c-h
+"nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+
 " Editing Options
 " ===============
 
@@ -182,13 +190,6 @@ nnoremap <leader>bp :bprev<CR>
 " Delete a buffer without closing the split using vim-buffkill
 nnoremap <C-x> :BD<CR>
 nnoremap <leader>bx :BD<CR>
-
-" Quicker window movement
-nnoremap <leader>ww <C-w>w
-nnoremap <leader>wj <C-w>j
-nnoremap <leader>wk <C-w>k
-nnoremap <leader>wh <C-w>h
-nnoremap <leader>wl <C-w>l
 
 " Auto formatting for manually converting to hard wrap
 " Format paragraph

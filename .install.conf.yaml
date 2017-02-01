@@ -31,6 +31,7 @@
     ~/.nixpkgs/config.nix: nixpkgs/config.nix
     ~/.profile: profile
     ~/.spectrwm.conf: spectrwm.conf
+    ~/.tmux/plugins/tpm: tmux/plugins/tpm
     ~/.tmux.conf: tmux.conf
     ~/.weechat/alias.conf: weechat/alias.conf
     ~/.weechat/aspell.conf: weechat/aspell.conf
