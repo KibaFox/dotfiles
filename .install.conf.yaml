@@ -30,7 +30,6 @@
     ~/.minttyrc: minttyrc
     ~/.nixpkgs/config.nix: nixpkgs/config.nix
     ~/.profile: profile
-    ~/.spacemacs: spacemacs
     ~/.spectrwm.conf: spectrwm.conf
     ~/.tmux.conf: tmux.conf
     ~/.weechat/alias.conf: weechat/alias.conf
