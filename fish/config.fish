@@ -12,6 +12,7 @@ set -x GOPATH "$HOME/go"
 if test -d "$GOPATH/bin"; set PATH "$GOPATH/bin" $PATH; end
 if test -d "$HOME/.local/bin"; set PATH "$HOME/.local/bin" $PATH; end
 if test -d "$HOME/bin"; set PATH "$HOME/bin" $PATH; end
+if test -d "$HOME/.cargo/bin"; set PATH "$HOME/.cargo/bin" $PATH; end
 
 # Aliases
 alias rdp "xfreerdp +compression +clipboard +fonts /home-drive /cert-ignore /size:1400x1050"
