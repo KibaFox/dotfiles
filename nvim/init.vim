@@ -19,7 +19,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'majutsushi/tagbar'
 Plug 'justinmk/vim-dirvish'
 Plug 'qpkorr/vim-bufkill'
 Plug 'godlygeek/tabular'
@@ -27,6 +26,10 @@ Plug 'rbgrouleff/bclose.vim' " Dependency for ranger.vim
 Plug 'francoiscabrol/ranger.vim'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'myusuf3/numbers.vim' " better line numbers
+Plug 'justincampbell/vim-eighties' " Automatically resizes your windows
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim' " fuzzy finder
 
 " Coding
 " ------
@@ -57,7 +60,7 @@ Plug 'slashmili/alchemist.vim'
 " Golang
 " ------
 Plug 'fatih/vim-go'
-Plug 'zchee/deoplete-go'
+Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'garyburd/go-explorer'
 
 call plug#end()
@@ -77,9 +80,6 @@ endif
 " -------
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'hybridline'
-
-" Enable tabline
-let g:airline#extensions#tabline#enabled = 1
 
 " Goyo
 " ----
@@ -134,6 +134,9 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " --------
 let g:rustfmt_autosave = 1
 
+" eighties.vim
+let g:eighties_extra_width = 4
+
 " Tmux Navigator
 " --------------
 " Hacky solution to C-h sending backspace, which causes C-h to not work when
@@ -182,11 +185,13 @@ set complete+=kspell
 " Toggle spell check
 nnoremap <Leader>s :set spell!<CR>
 
+" fzf fuzzy file find
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GFiles?<CR>
+
 " Buffer navigation and management
-nnoremap <C-n> :bnext<CR>
-nnoremap <leader>bn :bnext<CR>
-nnoremap <C-p> :bprev<CR>
-nnoremap <leader>bp :bprev<CR>
+" fzf fuzzy buffer navigation
+nnoremap <leader>bb :Buffers<CR>
 " Delete a buffer without closing the split using vim-buffkill
 nnoremap <C-x> :BD<CR>
 nnoremap <leader>bx :BD<CR>
@@ -215,3 +220,8 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>gs <Plug>(go-doc-split)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+" fzf mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
