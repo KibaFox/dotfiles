@@ -10,3 +10,9 @@ trim_trailing_whitespace = true
 
 [*.nix]
 indent_size = 2
+
+[git/config]
+indent_style = tab
+
+[st/config.def.h]
+indent_style = tab
