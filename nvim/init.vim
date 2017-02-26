@@ -44,12 +44,8 @@ Plug 'reedes/vim-pencil'
 
 " Language & Syntax
 " -----------------
-Plug 'tpope/vim-git'
-Plug 'LnL7/vim-nix'
-Plug 'dag/vim-fish'
+Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
 Plug 'plasticboy/vim-markdown'
-Plug 'cespare/vim-toml'
-Plug 'rust-lang/rust.vim'
 Plug 'robbles/logstash.vim'
 
 " Elixir
