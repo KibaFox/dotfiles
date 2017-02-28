@@ -9,6 +9,9 @@ set -x TERMINAL 'st'
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 set -x GOPATH "$HOME/go"
 
+# Use ripgrep to
+set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!.git/*"'
+
 # Set PATH so it includes user's private bin directories (if they exist)
 if test -d "$GOPATH/bin"; set PATH "$GOPATH/bin" $PATH; end
 if test -d "$HOME/.local/bin"; set PATH "$HOME/.local/bin" $PATH; end
