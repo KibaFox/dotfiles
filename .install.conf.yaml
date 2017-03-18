@@ -56,6 +56,13 @@
         git submodule update --init --recursive
 
     - |
+        # Install terminfo
+        tic term/tmux.terminfo
+        tic term/tmux-256color.terminfo
+        tic term/xterm.terminfo
+        tic term/xterm-256color.terminfo
+
+    - |
         # Install Neovim spelling dictionary and suggestions
         if type nvim > /dev/null 2>&1; then
           mkdir -p ~/.config/nvim/spell
