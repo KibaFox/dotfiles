@@ -58,6 +58,8 @@
 
     - |
         # Install terminfo
+        tic term/screen.terminfo
+        tic term/screen-256color.terminfo
         tic term/tmux.terminfo
         tic term/tmux-256color.terminfo
         tic term/xterm.terminfo
