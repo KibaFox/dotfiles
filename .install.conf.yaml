@@ -32,6 +32,7 @@
     ~/.profile: profile
     ~/.spectrwm.conf: spectrwm.conf
     ~/.tmux/plugins/tpm: tmux/plugins/tpm
+    ~/.tmux/minimal.tmuxtheme: tmux/minimal.tmuxtheme
     ~/.tmux.conf: tmux.conf
     ~/.weechat/alias.conf: weechat/alias.conf
     ~/.weechat/aspell.conf: weechat/aspell.conf
