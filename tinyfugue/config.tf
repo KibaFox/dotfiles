@@ -1,6 +1,9 @@
 ; TinyFugue Configuration
 ; =======================
 
+; Disable the clock
+/clock off
+
 ; Highlighting
 ; ------------
 
