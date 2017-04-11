@@ -34,19 +34,20 @@
     ~/.tmux/plugins/tpm: tmux/plugins/tpm
     ~/.tmux/minimal.tmuxtheme: tmux/minimal.tmuxtheme
     ~/.tmux.conf: tmux.conf
-    ~/.weechat/alias.conf: weechat/alias.conf
-    ~/.weechat/aspell.conf: weechat/aspell.conf
-    ~/.weechat/charset.conf: weechat/charset.conf
-    ~/.weechat/exec.conf: weechat/exec.conf
-    ~/.weechat/irc.conf: weechat/irc.conf
-    ~/.weechat/logger.conf: weechat/logger.conf
-    ~/.weechat/plugins.conf: weechat/plugins.conf
-    ~/.weechat/relay.conf: weechat/relay.conf
-    ~/.weechat/script.conf: weechat/script.conf
-    ~/.weechat/sec.conf: weechat/sec.conf
-    ~/.weechat/trigger.conf: weechat/trigger.conf
-    ~/.weechat/weechat.conf: weechat/weechat.conf
-    ~/.weechat/xfer.conf: weechat/xfer.conf
+    ~/.config/weechat/alias.conf: weechat/alias.conf
+    ~/.config/weechat/aspell.conf: weechat/aspell.conf
+    ~/.config/weechat/charset.conf: weechat/charset.conf
+    ~/.config/weechat/exec.conf: weechat/exec.conf
+    ~/.config/weechat/fifo.conf: weechat/fifo.conf
+    ~/.config/weechat/irc.conf: weechat/irc.conf
+    ~/.config/weechat/logger.conf: weechat/logger.conf
+    ~/.config/weechat/plugins.conf: weechat/plugins.conf
+    ~/.config/weechat/relay.conf: weechat/relay.conf
+    ~/.config/weechat/script.conf: weechat/script.conf
+    ~/.config/weechat/sec.conf: weechat/sec.conf
+    ~/.config/weechat/trigger.conf: weechat/trigger.conf
+    ~/.config/weechat/weechat.conf: weechat/weechat.conf
+    ~/.config/weechat/xfer.conf: weechat/xfer.conf
     ~/.Xresources: Xresources
     ~/bin/clean-journal: bin/clean-journal
     ~/bin/clean-nix: bin/clean-nix

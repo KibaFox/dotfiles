@@ -2,6 +2,7 @@ export EDITOR=nvim
 export TERMINAL=st
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export GOPATH=$HOME/go
+export WEECHAT_HOME=$HOME/.config/weechat
 
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH:$GOPATH/bin"
