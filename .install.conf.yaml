@@ -39,12 +39,10 @@
     ~/.config/weechat/charset.conf: weechat/charset.conf
     ~/.config/weechat/exec.conf: weechat/exec.conf
     ~/.config/weechat/fifo.conf: weechat/fifo.conf
-    ~/.config/weechat/irc.conf: weechat/irc.conf
     ~/.config/weechat/logger.conf: weechat/logger.conf
     ~/.config/weechat/plugins.conf: weechat/plugins.conf
     ~/.config/weechat/relay.conf: weechat/relay.conf
     ~/.config/weechat/script.conf: weechat/script.conf
-    ~/.config/weechat/sec.conf: weechat/sec.conf
     ~/.config/weechat/trigger.conf: weechat/trigger.conf
     ~/.config/weechat/weechat.conf: weechat/weechat.conf
     ~/.config/weechat/xfer.conf: weechat/xfer.conf
