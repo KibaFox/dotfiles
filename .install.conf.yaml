@@ -33,7 +33,6 @@
     ~/.config/weechat/exec.conf: weechat/exec.conf
     ~/.config/weechat/fifo.conf: weechat/fifo.conf
     ~/.config/weechat/logger.conf: weechat/logger.conf
-    ~/.config/weechat/plugins.conf: weechat/plugins.conf
     ~/.config/weechat/relay.conf: weechat/relay.conf
     ~/.config/weechat/script.conf: weechat/script.conf
     ~/.config/weechat/trigger.conf: weechat/trigger.conf
