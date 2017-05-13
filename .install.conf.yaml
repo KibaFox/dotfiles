@@ -32,6 +32,7 @@
     ~/.config/weechat/charset.conf: weechat/charset.conf
     ~/.config/weechat/exec.conf: weechat/exec.conf
     ~/.config/weechat/fifo.conf: weechat/fifo.conf
+    ~/.config/weechat/iset.conf: weechat/iset.conf
     ~/.config/weechat/logger.conf: weechat/logger.conf
     ~/.config/weechat/relay.conf: weechat/relay.conf
     ~/.config/weechat/script.conf: weechat/script.conf
