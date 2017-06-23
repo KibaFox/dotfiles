@@ -13,7 +13,6 @@
 
 # Logs and databases
 *.log
-*.sql
 *.sqlite
 nohup.out
 
