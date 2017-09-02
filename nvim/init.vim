@@ -175,10 +175,6 @@ set numberwidth=5
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
 
-" Mac OS X Sierra fix for clipboard in tmux+neovim
-" https://stackoverflow.com/a/39741226
-set clipboard=unnamed
-
 " Mappings
 " ========
 
