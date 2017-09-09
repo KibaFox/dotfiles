@@ -9,47 +9,21 @@
     - '~/.config/fish'
     - '~/.config/git'
     - '~/.config/nvim'
-    - '~/.config/termite'
     - '~/.config/tinyfugue'
-    - '~/.config/weechat'
-    - '~/.nixpkgs'
-    - '~/bin'
 
 - link:
     ~/.config/fish/config.fish: fish/config.fish
     ~/.config/fish/functions: fish/functions/
     ~/.config/git/config: git/config
     ~/.config/git/ignore_global: git/ignore_global
-    ~/.config/i3/config: i3/config
-    ~/.config/i3status/config: i3status/config
     ~/.config/nvim/autoload: nvim/autoload/
     ~/.config/nvim/ftplugin: nvim/ftplugin/
     ~/.config/nvim/init.vim: nvim/init.vim
-    ~/.config/termite/config: termite/config
     ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
-    ~/.config/weechat/alias.conf: weechat/alias.conf
-    ~/.config/weechat/aspell.conf: weechat/aspell.conf
-    ~/.config/weechat/charset.conf: weechat/charset.conf
-    ~/.config/weechat/exec.conf: weechat/exec.conf
-    ~/.config/weechat/fifo.conf: weechat/fifo.conf
-    ~/.config/weechat/iset.conf: weechat/iset.conf
-    ~/.config/weechat/logger.conf: weechat/logger.conf
-    ~/.config/weechat/relay.conf: weechat/relay.conf
-    ~/.config/weechat/script.conf: weechat/script.conf
-    ~/.config/weechat/trigger.conf: weechat/trigger.conf
-    ~/.config/weechat/weechat.conf: weechat/weechat.conf
-    ~/.config/weechat/xfer.conf: weechat/xfer.conf
-    ~/.conkyrc: conkyrc
-    ~/.minttyrc: minttyrc
-    ~/.nixpkgs/config.nix: nixpkgs/config.nix
     ~/.profile: profile
-    ~/.spectrwm.conf: spectrwm.conf
     ~/.tmux.conf: tmux.conf
     ~/.tmux/minimal.tmuxtheme: tmux/minimal.tmuxtheme
     ~/.tmux/plugins/tpm: tmux/plugins/tpm
-    ~/.Xresources: Xresources
-    ~/bin/clean-journal: bin/clean-journal
-    ~/bin/clean-nix: bin/clean-nix
 
 - shell:
     - |
