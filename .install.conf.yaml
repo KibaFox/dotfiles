@@ -22,8 +22,6 @@
     ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
     ~/.profile: profile
     ~/.tmux.conf: tmux.conf
-    ~/.tmux/minimal.tmuxtheme: tmux/minimal.tmuxtheme
-    ~/.tmux/plugins/tpm: tmux/plugins/tpm
 
 - shell:
     - |
