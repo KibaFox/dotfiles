@@ -2,32 +2,25 @@
 " Set this before everything else.
 let mapleader = "\<Space>"
 
-" Use a POSIX shell for compatibility
-if $SHELL =~ 'fish'
-  let &shell='/usr/bin/env bash'
-endif
-
+" ==============================================================================
 " Load Plugins
-" ============
+" ==============================================================================
 
 call plug#begin()
 
 " Look and feel
-" ----------
+" -------------
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'justinmk/vim-dirvish'
 Plug 'qpkorr/vim-bufkill'
-Plug 'godlygeek/tabular'
-Plug 'rbgrouleff/bclose.vim' " Dependency for ranger.vim
-Plug 'francoiscabrol/ranger.vim'
-Plug 'ervandew/supertab'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'myusuf3/numbers.vim' " better line numbers
 Plug 'justincampbell/vim-eighties' " Automatically resizes your windows
+
+" Navigation
+" ----------
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " fuzzy finder
 
@@ -36,33 +29,25 @@ Plug 'junegunn/fzf.vim' " fuzzy finder
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'neomake/neomake'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Writing
 " ------
-Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
 
 " Language & Syntax
 " -----------------
 Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
-Plug 'plasticboy/vim-markdown'
-Plug 'robbles/logstash.vim'
-
-" Elixir
-" ------
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
-
-" Golang
-" ------
-Plug 'fatih/vim-go'
-Plug 'zchee/deoplete-go', { 'do': 'make' }
-Plug 'garyburd/go-explorer'
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'fatih/vim-go' " Golang
+    Plug 'zchee/deoplete-go', { 'do': 'make' } " completions for Go
+    Plug 'garyburd/go-explorer' " better documentation viewer
 
 call plug#end()
 
+" ==============================================================================
 " Plugin Configuration
-" ====================
+" ==============================================================================
 
 " Hybrid Colorscheme
 " ------------------
@@ -77,11 +62,6 @@ endif
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
 
-" Goyo
-" ----
-
-let g:goyo_width = 82 " Give some room to avoid side-scrolling on hard wrap
-
 " Markdown
 " --------
 
@@ -89,12 +69,6 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
-
-" Goyo Mappings
-" -------------
-
-" Toggle distraction-free mode
-nnoremap <leader>w :Goyo<CR>
 
 " Pencil
 " ------
@@ -122,26 +96,13 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
-" Fix syntastic lagging while saving and opening files with vim-go
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-
-" Rust.vim
-" --------
-let g:rustfmt_autosave = 1
-
 " eighties.vim
+" ------------
 let g:eighties_extra_width = 4
 
-" Tmux Navigator
-" --------------
-" Hacky solution to C-h sending backspace, which causes C-h to not work when
-" switching panes to the left.
-" https://github.com/christoomey/vim-tmux-navigator#it-doesnt-work-in-neovim-specifically-c-h
-"nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
-
+" ==============================================================================
 " Editing Options
-" ===============
+" ==============================================================================
 
 " Turn on persistent undo
 set undofile
@@ -175,8 +136,9 @@ set numberwidth=5
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
 
+" ==============================================================================
 " Mappings
-" ========
+" ==============================================================================
 
 " Toggle spell check
 nnoremap <Leader>s :set spell!<CR>
