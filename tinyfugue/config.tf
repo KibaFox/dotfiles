@@ -4,6 +4,16 @@
 ; Disable the clock
 /clock off
 
+; Wrap
+; ----
+
+; Wrap log files
+/set wraplog=on
+
+; Keep lines to 80 chars wide, even on resize
+/set wrapsize=80
+/hook RESIZE = /set wrapsize=80
+
 ; Highlighting
 ; ------------
 
