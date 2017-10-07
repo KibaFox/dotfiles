@@ -1,2 +1,22 @@
 " Run Neomake on every write
-autocmd! BufWritePost,BufEnter * Neomake
+call neomake#configure#automake('rw')
+let g:neomake_go_enabled_makers = ['go', 'gometalinter']
+let g:neomake_go_gometalinter_maker = {
+    \ 'exe': 'gometalinter.v1',
+    \ 'args': [
+        \ '--tests',
+        \ '--disable-all',
+        \ '--enable=errcheck',
+        \ '--enable=dupl',
+        \ '--enable=goconst',
+        \ '--enable=gocyclo',
+        \ '--enable=golint',
+        \ '--enable=ineffassign',
+        \ '--enable=lll',
+        \ '--enable=misspell',
+        \ '--enable=vet'
+    \ ],
+    \ 'append_file': 0,
+    \ 'cwd': '%:h',
+    \ 'errorformat': '%f:%l:%c:%t%*[^:]: %m',
+\ }
