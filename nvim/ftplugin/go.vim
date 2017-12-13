@@ -14,7 +14,11 @@ let g:neomake_go_gometalinter_maker = {
         \ '--enable=ineffassign',
         \ '--enable=lll',
         \ '--enable=misspell',
-        \ '--enable=vet'
+        \ '--enable=vet',
+        \ '--cyclo-over=12',
+        \ '--exclude=^\S+\.pb\.go',
+        \ '--exclude=should not use dot imports',
+        \ '--exclude=defer [\pL\pN.]+\.Close\(\)'
     \ ],
     \ 'append_file': 0,
     \ 'cwd': '%:h',
