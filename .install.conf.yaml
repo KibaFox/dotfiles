@@ -23,7 +23,7 @@
     ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
     ~/.profile: profile
     ~/.tmux.conf: tmux.conf
-    ~/bin/update-neovim.sh: bin/update-neovim.sh
+    ~/bin/neovim-update.sh: bin/neovim-update.sh
 
 - shell:
     # Update git submodules
@@ -37,4 +37,4 @@
         tic term/xterm.terminfo
         tic term/xterm-256color.terminfo
     # Update neovim
-    - ~/bin/update-neovim.sh
+    - ~/bin/neovim-update.sh
