@@ -7,7 +7,6 @@ set -g theme_display_cmd_duration no
 set -x EDITOR nvim
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 set -x GOPATH "$HOME/go"
-set -x ANSIBLE_ROLES_PATH "$HOME/.local/share/ansible/roles"
 
 # Set PATH so it includes user's private bin directories (if they exist)
 if test -d "$GOPATH/bin"; set PATH "$GOPATH/bin" $PATH; end
