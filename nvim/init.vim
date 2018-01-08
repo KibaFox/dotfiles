@@ -14,7 +14,6 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'qpkorr/vim-bufkill'
-Plug 'myusuf3/numbers.vim' " better line numbers
 Plug 'justincampbell/vim-eighties' " Automatically resizes your windows
 
 " Navigation
