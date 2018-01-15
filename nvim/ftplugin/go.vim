@@ -2,7 +2,7 @@
 call neomake#configure#automake('rw')
 let g:neomake_go_enabled_makers = ['go', 'gometalinter']
 let g:neomake_go_gometalinter_maker = {
-    \ 'exe': 'gometalinter.v1',
+    \ 'exe': 'gometalinter.v2',
     \ 'args': [
         \ '--tests',
         \ '--disable-all',
