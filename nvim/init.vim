@@ -17,6 +17,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'justincampbell/vim-eighties' " Automatically resizes your windows
 Plug 'tpope/vim-eunuch' " Unix helpers
 Plug 'tpope/vim-unimpaired' " Paired keybindings
+Plug 'vim-scripts/scratch.vim' " Scratch buffer
 
 " Navigation
 " ----------
