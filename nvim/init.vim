@@ -103,7 +103,7 @@ let g:go_fmt_command = "goimports"
 let g:eighties_extra_width = 4
 
 " ==============================================================================
-" Editing Options
+" Options
 " ==============================================================================
 
 " Turn on persistent undo
@@ -137,6 +137,9 @@ set numberwidth=5
 
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
+
+" Turn on 24-bit truecolor
+set termguicolors
 
 " ==============================================================================
 " Mappings
