@@ -10,6 +10,7 @@
     - '~/.config/git'
     - '~/.config/nvim'
     - '~/.config/tinyfugue'
+    - '~/.emacs.d'
     - '~/bin'
 
 - link:
@@ -21,6 +22,7 @@
     ~/.config/nvim/ftplugin: nvim/ftplugin/
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
+    ~/.emacs.d/init.el: emacs.d/init.el
     ~/.ansible.cfg: ansible.cfg
     ~/.profile: profile
     ~/.tmux.conf: tmux.conf
