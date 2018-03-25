@@ -18,6 +18,10 @@
 
 ; Editor Options ---------------------------------------------------------------
 
+; Treat tmux-256color as if it were screen-256color, which Emacs supports.
+(add-to-list 'term-file-aliases
+  '("tmux-256color" . "screen-256color"))
+
 ; Disable the menu bar
 (menu-bar-mode -1)
 
