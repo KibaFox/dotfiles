@@ -47,6 +47,9 @@
 
 ; https://www.emacswiki.org/emacs/Evil
 (use-package evil
+  :init
+    ; Give us back Ctrl+U for vim emulation
+    (setq evil-want-C-u-scroll t)
   :config
     (evil-mode 1)
 )

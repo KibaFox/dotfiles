@@ -12,6 +12,7 @@
     - '~/.config/tinyfugue'
     - '~/.emacs.d'
     - '~/bin'
+    - '~/Library/LaunchAgents'
 
 - link:
     ~/.config/fish/config.fish: fish/config.fish
@@ -27,6 +28,7 @@
     ~/.profile: profile
     ~/.tmux.conf: tmux.conf
     ~/bin/neovim-update.sh: bin/neovim-update.sh
+    ~/Library/LaunchAgents/emacs.plist: launchctl/emacs.plist
 
 - shell:
     # Update git submodules
