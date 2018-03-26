@@ -62,6 +62,11 @@
     (load-theme 'gruvbox-dark-medium t)
 )
 
+; https://github.com/jrblevin/markdown-mode
+(use-package markdown-mode
+  :mode "\\.md\\'"
+)
+
 ; https://github.com/keith/evil-tmux-navigator
 (use-package navigate
   :straight (navigate :type git :host github :repo "keith/evil-tmux-navigator")
