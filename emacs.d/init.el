@@ -14,7 +14,8 @@
 ; Install use-package (https://github.com/jwiegley/use-package)
 ; Keep package config organized.
 (straight-use-package 'use-package)
-
+; Use straight by default with use-package.
+(setq straight-use-package-by-default t)
 
 ; Editor Options ---------------------------------------------------------------
 
@@ -30,20 +31,20 @@
 (unless window-system
   (require 'mouse)
   (xterm-mouse-mode t)
-  (global-set-key [mouse-4] (lambda ()
-                              (interactive)
-                              (scroll-down 1)))
-  (global-set-key [mouse-5] (lambda ()
-                              (interactive)
-                              (scroll-up 1)))
+  (global-set-key [mouse-4] (lambda () (interactive) (scroll-down 1)))
+  (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1)))
   (defun track-mouse (e))
   (setq mouse-sel-mode t)
 )
 
+
 ; Packages ---------------------------------------------------------------------
 
-; Use straight by default with use-package.
-(setq straight-use-package-by-default t)
+; https://github.com/editorconfig/editorconfig-emacs
+(use-package editorconfig
+  :config
+    (editorconfig-mode 1)
+)
 
 ; https://www.emacswiki.org/emacs/Evil
 (use-package evil
@@ -54,16 +55,17 @@
     (evil-mode 1)
 )
 
+; https://github.com/Greduan/emacs-theme-gruvbox
+(use-package gruvbox-theme
+  :after smart-mode-line
+  :config
+    (load-theme 'gruvbox-dark-medium t)
+)
+
 ; https://github.com/keith/evil-tmux-navigator
 (use-package navigate
   :straight (navigate :type git :host github :repo "keith/evil-tmux-navigator")
   :after evil
-)
-
-; https://github.com/editorconfig/editorconfig-emacs
-(use-package editorconfig
-  :config
-    (editorconfig-mode 1)
 )
 
 ; https://github.com/Malabarba/smart-mode-line
@@ -72,13 +74,6 @@
     (setq sml/no-confirm-load-theme t)
   :config
     (sml/setup)
-)
-
-; https://github.com/Greduan/emacs-theme-gruvbox
-(use-package gruvbox-theme
-  :after smart-mode-line
-  :config
-    (load-theme 'gruvbox-dark-medium t)
 )
 
 ; Keybindings ------------------------------------------------------------------
@@ -90,4 +85,3 @@
   ;(general-define-key :states 'motion "C-k" 'evil-window-up)
   ;(general-define-key :states 'motion "C-l" 'evil-window-right)
 )
-
