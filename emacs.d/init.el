@@ -68,6 +68,18 @@
   :after evil
 )
 
+; Hide minor modes on the mode-line
+; https://github.com/Malabarba/rich-minority
+(use-package rich-minority
+    :config
+    (setq rm-blacklist
+      (format "^ \\(%s\\)$"
+        (mapconcat #'identity
+          '("EditorConfig" "Undo-Tree")
+          "\\|")))
+    (rich-minority-mode 1)
+)
+
 ; https://github.com/Malabarba/smart-mode-line
 (use-package smart-mode-line
   :init
