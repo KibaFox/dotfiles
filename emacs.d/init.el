@@ -62,6 +62,11 @@
     (load-theme 'gruvbox-dark-medium t)
 )
 
+; https://github.com/joshwnj/json-mode
+(use-package json-mode
+  :mode "\\.json\\'"
+)
+
 ; https://github.com/jrblevin/markdown-mode
 (use-package markdown-mode
   :mode "\\.md\\'"
