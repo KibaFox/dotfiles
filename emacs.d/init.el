@@ -1,3 +1,7 @@
+;;; init.el --- My personal Emacs config
+;;; Commentary:
+;;; Code:
+
 ; Bootstrap straight.el (https://github.com/raxod502/straight.el)
 ; This replaces package.el and allows for reproducible package management.
 (let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
@@ -54,6 +58,19 @@
   :config
     (evil-mode 1)
 )
+
+; https://github.com/purcell/exec-path-from-shell
+(use-package exec-path-from-shell ; Ensure PATH in Emacs is the same as shell.
+  :init
+  (setq exec-path-from-shell-check-startup-files nil)
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
+; http://www.flycheck.org/
+(use-package flycheck ; Syntax checking.
+  :config
+  (global-flycheck-mode))
 
 ; https://github.com/Greduan/emacs-theme-gruvbox
 (use-package gruvbox-theme
