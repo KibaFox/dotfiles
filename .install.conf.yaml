@@ -11,10 +11,11 @@
     - '~/.config/nvim'
     - '~/.config/tinyfugue'
     - '~/.emacs.d'
-    - '~/bin'
+    - '~/.local/bin'
     - '~/Library/LaunchAgents'
 
 - link:
+    ~/.ansible.cfg: ansible.cfg
     ~/.config/fish/config.fish: fish/config.fish
     ~/.config/fish/functions: fish/functions/
     ~/.config/git/config: git/config
@@ -24,10 +25,9 @@
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
     ~/.emacs.d/init.el: emacs.d/init.el
-    ~/.ansible.cfg: ansible.cfg
+    ~/.local/bin/neovim-update.sh: bin/neovim-update.sh
     ~/.profile: profile
     ~/.tmux.conf: tmux.conf
-    ~/bin/neovim-update.sh: bin/neovim-update.sh
     ~/Library/LaunchAgents/emacs.plist: launchctl/emacs.plist
 
 - shell:
@@ -42,4 +42,4 @@
         tic term/xterm.terminfo
         tic term/xterm-256color.terminfo
     # Update neovim
-    - ~/bin/neovim-update.sh
+    - ~/.local/bin/neovim-update.sh
