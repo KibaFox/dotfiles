@@ -44,6 +44,11 @@
 
 ; Packages ---------------------------------------------------------------------
 
+; https://company-mode.github.io/
+(use-package company ; in-buffer completion framework
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+
 ; https://github.com/editorconfig/editorconfig-emacs
 (use-package editorconfig
   :config
@@ -102,11 +107,14 @@
   (setq rm-blacklist ; Hide some minior modes.
     (format "^ \\(%s\\)$"
       (mapconcat #'identity
-        '("EditorConfig" "Undo-Tree")
+        '("company" "EditorConfig" "server" "Undo-Tree")
         "\\|")))
   :config
-    (sml/setup)
-)
+  (sml/setup))
+
+; https://github.com/syohex/emacs-terraform-mode
+(use-package terraform-mode
+  :mode "\\.tf\\'")
 
 ; Keybindings ------------------------------------------------------------------
 
