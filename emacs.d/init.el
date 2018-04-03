@@ -149,7 +149,13 @@ inhibit-startup-echo-area-message t)
   (setq rm-blacklist ; Hide some minior modes.
     (format "^ \\(%s\\)$"
       (mapconcat #'identity
-        '("company" "EditorConfig" "server" "Undo-Tree")
+        '(
+           "EditorConfig"
+           "Undo-Tree"
+           "company"
+           "server"
+           "WS"
+           )
         "\\|")))
   :config
   (sml/setup))
