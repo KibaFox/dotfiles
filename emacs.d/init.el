@@ -23,12 +23,42 @@
 
 ; Editor Options ---------------------------------------------------------------
 
+(prefer-coding-system 'utf-8)
+
+;; Save all tempfiles in ~/.local/share/emacs/
+(defconst emacs-tmp-dir (expand-file-name "~/.local/share/emacs"))
+(unless (file-directory-p emacs-tmp-dir) (make-directory emacs-tmp-dir))
+(setq backup-directory-alist `((".*" . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
+
+(use-package whitespace ; Visualize and cleanup whitespace
+  :init
+  (setq whitespace-style '(face spaces tabs newline trailing empty
+                            spaces-before-tab tab-mark))
+  (setq whitespace-action '(auto-cleanup)) ; automatically clean trailing space
+  (setq whitespace-display-mappings
+    '((space-mark   ?\    [?\xB7]     [?.])      ; space
+      (space-mark   ?\xA0 [?\xA4]     [?_])      ; hard space
+      (newline-mark ?\n   [?\xB6 ?\n] [?$ ?\n])  ; end-of-line
+      (tab-mark     ?\t   [?\xBB ?\t] [?\\ ?\t]) ; tab
+      ))
+  :config
+  (add-hook 'after-init-hook 'global-whitespace-mode))
+
 ; Treat tmux-256color as if it were screen-256color, which Emacs supports.
 (add-to-list 'term-file-aliases
   '("tmux-256color" . "screen-256color"))
 
-; Disable the menu bar
+;; Hide menu bar, tool bar, and scroll bar
 (menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+;; Hide splash screen and banner
+(setq inhibit-startup-message t
+inhibit-startup-echo-area-message t)
+
+(setq visual-bell 1) ; no bell sound
 
 ;; Enable mouse support in the terminal
 ;; https://stackoverflow.com/a/8859057
@@ -40,6 +70,10 @@
   (defun track-mouse (e))
   (setq mouse-sel-mode t)
 )
+
+(use-package flyspell ; spell check
+  :hook ((prog-mode . flyspell-prog-mode)
+          (text-mode . flyspell-mode)))
 
 
 ; Packages ---------------------------------------------------------------------
