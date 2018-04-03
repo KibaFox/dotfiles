@@ -92,10 +92,31 @@ inhibit-startup-echo-area-message t)
 ; https://www.emacswiki.org/emacs/Evil
 (use-package evil
   :init
-    ; Give us back Ctrl+U for vim emulation
-    (setq evil-want-C-u-scroll t)
+  ; Give us back Ctrl+U for vim emulation
+  (setq evil-want-C-u-scroll t)
   :config
-    (evil-mode 1)
+  ; Redefine the evil-delete-buffer
+  (evil-define-command evil-delete-buffer (buffer &optional bang)
+    "Deletes a buffer.  Windows will not be destroyed."
+    (interactive "<b><!>")
+    (with-current-buffer (or buffer (current-buffer))
+      (when bang
+        (set-buffer-modified-p nil)
+        (dolist (process (process-list))
+          (when (eq (process-buffer process) (current-buffer))
+            (set-process-query-on-exit-flag process nil))))
+      ;; get all windows that show this buffer
+      (let ((wins (get-buffer-window-list (current-buffer) nil t)))
+        ;; if the buffer which was initiated by emacsclient,
+        ;; call `server-edit' from server.el to avoid
+        ;; "Buffer still has clients" message
+        (if (and (fboundp 'server-edit)
+              (boundp 'server-buffer-clients)
+              server-buffer-clients)
+          (server-edit)
+          (kill-buffer nil)))))
+
+  (evil-mode 1)
 )
 
 ; https://github.com/purcell/exec-path-from-shell
@@ -190,6 +211,10 @@ inhibit-startup-echo-area-message t)
   :config
   (general-define-key
     "M-x" 'counsel-M-x ; Use counsel for M-x
+    )
+  (general-define-key
+    :states '(normal emacs)
+    "C-x" 'evil-delete-buffer
     )
   (general-define-key
     :states '(normal visual insert emacs)
