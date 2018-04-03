@@ -117,6 +117,15 @@ inhibit-startup-echo-area-message t)
     (load-theme 'gruvbox-dark-medium t)
 )
 
+; https://github.com/abo-abo/swiper
+(use-package swiper ; ivy + counsel + swiper
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  )
+
+
 ; https://github.com/joshwnj/json-mode
 (use-package json-mode
   :mode "\\.json\\'"
@@ -148,6 +157,11 @@ inhibit-startup-echo-area-message t)
 ; https://github.com/syohex/emacs-terraform-mode
 (use-package terraform-mode
   :mode "\\.tf\\'")
+
+; https://github.com/justbur/emacs-which-key
+(use-package which-key ; display keybindings in popup
+  :config
+  (which-key-mode))
 
 ; Keybindings ------------------------------------------------------------------
 
