@@ -211,3 +211,9 @@ inhibit-startup-echo-area-message t)
     :keymaps 'ivy-minibuffer-map
     [escape] 'keyboard-escape-quit)
 )
+
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars unresolved)
+;; End:
+
+;;; init.el ends here
