@@ -81,7 +81,7 @@ inhibit-startup-echo-area-message t)
 ; https://company-mode.github.io/
 (use-package company ; in-buffer completion framework
   :config
-  (add-hook 'after-init-hook 'global-company-mode))
+  (global-company-mode))
 
 ; https://github.com/editorconfig/editorconfig-emacs
 (use-package editorconfig
