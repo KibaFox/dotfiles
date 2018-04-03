@@ -131,6 +131,9 @@ inhibit-startup-echo-area-message t)
   (evil-mode 1)
 )
 
+; https://github.com/emacs-evil/evil-magit
+(use-package evil-magit)
+
 ; https://github.com/purcell/exec-path-from-shell
 (use-package exec-path-from-shell ; Ensure PATH in Emacs is the same as shell.
   :init
@@ -149,6 +152,21 @@ inhibit-startup-echo-area-message t)
   :config
     (load-theme 'gruvbox-dark-medium t)
 )
+
+; https://magit.vc
+(use-package magit
+  :general
+  (:states '(normal visual insert emacs)
+    :prefix "SPC"
+    :non-normal-prefix "C-SPC"
+
+    "g" '(:ignore t :which-key "git")
+    "gc" 'magit-commit
+    "gl" 'magit-log-current
+    "gs" 'magit-status
+    "gS" 'magit-stage-file
+    "gp" 'magit-push-current-to-upstream
+  ))
 
 ; https://github.com/abo-abo/swiper
 (use-package swiper ; ivy + counsel + swiper
