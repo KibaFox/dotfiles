@@ -108,8 +108,7 @@ inhibit-startup-echo-area-message t)
 
 ; http://www.flycheck.org/
 (use-package flycheck ; Syntax checking.
-  :config
-  (global-flycheck-mode))
+  :hook (after-init-hook . 'global-flycheck-mode))
 
 ; https://github.com/Greduan/emacs-theme-gruvbox
 (use-package gruvbox-theme
