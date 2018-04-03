@@ -90,6 +90,11 @@ inhibit-startup-echo-area-message t)
   :config
   (global-company-mode))
 
+; https://github.com/spotify/dockerfile-mode
+(use-package dockerfile-mode
+  :mode "Dockerfile"
+  )
+
 ; https://github.com/editorconfig/editorconfig-emacs
 (use-package editorconfig
   :config
