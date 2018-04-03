@@ -158,6 +158,11 @@ inhibit-startup-echo-area-message t)
 (use-package terraform-mode
   :mode "\\.tf\\'")
 
+; https://github.com/rafalcieslak/emacs-company-terraform
+(use-package company-terraform ; completions for terraform
+  :commands company-terraform-init
+  :hook (terraform-mode . company-terraform-init))
+
 ; https://github.com/justbur/emacs-which-key
 (use-package which-key ; display keybindings in popup
   :config
