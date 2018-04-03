@@ -178,8 +178,36 @@ inhibit-startup-echo-area-message t)
 
 (use-package general
   :config
-  ;(general-define-key :states 'motion "C-h" 'evil-window-left)
-  ;(general-define-key :states 'motion "C-j" 'evil-window-down)
-  ;(general-define-key :states 'motion "C-k" 'evil-window-up)
-  ;(general-define-key :states 'motion "C-l" 'evil-window-right)
+  (general-define-key
+    "M-x" 'counsel-M-x ; Use counsel for M-x
+    )
+  (general-define-key
+    :states '(normal visual insert emacs)
+    :prefix "SPC"
+    :non-normal-prefix "C-SPC"
+
+    ;; files
+    "f" '(:ignore t :which-key "files")
+    "ff" '(counsel-find-file :which-key "find")
+
+    ;; files > emacs
+    "fe" '(:ignore t :which-key "emacs")
+    "fed" '((lambda () (interactive) (find-file "~/.emacs.d/init.el")) :which-key "edit dotfile")
+    "fer" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :which-key "load dotfile")
+
+    ;; buffers
+    "b" '(:ignore t :which-key "buffers")
+    "bb" '(ivy-switch-buffer :which-key "switch")
+    )
+
+  ;; Company
+  (general-swap-key nil 'company-active-map
+    "M-n" "C-n"
+    "M-p" "C-p"
+    )
+
+  ;; escape key quits
+  (general-define-key
+    :keymaps 'ivy-minibuffer-map
+    [escape] 'keyboard-escape-quit)
 )
