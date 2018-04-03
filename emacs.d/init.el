@@ -31,6 +31,13 @@
 (setq backup-directory-alist `((".*" . ,emacs-tmp-dir)))
 (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
 
+(setq
+  vc-make-backup-files t ; backups file even when under vc
+  vc-follow-symlinks   t ; follow symlinks without asking
+  )
+
+(defalias 'yes-or-no-p 'y-or-n-p) ; confirm with 'y' or 'n' everywhere
+
 (use-package whitespace ; Visualize and cleanup whitespace
   :init
   (setq whitespace-style '(face spaces tabs newline trailing empty
