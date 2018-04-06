@@ -24,9 +24,10 @@
     ~/.config/nvim/ftplugin: nvim/ftplugin/
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
-    ~/.emacs.d/init.el: emacs.d/init.el
+    # ~/.emacs.d/init.el: emacs.d/init.el
     ~/.local/bin/neovim-update.sh: bin/neovim-update.sh
     ~/.profile: profile
+    ~/.spacemacs.d: spacemacs/
     ~/.tmux.conf: tmux.conf
     ~/Library/LaunchAgents/emacs.plist: launchctl/emacs.plist
 
