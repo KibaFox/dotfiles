@@ -149,6 +149,14 @@ inhibit-startup-echo-area-message t)
 (use-package flycheck ; Syntax checking.
   :hook (after-init-hook . 'global-flycheck-mode))
 
+; https://github.com/syohex/emacs-git-gutter
+(use-package git-gutter
+  :init
+  (custom-set-variables
+    '(git-gutter:disabled-modes '(asm-mode image-mode)))
+  :config
+  (global-git-gutter-mode +1))
+
 ; https://github.com/Greduan/emacs-theme-gruvbox
 (use-package gruvbox-theme
   :after smart-mode-line
