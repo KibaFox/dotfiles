@@ -147,7 +147,7 @@ inhibit-startup-echo-area-message t)
 
 ; http://www.flycheck.org/
 (use-package flycheck ; Syntax checking.
-  :hook (after-init-hook . 'global-flycheck-mode))
+  :init (global-flycheck-mode))
 
 ; https://github.com/syohex/emacs-git-gutter
 (use-package git-gutter
@@ -156,6 +156,28 @@ inhibit-startup-echo-area-message t)
     '(git-gutter:disabled-modes '(asm-mode image-mode)))
   :config
   (global-git-gutter-mode +1))
+
+; https://github.com/dominikh/go-mode.el
+(use-package go-mode
+  :mode "\\.go\\'")
+
+(use-package flycheck-gometalinter
+  :after flycheck
+  :init (setq
+          flycheck-gometalinter-vendor t
+          flycheck-gometalinter-test t
+          flycheck-gometalinter-disable-all t
+          flycheck-gometalinter-enable-linters '(
+                                                  "errcheck"
+                                                  "goconst"
+                                                  "golint"
+                                                  "ineffassign"
+                                                  "misspell"
+                                                  "vet"
+                                                  )
+          flycheck-gometalinter-deadline "10s")
+  :config
+  (progn (flycheck-gometalinter-setup)))
 
 ; https://github.com/Greduan/emacs-theme-gruvbox
 (use-package gruvbox-theme
@@ -166,6 +188,7 @@ inhibit-startup-echo-area-message t)
 
 ; https://magit.vc
 (use-package magit
+  :after general
   :general
   (:states '(normal visual insert emacs)
     :prefix "SPC"
