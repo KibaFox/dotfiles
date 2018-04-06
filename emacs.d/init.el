@@ -38,6 +38,9 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p) ; confirm with 'y' or 'n' everywhere
 
+(show-paren-mode t) ; Show matching braces/parens
+(setq show-paren-style 'mixed)
+
 (use-package whitespace ; Visualize and cleanup whitespace
   :init
   (setq whitespace-style '(face spaces tabs newline trailing empty
