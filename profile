@@ -11,4 +11,9 @@ then
     source ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
+# Source the local profile if it exists
+if [ -e ~/.profile_local ]; then
+    source ~/.profile_local
+fi
+
 # vi:syntax=sh
