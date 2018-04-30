@@ -12,6 +12,7 @@
     - '~/.config/tinyfugue'
     - '~/.emacs.d'
     - '~/.local/bin'
+    - '~/.local/share/konsole'
     - '~/Library/LaunchAgents'
 
 - link:
@@ -26,6 +27,8 @@
     ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
     # ~/.emacs.d/init.el: emacs.d/init.el
     ~/.local/bin/neovim-update.sh: bin/neovim-update.sh
+    ~/.local/share/konsole/Gruvbox_dark.colorscheme: kde/konsole/Gruvbox_dark.colorscheme
+    ~/.local/share/konsole/Kiba.profile: kde/konsole/Kiba.profile
     ~/.profile: profile
     ~/.spacemacs.d: spacemacs/
     ~/.tmux.conf: tmux.conf
