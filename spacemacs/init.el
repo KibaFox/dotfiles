@@ -44,6 +44,7 @@ values."
      version-control
 
      ;; Emacs
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
      org
 
      ;; Languages & Markup
@@ -78,6 +79,8 @@ values."
 
      ;; Tools
      docker
+     (shell :variables
+       shell-default-shell 'eshell)
      terraform
      tmux
 
