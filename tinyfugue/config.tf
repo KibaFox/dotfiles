@@ -7,12 +7,19 @@
 ; Wrap
 ; ----
 
-; Wrap log files
-/set wraplog=on
+; Don't wrap log files
+/set wraplog=off
 
 ; Keep lines to 80 chars wide, even on resize
 /set wrapsize=80
 /hook RESIZE = /set wrapsize=80
+
+; Keyboard Stack
+; --------------
+
+; Press ESC+Down to save current work and start a new command.
+; Press ESC+Up to retrieve the previous work.
+/require kbstack.tf
 
 ; Highlighting
 ; ------------
@@ -44,6 +51,18 @@
 
 ; Page Mail
 /def -p16 -abCcyan -mregexp -t'[Yy]ou sense that you have new mail' hl_mail1
+
+; Add Friend
+; ----------
+
+; /friend {name} {world} {regexp}
+; Will highlight any mentions of a friend's name, and ring a bell.
+; Example:
+;
+;	/friend johnathan someMU [Jj]ohn(?:athan)?
+;
+/def friend = \
+	/def -p42 -ab -w'%{2}' -P0Cmagenta;0B -t'\\b%{3}\\b' %{2}_%{1}
 
 ; Local Configuration
 ; -------------------

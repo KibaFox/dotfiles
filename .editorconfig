@@ -16,3 +16,6 @@ indent_style = tab
 
 [st/config.def.h]
 indent_style = tab
+
+[tinyfugue/*.tf]
+indent_style = tab
