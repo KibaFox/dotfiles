@@ -9,11 +9,11 @@
     - '~/.config/fish'
     - '~/.config/git'
     - '~/.config/nvim'
+    - '~/.config/systemd/user'
     - '~/.config/tinyfugue'
     - '~/.emacs.d'
     - '~/.local/bin'
     - '~/.local/share/konsole'
-    - '~/Library/LaunchAgents'
 
 - link:
     ~/.ansible.cfg: ansible.cfg
@@ -24,15 +24,14 @@
     ~/.config/nvim/autoload: nvim/autoload/
     ~/.config/nvim/ftplugin: nvim/ftplugin/
     ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.config/systemd/user/emacs.service: systemd/emacs.service
     ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
-    # ~/.emacs.d/init.el: emacs.d/init.el
     ~/.local/bin/neovim-update.sh: bin/neovim-update.sh
     ~/.local/share/konsole/Gruvbox_dark.colorscheme: kde/konsole/Gruvbox_dark.colorscheme
     ~/.local/share/konsole/Kiba.profile: kde/konsole/Kiba.profile
     ~/.profile: profile
     ~/.spacemacs.d: spacemacs/
     ~/.tmux.conf: tmux.conf
-    ~/Library/LaunchAgents/emacs.plist: launchctl/emacs.plist
 
 - shell:
     # Update git submodules
@@ -47,3 +46,5 @@
         tic term/xterm-256color.terminfo
     # Update neovim
     - ~/.local/bin/neovim-update.sh
+    # Enable emacs if systemctl exists
+    - sh -c 'if type -p systemctl; then systemctl --user enable --now emacs; fi'
