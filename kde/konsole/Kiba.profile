@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=Grubbox_dark
-Font=Hack,14,-1,5,50,0,0,0,0,0,Regular
+Font=Source Code Pro,14,-1,5,50,0,0,0,0,0,Regular
 
 [General]
 Directory=
