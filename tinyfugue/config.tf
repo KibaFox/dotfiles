@@ -62,7 +62,7 @@
 ;	/friend johnathan someMU [Jj]ohn(?:athan)?
 ;
 /def friend = \
-	/def -p42 -ab -w'%{2}' -P0Cmagenta;0B -t'\\b%{3}\\b' %{2}_%{1}
+	/def -p42 -F -ab -w'%{2}' -P0Cmagenta;0B -t'\\b%{3}\\b' %{2}_%{1}
 
 ; Local Configuration
 ; -------------------
