@@ -17,7 +17,10 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'justincampbell/vim-eighties' " Automatically resizes your windows
 Plug 'tpope/vim-eunuch' " Unix helpers
 Plug 'tpope/vim-unimpaired' " Paired keybindings
+Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'vim-scripts/scratch.vim' " Scratch buffer
+Plug 'vim-scripts/utl.vim' " Univeral Text Linking
+Plug 'majutsushi/tagbar' " a class outline viewer
 
 " Navigation
 " ----------
@@ -44,6 +47,11 @@ Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go' " Golang
     Plug 'zchee/deoplete-go', { 'do': 'make' } " completions for Go
     Plug 'garyburd/go-explorer' " better documentation viewer
+Plug 'jceb/vim-orgmode' " Text outlining and task management for Vim
+    Plug 'tpope/vim-speeddating' " use CTRL-A/CTRL-X to increment dates, times
+    Plug 'chrisbra/NrrwRgn' " Emulation of Emacs' Narrow Region feature
+    Plug 'mattn/calendar-vim' " Creates a calendar window for timestamps
+    Plug 'inkarkat/vim-SyntaxRange' " Syntax highlighting for code blocks
 
 call plug#end()
 
@@ -101,6 +109,26 @@ let g:go_fmt_command = "goimports"
 " eighties.vim
 " ------------
 let g:eighties_extra_width = 4
+
+" UTL - Univeral Text Link
+" ------------------------
+if has("win32")
+    let g:utl_cfg_hdl_mt_generic = 'silent !cmd /q /c start "dummy title" "%P"'
+    let g:utl_cfg_hdl_scm_http_system = 'silent !start C:\Program Files\Mozilla Firefox\firefox.exe %u#%f'
+elseif has("macunix")
+    let g:utl_cfg_hdl_mt_generic = "silent !open '%p'"
+    let g:utl_cfg_hdl_scm_http_system = "silent !open '%u#%f'"
+elseif has("unix")
+    if $WINDOWMANAGER =~? 'kde'
+    let g:utl_cfg_hdl_mt_generic = 'silent !konqueror "%p" &'
+    endif
+    " ? Candidate for Debian/Ubuntu: 'silent !xdg-open %u'
+
+    " Firefox
+    " Check if an instance is already running, and if yes use it, else start firefox.
+    " See <URL:http://www.mozilla.org/unix/remote.html> for mozilla/firefox -remote control
+    let g:utl_cfg_hdl_scm_http_system = "silent !firefox -remote 'ping()' && firefox -remote 'openURL( %u )' || firefox '%u#%f' &"
+endif
 
 " ==============================================================================
 " Options
