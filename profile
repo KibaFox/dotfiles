@@ -1,6 +1,6 @@
 export EDITOR=nvim
 export GOPATH=$HOME/go
-export FZF_DEFAULT_COMMAND='rg --color never --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='find . -path '\''*/\.*'\'' -type d -prune -o -type f -print -o -type l -print 2> /dev/null | sed s/^..//'
 
 # set PATH so it includes user's private bin directories
 export PATH="$HOME/.local/bin:$GOPATH/bin:$PATH:/snap/bin"
