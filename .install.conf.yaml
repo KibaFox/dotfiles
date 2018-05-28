@@ -12,6 +12,7 @@
     - '~/.config/systemd/user'
     - '~/.config/tinyfugue'
     - '~/.config/xfce4/terminal'
+    - '~/.config/xfce4/xfconf/xfce-perchannel-xml'
     - '~/.emacs.d'
     - '~/.local/bin'
     - '~/.local/share/konsole'
@@ -30,6 +31,7 @@
     ~/.config/systemd/user/emacs.service: systemd/emacs.service
     ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
     ~/.config/xfce4/terminal/terminalrc: xfce4/terminal/terminalrc
+    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml: xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
     ~/.local/bin/neovim-update.sh: bin/neovim-update.sh
     ~/.local/share/konsole/Gruvbox_dark.colorscheme: kde/konsole/Gruvbox_dark.colorscheme
     ~/.local/share/konsole/Kiba.profile: kde/konsole/Kiba.profile
