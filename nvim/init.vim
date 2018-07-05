@@ -144,10 +144,10 @@ set list
 set ruler
 
 " Default to using 4 spaces
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+"set expandtab
+"set tabstop=4
+"set shiftwidth=4
+"set softtabstop=4
 
 " Smart case-insensitive search
 set ignorecase
