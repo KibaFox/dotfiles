@@ -13,7 +13,6 @@
     - '~/.config/tinyfugue'
     - '~/.config/xfce4/terminal'
     - '~/.config/xfce4/xfconf/xfce-perchannel-xml'
-    - '~/.emacs.d'
     - '~/.local/bin'
     - '~/.local/share/konsole'
 
@@ -28,7 +27,6 @@
     ~/.config/nvim/autoload: nvim/autoload/
     ~/.config/nvim/ftplugin: nvim/ftplugin/
     ~/.config/nvim/init.vim: nvim/init.vim
-    ~/.config/systemd/user/emacs.service: systemd/emacs.service
     ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
     ~/.config/xfce4/terminal/terminalrc:
         force: true
@@ -55,5 +53,3 @@
         tic term/xterm-256color.terminfo
     # Update neovim
     - ~/.local/bin/neovim-update.sh
-    # Enable emacs if systemctl exists
-    - sh -c 'if type -p systemctl; then systemctl --user enable --now emacs; fi'
