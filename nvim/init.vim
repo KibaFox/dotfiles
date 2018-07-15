@@ -19,7 +19,6 @@ Plug 'tpope/vim-eunuch' " Unix helpers
 Plug 'tpope/vim-unimpaired' " Paired keybindings
 Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
 Plug 'vim-scripts/scratch.vim' " Scratch buffer
-Plug 'vim-scripts/utl.vim' " Univeral Text Linking
 Plug 'majutsushi/tagbar' " a class outline viewer
 
 " Navigation
@@ -28,6 +27,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " fuzzy finder
+Plug 'jremmen/vim-ripgrep'
+Plug 'francoiscabrol/ranger.vim'
+    Plug 'rbgrouleff/bclose.vim'
 
 " Coding
 " ------
@@ -47,11 +49,6 @@ Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go' " Golang
     Plug 'zchee/deoplete-go', { 'do': 'make' } " completions for Go
     Plug 'garyburd/go-explorer' " better documentation viewer
-Plug 'jceb/vim-orgmode' " Text outlining and task management for Vim
-    Plug 'tpope/vim-speeddating' " use CTRL-A/CTRL-X to increment dates, times
-    Plug 'chrisbra/NrrwRgn' " Emulation of Emacs' Narrow Region feature
-    Plug 'mattn/calendar-vim' " Creates a calendar window for timestamps
-    Plug 'inkarkat/vim-SyntaxRange' " Syntax highlighting for code blocks
 
 call plug#end()
 
@@ -72,13 +69,19 @@ endif
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
 
+" Ranger
+" ------
+let g:ranger_map_keys = 0
+let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+map <leader>fr :Ranger<CR>
+
 " Markdown
 " --------
 
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
+"let g:vim_markdown_folding_disabled = 1
+"let g:vim_markdown_conceal = 0
 
 " Pencil
 " ------
@@ -110,26 +113,6 @@ let g:go_fmt_command = "goimports"
 " ------------
 let g:eighties_extra_width = 4
 
-" UTL - Univeral Text Link
-" ------------------------
-if has("win32")
-    let g:utl_cfg_hdl_mt_generic = 'silent !cmd /q /c start "dummy title" "%P"'
-    let g:utl_cfg_hdl_scm_http_system = 'silent !start C:\Program Files\Mozilla Firefox\firefox.exe %u#%f'
-elseif has("macunix")
-    let g:utl_cfg_hdl_mt_generic = "silent !open '%p'"
-    let g:utl_cfg_hdl_scm_http_system = "silent !open '%u#%f'"
-elseif has("unix")
-    if $WINDOWMANAGER =~? 'kde'
-    let g:utl_cfg_hdl_mt_generic = 'silent !konqueror "%p" &'
-    endif
-    " ? Candidate for Debian/Ubuntu: 'silent !xdg-open %u'
-
-    " Firefox
-    " Check if an instance is already running, and if yes use it, else start firefox.
-    " See <URL:http://www.mozilla.org/unix/remote.html> for mozilla/firefox -remote control
-    let g:utl_cfg_hdl_scm_http_system = "silent !firefox -remote 'ping()' && firefox -remote 'openURL( %u )' || firefox '%u#%f' &"
-endif
-
 " ==============================================================================
 " Options
 " ==============================================================================
@@ -159,9 +142,23 @@ set hidden
 " Make it obvious where 80 characters is
 set colorcolumn=81
 
-" Numbers
-set number
+" Line Numbers
+" Relative in Normal, Absolute in Insert
+" https://jeffkreeftmeijer.com/vim-number/
 set numberwidth=5
+set number relativenumber
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+" Terminal
+au TermOpen * setlocal nonumber norelativenumber
+
+" Conceal and Folding
+set conceallevel=1
+set foldmethod=syntax
 
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
