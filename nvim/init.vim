@@ -41,6 +41,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Writing
 " ------
 Plug 'reedes/vim-pencil'
+Plug 'vimwiki/vimwiki'
 
 " Language & Syntax
 " -----------------
