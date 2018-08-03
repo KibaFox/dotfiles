@@ -7,6 +7,12 @@ configuration](https://gist.github.com/pascalpoitras/8406501).
 
     /mouse enable
 
+## Keybindings
+
+Set the current buffer as read with `ctrl-S` + `ctrl-B`.
+
+    /key bind ctrl-Sctrl-B /input set_unread_current_buffer
+
 ## Slack
 
     /set plugins.var.python.slack.slack_api_token ${sec.data.slack_token}
