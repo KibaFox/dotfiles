@@ -1,0 +1,29 @@
+# My WeeChat Configuration
+
+Inspired by [My always up-to-date WeeChat
+configuration](https://gist.github.com/pascalpoitras/8406501).
+
+## Enable Mouse Support
+
+    /mouse enable
+
+## Slack
+
+    /set plugins.var.python.slack.slack_api_token ${sec.data.slack_token}
+
+Add aliases to load and unload the script.  This allows you to disconnect and
+reconnect.
+
+    /alias add lslack /script load wee_slack.py
+    /alias add uslack /script unload wee_slack.py
+
+## Matrix
+
+    /set plugins.var.lua.matrix.user ${sec.data.matrix_user}
+    /set plugins.var.lua.matrix.password ${sec.data.matrix_pass}
+
+Add aliases to load and unload the script.  This allows you to disconnect and
+reconnect.
+
+    /alias add lmatrix /script load matrix.lua
+    /alias add umatrix /script unload matrix.lua

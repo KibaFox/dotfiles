@@ -58,3 +58,9 @@ alias tf "tf -n -f~/.config/tinyfugue/config.tf"
 if test -f ~/.config/fish/config_local.fish
     source ~/.config/fish/config_local.fish
 end
+
+# WeeChat
+alias weechat "weechat -d $HOME/.config/weechat"
+
+# Search DuckDuckGo
+alias ddg "sr duckduckgo -browser=w3m"
