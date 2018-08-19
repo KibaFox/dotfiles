@@ -3,10 +3,6 @@
 Inspired by [My always up-to-date WeeChat
 configuration](https://gist.github.com/pascalpoitras/8406501).
 
-## Enable Mouse Support
-
-    /mouse enable
-
 ## Keybindings
 
 Set the current buffer as read with `ctrl-S` + `ctrl-B`.

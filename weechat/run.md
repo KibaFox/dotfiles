@@ -15,6 +15,7 @@ Securely store sensitive configuration values.
 /secure set matrix_user <user>
 /secure set matrix_pass <pass>
 /secure set matrix_server <url>
+/secure set ac_fox_pass <pass>
 ```
 
 Install scripts.
@@ -30,4 +31,5 @@ To update the configuration from the `myweechat.md` file, run the following:
 ```
 /eval /exec -oc sed -E 's/^ *//;/^\//!d' ${env:HOME}/lib/dotfiles/weechat/myweechat.md
 /eval /exec -oc sed -E 's/^ *//;/^\//!d' ${env:HOME}/lib/dotfiles-local/weechat/myweechat_local.md
+/save
 ```
