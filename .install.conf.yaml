@@ -7,6 +7,7 @@
     - '~'
     - '~/.config'
     - '~/.config/fish'
+    - '~/.config/fish/functions'
     - '~/.config/git'
     - '~/.config/nvim'
     - '~/.config/systemd/user'
@@ -19,7 +20,12 @@
 - link:
     ~/.ansible.cfg: ansible.cfg
     ~/.config/fish/config.fish: fish/config.fish
-    ~/.config/fish/functions: fish/functions/
+    ~/.config/fish/functions/fish_greeting.fish: fish/functions/fish_greeting.fish
+    ~/.config/fish/functions/fish_prompt.fish: fish/functions/fish_prompt.fish
+    ~/.config/fish/functions/fish_right_prompt.fish: fish/functions/fish_right_prompt.fish
+    ~/.config/fish/functions/fish_title.fish: fish/functions/fish_title.fish
+    ~/.config/fish/functions/fzman.fish: fish/functions/fzman.fish
+    ~/.config/fish/functions/ssh.fish: fish/functions/ssh.fish
     ~/.config/git/config: git/config
     ~/.config/git/ignore_global: git/ignore_global
     ~/.config/kglobalshortcutsrc: kde/kglobalshortcutsrc
