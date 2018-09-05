@@ -35,6 +35,14 @@ if test -f ~/.profile_local
     _import_profile ~/.profile_local
 end
 
+# Environment Variables
+set -x -g SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+if test ! -e $SSH_AUTH_SOCK
+    # If the socket doesn't exist...
+    # Start the gpg-agent
+    gpg-connect-agent /bye
+end
+
 # Aliases
 alias rdp "xfreerdp +compression +clipboard +fonts /home-drive /cert-ignore /size:1400x1050"
 alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"

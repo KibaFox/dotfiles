@@ -14,6 +14,7 @@
     - '~/.config/tinyfugue'
     - '~/.config/xfce4/terminal'
     - '~/.config/xfce4/xfconf/xfce-perchannel-xml'
+    - '~/.gnupg'
     - '~/.local/bin'
     - '~/.local/share/konsole'
 
@@ -40,6 +41,8 @@
     ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml:
         force: true
         path: xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
+    ~/.gnupg/gpg.conf: gnupg/gpg.conf
     ~/.local/bin/neovim-update.sh: bin/neovim-update.sh
     ~/.local/share/konsole/Gruvbox_dark.colorscheme: kde/konsole/Gruvbox_dark.colorscheme
     ~/.local/share/konsole/Kiba.profile: kde/konsole/Kiba.profile
