@@ -43,6 +43,11 @@ if test ! -e $SSH_AUTH_SOCK
     gpg-connect-agent /bye
 end
 
+# kitty completion
+if type -fq kitty
+    kitty + complete setup fish | source
+end
+
 # Aliases
 alias rdp "xfreerdp +compression +clipboard +fonts /home-drive /cert-ignore /size:1400x1050"
 alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
