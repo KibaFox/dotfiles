@@ -55,13 +55,6 @@ alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
 # Clean out neovim swp files
 alias clean-swp "rm -f ~/.local/share/nvim/swap/*.swp"
 
-# Cleanup unused docker images
-alias clean-dkr-img 'docker rmi (docker images -f "dangling=true" -q)'
-# Cleanup unused docker volumes
-alias clean-dkr-vol 'docker volume rm (docker volume ls -qf dangling=true)'
-# Cleanup exited docker containers
-alias clean-dkr-con 'docker rm -v (docker ps -a -q -f status=exited)'
-
 # Tinyfugue
 # Don't auto-connect on start
 # Load config in xdg style
