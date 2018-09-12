@@ -49,3 +49,5 @@ function dkr -d "Shortcuts for managing Docker"
 			return 1
 	end
 end
+
+complete -c dkr -x -a 'clean clean-img clean-vol killall'
