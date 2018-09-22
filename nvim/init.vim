@@ -150,10 +150,6 @@ augroup END
 " Terminal
 au TermOpen * setlocal nonumber norelativenumber
 
-" Conceal and Folding
-set conceallevel=1
-set foldmethod=syntax
-
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
 
