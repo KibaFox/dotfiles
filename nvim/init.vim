@@ -28,7 +28,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " fuzzy finder
 Plug 'jremmen/vim-ripgrep'
 Plug 'francoiscabrol/ranger.vim'
-    Plug 'rbgrouleff/bclose.vim'
+	Plug 'rbgrouleff/bclose.vim'
 " }}}
 
 " Coding {{{
@@ -47,8 +47,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go' " Golang
-    Plug 'zchee/deoplete-go', { 'do': 'make' } " completions for Go
-    Plug 'garyburd/go-explorer' " better documentation viewer
+	Plug 'zchee/deoplete-go', { 'do': 'make' } " completions for Go
+	Plug 'garyburd/go-explorer' " better documentation viewer
 " }}}
 
 call plug#end()
@@ -59,9 +59,9 @@ call plug#end()
 
 " Gruvbox colorscheme {{{
 if !empty(glob("~/.config/nvim/plugged/gruvbox"))
-    let g:gruvbox_italic = 1
-    set background=dark
-    colorscheme gruvbox
+	let g:gruvbox_italic = 1
+	set background=dark
+	colorscheme gruvbox
 endif
 " }}}
 
@@ -148,9 +148,9 @@ set colorcolumn=81
 set numberwidth=5
 set number relativenumber
 augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
 " Terminal

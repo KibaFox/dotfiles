@@ -5,5 +5,5 @@ setlocal spell
 setlocal textwidth=80
 
 if !empty(glob("~/.config/nvim/plugged/vim-pencil"))
-    call pencil#init({'wrap': 'hard', 'autoformat': 0})
+	call pencil#init({'wrap': 'hard', 'autoformat': 0})
 endif
