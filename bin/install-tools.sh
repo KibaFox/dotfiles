@@ -17,10 +17,10 @@ pip install -U websocket-client
 mkdir -p $weechat/python $weechat/lua
 # download wee-slack
 curl -fsSo $weechat/python/wee_slack.py \
-    https://raw.githubusercontent.com/wee-slack/wee-slack/master/wee_slack.py
+	https://raw.githubusercontent.com/wee-slack/wee-slack/master/wee_slack.py
 # download matrix
 curl -fsSo $weechat/lua/matrix.lua \
-    https://raw.githubusercontent.com/torhve/weechat-matrix-protocol-script/master/matrix.lua
+	https://raw.githubusercontent.com/torhve/weechat-matrix-protocol-script/master/matrix.lua
 
 # surfraw
 brew install surfraw
