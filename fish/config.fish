@@ -1,46 +1,30 @@
+# Prompt settings {{{
 # bobthefish prompt options
 set -g theme_color_scheme gruvbox
 set -g theme_display_date no
 set -g theme_display_cmd_duration no
+# }}}
 
-# Environment Variables from ~/.profile
-# Origin: https://github.com/albertz/dotfiles/blob/master/.config/fish/config.fish
-function _import_profile -a profile
-    egrep "^export " $profile | while read e
-        set var (echo $e | sed -E "s/^export ([A-Z_]+)=(.*)\$/\1/")
-        set value (echo $e | sed -E "s/^export ([A-Z_]+)=(.*)\$/\2/")
+# Environment Variables {{{
+set -x EDITOR nvim
+set -x GOPATH "$HOME/go"
+set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!.git/*"'
 
-        # remove surrounding quotes if existing
-        set value (echo $value | sed -E "s/^\"(.*)\"\$/\1/")
+# Set PATH so it includes user's private bin directories (if they exist)
+if test -d "$HOME/.local/bin"; set PATH "$HOME/.local/bin" $PATH; end
+if test -d "$GOPATH/bin"; set PATH "$GOPATH/bin" $PATH; end
+if test -d "/snap/bin"; set PATH "/snap/bin" $PATH; end
+# }}}
 
-        if test $var = "PATH"
-            # replace ":" by spaces. this is how PATH looks for Fish
-            set value (echo $value | sed -E "s/:/ /g")
-
-            # use eval because we need to expand the value
-            eval set -xg $var $value
-
-            continue
-        end
-
-        # evaluate variables. we can use eval because we most likely just used "$var"
-        set value (eval echo $value)
-
-        #echo "set -xg '$var' '$value' (via '$e')"
-        set -xg $var $value
-    end
-end
-_import_profile ~/.profile
-if test -f ~/.profile_local
-    _import_profile ~/.profile_local
-end
+# Completions {{{
 
 # kitty completion
 if type -fq kitty
-    kitty + complete setup fish | source
+	kitty + complete setup fish | source
 end
+# }}}
 
-# Aliases
+# Aliases {{{
 alias rdp "xfreerdp +compression +clipboard +fonts /home-drive /cert-ignore /size:1400x1050"
 alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
 
@@ -52,13 +36,18 @@ alias clean-swp "rm -f ~/.local/share/nvim/swap/*.swp"
 # Load config in xdg style
 alias tf "tf -n -f~/.config/tinyfugue/config.tf"
 
-# Allow extension via local configuration
-if test -f ~/.config/fish/config_local.fish
-    source ~/.config/fish/config_local.fish
-end
-
 # WeeChat
 alias weechat "weechat -d $HOME/.config/weechat"
 
 # Search DuckDuckGo
 alias ddg "sr duckduckgo -browser=w3m"
+
+# }}}
+
+# Local config {{{
+if test -f ~/.config/fish/config_local.fish
+	source ~/.config/fish/config_local.fish
+end
+# }}}
+
+# vim:foldmethod=marker
