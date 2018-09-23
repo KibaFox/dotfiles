@@ -14,6 +14,14 @@ set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!
 if test -d "$HOME/.local/bin"; set PATH "$HOME/.local/bin" $PATH; end
 if test -d "$GOPATH/bin"; set PATH "$GOPATH/bin" $PATH; end
 if test -d "/snap/bin"; set PATH "/snap/bin" $PATH; end
+
+set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+if test ! -e $SSH_AUTH_SOCK
+	# If the socket doesn't exist...
+	# Start the gpg-agent
+	gpg-connect-agent /bye
+	set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+end
 # }}}
 
 # Completions {{{
