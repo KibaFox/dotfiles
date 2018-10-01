@@ -41,6 +41,11 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Writing {{{
 Plug 'reedes/vim-pencil'
 Plug 'vimwiki/vimwiki'
+
+" PlantUML
+Plug 'weirongxu/plantuml-previewer.vim' " live preview
+	Plug 'aklt/plantuml-syntax'     " syntax and :make
+	Plug 'tyru/open-browser.vim'    " open browser
 " }}}
 
 " Language & Syntax {{{
@@ -111,6 +116,16 @@ let g:go_fmt_command = "goimports"
 
 " eighties.vim {{{
 let g:eighties_extra_width = 4
+" }}}
+
+" planuml-previewer.vim {{{
+
+" MacOS get plantuml.jar path after brew install plantuml`
+au FileType plantuml let g:plantuml_previewer#plantuml_jar_path = get(
+	\  matchlist(system('grep plantuml.jar /usr/local/bin/plantuml'), '\v.* (\S+plantuml\.jar).*'),
+	\  1,
+	\  0
+	\)
 " }}}
 
 " }}}
