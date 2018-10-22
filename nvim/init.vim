@@ -50,7 +50,6 @@ Plug 'weirongxu/plantuml-previewer.vim' " live preview
 
 " Language & Syntax {{{
 Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
-Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go' " Golang
 	Plug 'zchee/deoplete-go', { 'do': 'make' } " completions for Go
 	Plug 'garyburd/go-explorer' " better documentation viewer
@@ -76,16 +75,22 @@ let g:airline_theme = 'gruvbox'
 " }}}
 
 " Ranger {{{
+
+" don't map anything, I'll create my own
 let g:ranger_map_keys = 0
+
+" show hidden files by default
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
-map <leader>fr :Ranger<CR>
+
 " }}}
 
-" Markdown {{{
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
+" VimWiki + Markdown {{{
+let g:vimwiki_list = [
+	\ {'path': '~/sync/wiki', 'syntax': 'markdown', 'ext': '.md'},
+	\ {'path': '~/sync/proj/mycloud', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_ext2syntax = {
+	\ '.md': 'markdown',
+	\ '.mkd': 'markdown'}
 " }}}
 
 " Pencil {{{
@@ -184,6 +189,12 @@ nnoremap <Leader>s :set spell!<CR>
 " fzf fuzzy file find
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fg :GFiles?<CR>
+
+" open Ranger
+nnoremap <leader>fr :Ranger<CR>
+
+" open Dirvish
+nnoremap <leader>fd :Dirvish<CR>
 " }}}
 
 " Buffers {{{
