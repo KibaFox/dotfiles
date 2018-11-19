@@ -8,7 +8,7 @@ set -g theme_display_cmd_duration no
 # Environment Variables {{{
 set -x EDITOR nvim
 set -x GOPATH "$HOME/go"
-set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!.git/*"'
+set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
 
 # Set PATH so it includes user's private bin directories (if they exist)
 if test -d "$HOME/.local/bin"; set PATH "$HOME/.local/bin" $PATH; end
