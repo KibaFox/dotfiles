@@ -35,8 +35,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'neomake/neomake'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer' }
+Plug 'Shougo/deoplete.nvim', { 'tag': '4.1', 'do': ':UpdateRemotePlugins' }
 " }}}
 
 " Writing {{{
@@ -51,9 +50,8 @@ Plug 'weirongxu/plantuml-previewer.vim' " live preview
 
 " Language & Syntax {{{
 Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Golang
-	"Plug 'zchee/deoplete-go', { 'do': 'make' } " completions for Go
-	Plug 'garyburd/go-explorer' " better documentation viewer
+Plug 'fatih/vim-go', { 'tag': 'v1.18', 'do': ':GoUpdateBinaries' } " Golang
+	Plug 'zchee/deoplete-go', { 'do': 'make' } " completions for Go
 " }}}
 
 call plug#end()
