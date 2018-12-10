@@ -119,7 +119,7 @@ let g:go_fmt_command = "goimports"
 " }}}
 
 " eighties.vim {{{
-let g:eighties_extra_width = 4
+let g:eighties_extra_width = 2
 " }}}
 
 " planuml-previewer.vim {{{
