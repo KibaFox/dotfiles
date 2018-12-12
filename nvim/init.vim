@@ -142,6 +142,9 @@ set undofile
 " Show whitespace
 set list
 
+" Soft indent for soft wrap lines
+let &showbreak = '+   '
+
 " Show position in file
 set ruler
 
