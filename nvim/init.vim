@@ -90,6 +90,10 @@ let g:vimwiki_list = [
 let g:vimwiki_ext2syntax = {
 	\ '.md': 'markdown',
 	\ '.mkd': 'markdown'}
+
+" Remap header keys so Dirvish can still be mapped to -
+nmap <leader>= <Plug>VimwikiAddHeaderLevel
+nmap <leader>- <Plug>VimwikiRemoveHeaderLevel
 " }}}
 
 " Pencil {{{
