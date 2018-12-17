@@ -40,7 +40,7 @@ Plug 'Shougo/deoplete.nvim', { 'tag': '4.1', 'do': ':UpdateRemotePlugins' }
 
 " Writing {{{
 Plug 'reedes/vim-pencil'
-Plug 'vimwiki/vimwiki'
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 
 " PlantUML
 Plug 'weirongxu/plantuml-previewer.vim' " live preview
@@ -83,17 +83,11 @@ let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 
 " }}}
 
-" VimWiki + Markdown {{{
-let g:vimwiki_list = [
-	\ {'path': '~/sync/wiki', 'syntax': 'markdown', 'ext': '.md'},
-	\ {'path': '~/sync/proj/mycloud', 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_ext2syntax = {
-	\ '.md': 'markdown',
-	\ '.mkd': 'markdown'}
-
-" Remap header keys so Dirvish can still be mapped to -
-nmap <leader>= <Plug>VimwikiAddHeaderLevel
-nmap <leader>- <Plug>VimwikiRemoveHeaderLevel
+" plasticboy/vim-markdown {{{
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_conceal = 2
+let g:vim_markdown_folding_style_pythonic = 1
 " }}}
 
 " Pencil {{{

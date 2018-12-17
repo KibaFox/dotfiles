@@ -11,3 +11,8 @@ setlocal textwidth=80
 
 " Make it obvious where 80 characters is
 setlocal colorcolumn=81
+
+" Markdown specific shortcuts
+nmap <leader>= :HeaderIncrease<CR>
+nmap <leader>- :HeaderDecrease<CR>
+nmap <leader>t :Toc<CR>
