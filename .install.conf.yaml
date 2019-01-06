@@ -52,6 +52,7 @@
     ~/.local/share/konsole/Kiba.profile: kde/konsole/Kiba.profile
     ~/.profile: profile
     ~/.tmux.conf: tmux.conf
+    ~/.vimrc: vimrc
 
 - shell:
     # Update git submodules
