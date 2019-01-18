@@ -97,7 +97,7 @@ let g:pencil#joinspaces = 1             " Use two spaces after a period
 " }}}
 
 " Deoplete.nvim {{{
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 " }}}
 
 " Deoplete-go {{{
