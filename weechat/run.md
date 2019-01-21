@@ -16,6 +16,7 @@ Securely store sensitive configuration values.
 /secure set matrix_pass <pass>
 /secure set matrix_server <url>
 /secure set ac_fox_pass <pass>
+/secure set znc_pass <pass>
 ```
 
 Install scripts.

@@ -29,3 +29,13 @@ reconnect.
 
     /alias add lmatrix /script load matrix.lua
     /alias add umatrix /script unload matrix.lua
+
+## ZNC
+
+Allow `/znc` commands:
+
+    /alias add znc /quote znc
+
+## IRCv3
+
+    /set irc.server_default.capabilities account-notify,away-notify,cap-notify,multi-prefix,server-time,znc.in/server-time-iso,znc.in/self-message
