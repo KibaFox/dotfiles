@@ -3,6 +3,18 @@
 These are instructions for running the configuration programmatically after
 a little one-time initial setup.
 
+## Installing on Ubuntu
+
+Example is for `bionic` or Ubuntu 18.04.
+```
+sudo apt-get purge weechat
+sudo apt-get install apt-transport-https
+sudo apt-key adv --keyserver pool.sks-keyservers.net --recv-keys 11E9DE8848F2B65222AA75B8D1820DB22A11534E
+sudo bash -c "echo 'deb https://weechat.org/ubuntu bionic main' > /etc/apt/sources.list.d/weechat.list"
+sudo apt-get update
+sudo apt-get install weechat-curses weechat-plugins weechat-python
+```
+
 ## Initial Setup
 
 The initial setup should not have to be run often.
