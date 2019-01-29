@@ -4,6 +4,9 @@
 ; Disable the clock
 /clock off
 
+; Disable warning for TF5 keys
+/set warn_5keys=off
+
 ; Wrap
 ; ----
 
