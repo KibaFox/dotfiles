@@ -49,4 +49,11 @@
 
 	# log file summary in each commit
 	logfs = log --stat --full-diff --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+
+# Use SSH for go get
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+
 # vi:syntax=gitconfig
