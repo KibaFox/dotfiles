@@ -7,14 +7,19 @@ set -ex
 ver='v0.2.9'
 dl="https://github.com/jwilm/alacritty/releases/download/$ver"
 
+if [ "$(uname)" == 'Darwin' ]; then
+	echo 'Use: brew cask install alacritty'
+	exit 1
+fi
 
-case "$(uname)" in
-"Linux")
-	asset="Alacritty-$ver-x86_64.tar.gz"
-	curl -sSfLO "$dl/$asset"
-	trap "rm $asset" EXIT
-	sudo tar -xzvf $asset -C /usr/local/bin
-	cat <<- EOF | sudo tee /usr/local/share/applications/alacritty.desktop
+# Install alacritty to /usr/local/bin
+asset="Alacritty-$ver-x86_64.tar.gz"
+curl -sSfLO "$dl/$asset"
+trap "rm $asset" EXIT
+sudo tar -xzvf $asset -C /usr/local/bin
+
+# Create a desktop shortcut in /usr/local/share/applications
+cat <<- EOF | sudo tee /usr/local/share/applications/alacritty.desktop
 	[Desktop Entry]
 	Name=Alacritty
 	Comment=GPU-accelerated terminal emulator
@@ -23,13 +28,7 @@ case "$(uname)" in
 	Type=Application
 	Categories=GTK;System;TerminalEmulator;
 	StartupNotify=true
-	EOF
-	;;
-*)
-	echo "Platform not supported"
-	exit 1
-	;;
-esac
+EOF
 
 # Install manual
 curl -sSfLO "$dl/alacritty.1.gz"
