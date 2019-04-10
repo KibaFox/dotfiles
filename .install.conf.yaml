@@ -16,7 +16,6 @@
     - '~/.config/xfce4/xfconf/xfce-perchannel-xml'
     - '~/.gnupg'
     - '~/.local/bin'
-    - '~/.local/share/konsole'
 
 - link:
     ~/.ansible.cfg: ansible.cfg
@@ -30,8 +29,6 @@
     ~/.config/fish/functions/ssh.fish: fish/functions/ssh.fish
     ~/.config/git/config: git/config
     ~/.config/git/ignore_global: git/ignore_global
-    ~/.config/kglobalshortcutsrc: kde/kglobalshortcutsrc
-    ~/.config/khotkeysrc: kde/khotkeysrc
     ~/.config/nvim/autoload: nvim/autoload/
     ~/.config/nvim/ftdetect: nvim/ftdetect/
     ~/.config/nvim/ftplugin: nvim/ftplugin/
@@ -46,8 +43,6 @@
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     ~/.gnupg/gpg.conf: gnupg/gpg.conf
     ~/.local/bin/neovim-update.sh: bin/neovim-update.sh
-    ~/.local/share/konsole/Gruvbox_dark.colorscheme: kde/konsole/Gruvbox_dark.colorscheme
-    ~/.local/share/konsole/Kiba.profile: kde/konsole/Kiba.profile
     ~/.profile: profile
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
