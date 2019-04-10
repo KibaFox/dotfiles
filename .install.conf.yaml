@@ -10,7 +10,6 @@
     - '~/.config/fish/functions'
     - '~/.config/git'
     - '~/.config/nvim'
-    - '~/.config/systemd/user'
     - '~/.gnupg'
     - '~/.local/bin'
 
