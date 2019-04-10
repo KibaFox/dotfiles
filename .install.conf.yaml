@@ -12,8 +12,6 @@
     - '~/.config/nvim'
     - '~/.config/systemd/user'
     - '~/.config/tinyfugue'
-    - '~/.config/xfce4/terminal'
-    - '~/.config/xfce4/xfconf/xfce-perchannel-xml'
     - '~/.gnupg'
     - '~/.local/bin'
 
@@ -34,12 +32,6 @@
     ~/.config/nvim/ftplugin: nvim/ftplugin/
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.config/tinyfugue/config.tf: tinyfugue/config.tf
-    ~/.config/xfce4/terminal/terminalrc:
-        force: true
-        path: xfce4/terminal/terminalrc
-    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml:
-        force: true
-        path: xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     ~/.gnupg/gpg.conf: gnupg/gpg.conf
     ~/.local/bin/neovim-update.sh: bin/neovim-update.sh
