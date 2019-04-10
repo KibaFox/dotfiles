@@ -16,7 +16,6 @@
     - '~/.local/bin'
 
 - link:
-    ~/.ansible.cfg: ansible.cfg
     ~/.config/fish/config.fish: fish/config.fish
     ~/.config/fish/functions/dkr.fish: fish/functions/dkr.fish
     ~/.config/fish/functions/fish_greeting.fish: fish/functions/fish_greeting.fish
