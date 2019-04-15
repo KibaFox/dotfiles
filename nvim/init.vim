@@ -62,6 +62,7 @@ call plug#end()
 
 " Gruvbox colorscheme {{{
 if !empty(glob("~/.config/nvim/plugged/gruvbox"))
+	let g:gruvbox_contrast_dark = 'hard'
 	let g:gruvbox_italic = 1
 	set background=dark
 	colorscheme gruvbox
