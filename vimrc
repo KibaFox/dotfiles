@@ -27,7 +27,7 @@ if !has('nvim')
   set autoindent
   set autoread
   set backspace=indent,eol,start
-  set backupdir=.,~/.local/share/nvim/backup
+  set backupdir=~/.local/share/nvim/backup
   set belloff=all
   set complete-=i
   set cscopeverbose
