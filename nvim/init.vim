@@ -181,6 +181,9 @@ set termguicolors
 " Fix w0rp/ale completion automatically inserting text
 set completeopt=menu,menuone,preview,noselect,noinsert
 
+" Enable mouse
+set mouse=a
+
 " }}}
 
 " Mappings {{{
