@@ -32,7 +32,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'neomake/neomake'
-Plug 'Shougo/deoplete.nvim', { 'tag': '4.1', 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'tag': '5.0', 'do': ':UpdateRemotePlugins' }
 " }}}
 
 " Writing {{{
@@ -47,8 +47,8 @@ Plug 'weirongxu/plantuml-previewer.vim' " live preview
 
 " Language & Syntax {{{
 Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
-Plug 'fatih/vim-go', { 'tag': 'v1.18', 'do': ':GoUpdateBinaries' } " Golang
-	Plug 'zchee/deoplete-go', { 'do': 'make' } " completions for Go
+Plug 'fatih/vim-go', { 'tag': 'v1.20', 'do': ':GoUpdateBinaries' } " Golang
+	Plug 'deoplete-plugins/deoplete-go', { 'do': 'make' }
 " }}}
 
 call plug#end()
@@ -85,7 +85,7 @@ let g:pencil#joinspaces = 1             " Use two spaces after a period
 " }}}
 
 " Deoplete.nvim {{{
-let g:deoplete#enable_at_startup = 0
+let g:deoplete#enable_at_startup = 1
 " }}}
 
 " Deoplete-go {{{
@@ -101,7 +101,8 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = 'goimports'
+let g:go_def_mode = 'gopls'
 " }}}
 
 " eighties.vim {{{
@@ -205,9 +206,37 @@ nnoremap <silent> <leader>q gqap
 xnoremap <silent> <leader>q gq
 " }}}
 
-" Moving between veritcal windows {{{
+" Window Nav {{{
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+" }}}
+
+" Error / Warning Nav {{{
+" https://stackoverflow.com/a/27204000
+" wrap :cnext/:cprevious and :lnext/:lprevious
+function! WrapCommand(direction, prefix)
+    if a:direction == "up"
+        try
+            execute a:prefix . "previous"
+        catch /^Vim\%((\a\+)\)\=:E553/
+            execute a:prefix . "last"
+        catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
+        endtry
+    elseif a:direction == "down"
+        try
+            execute a:prefix . "next"
+        catch /^Vim\%((\a\+)\)\=:E553/
+            execute a:prefix . "first"
+        catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
+        endtry
+    endif
+endfunction
+
+" <Home> and <End> go up and down the quickfix list and wrap around
+nmap <silent> <leader>k :call WrapCommand('up', 'l')<CR>
+nmap <silent> <leader>j :call WrapCommand('down', 'l')<CR>
 " }}}
 
 " Go-Specific {{{
