@@ -22,10 +22,13 @@ Plug 'majutsushi/tagbar' " a class outline viewer
 " }}}
 
 " Navigation {{{
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " fuzzy finder
 Plug 'jremmen/vim-ripgrep'
+Plug 'francoiscabrol/ranger.vim'
+	Plug 'rbgrouleff/bclose.vim'
 " }}}
 
 " Coding {{{
@@ -69,6 +72,16 @@ endif
 " Airline {{{
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
+" }}}
+
+" Ranger {{{
+
+" don't map anything, I'll create my own
+let g:ranger_map_keys = 0
+
+" show hidden files by default
+let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+
 " }}}
 
 " plasticboy/vim-markdown {{{
@@ -204,13 +217,6 @@ nnoremap <leader>bx :BD<CR>
 nnoremap <silent> <leader>q gqap
 " Format selection (visual mode)
 xnoremap <silent> <leader>q gq
-" }}}
-
-" Window Nav {{{
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-l> :wincmd l<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-k> :wincmd k<CR>
 " }}}
 
 " Error / Warning Nav {{{
