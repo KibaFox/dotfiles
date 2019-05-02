@@ -31,7 +31,8 @@ Plug 'jremmen/vim-ripgrep'
 " Coding {{{
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale', { 'commit': 'b34274ab101d42b2d42813ce8dcfbb862d0b1869' }
+Plug 'neomake/neomake'
+Plug 'Shougo/deoplete.nvim', { 'tag': '4.1', 'do': ':UpdateRemotePlugins' }
 " }}}
 
 " Writing {{{
@@ -46,7 +47,8 @@ Plug 'weirongxu/plantuml-previewer.vim' " live preview
 
 " Language & Syntax {{{
 Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
-Plug 'fatih/vim-go', { 'tag': 'v1.20', 'do': ':GoUpdateBinaries' } " Golang
+Plug 'fatih/vim-go', { 'tag': 'v1.18', 'do': ':GoUpdateBinaries' } " Golang
+	Plug 'zchee/deoplete-go', { 'do': 'make' } " completions for Go
 " }}}
 
 call plug#end()
@@ -82,17 +84,15 @@ let g:pencil#wrapModeDefault = 'soft'   " Use soft wrap
 let g:pencil#joinspaces = 1             " Use two spaces after a period
 " }}}
 
-" w0rp/ale {{{
-let g:ale_completion_enabled = 1
-let g:ale_completion_delay = 750
-let g:ale_fix_on_save = 1
-let g:ale_linters_explicit = 1
-let g:ale_linters = {'go': ['gopls', 'golangci-lint']}
-let g:ale_fixers = {'go': ['goimports']}
+" Deoplete.nvim {{{
+let g:deoplete#enable_at_startup = 0
+" }}}
 
-" Error and warning signs.
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
+" Deoplete-go {{{
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#use_cache = 1
+let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go/$GOOS_$GOARCH'
 " }}}
 
 " Vim-Go {{{
@@ -101,8 +101,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = 'goimports'
-let g:go_def_mode='gopls'
+let g:go_fmt_command = "goimports"
 " }}}
 
 " eighties.vim {{{
@@ -165,9 +164,6 @@ set complete+=kspell
 " Turn on 24-bit truecolor
 set termguicolors
 
-" Fix w0rp/ale completion automatically inserting text
-set completeopt=menu,menuone,preview,noselect,noinsert
-
 " Enable mouse
 set mouse=a
 
@@ -212,11 +208,6 @@ xnoremap <silent> <leader>q gq
 " Moving between veritcal windows {{{
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
-" }}}
-
-" Moving between errors (w0rp/ale) {{{
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " }}}
 
 " Go-Specific {{{
