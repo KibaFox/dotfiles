@@ -85,6 +85,10 @@ let g:pencil#wrapModeDefault = 'soft'   " Use soft wrap
 let g:pencil#joinspaces = 1             " Use two spaces after a period
 " }}}
 
+" Neomake {{{
+let g:neomake_ft_maker_remove_invalid_entries = 1
+" }}}
+
 " Deoplete.nvim {{{
 let g:deoplete#enable_at_startup = 1
 " }}}
