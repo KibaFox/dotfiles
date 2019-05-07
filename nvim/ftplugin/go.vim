@@ -7,7 +7,6 @@ let g:neomake_go_gometalinter_maker = {
 		\ '--tests',
 		\ '--disable-all',
 		\ '--enable=errcheck',
-		\ '--enable=goconst',
 		\ '--enable=golint',
 		\ '--enable=ineffassign',
 		\ '--enable=misspell',
