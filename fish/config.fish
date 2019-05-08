@@ -15,6 +15,8 @@ if test -d "$HOME/.local/bin"; set PATH "$HOME/.local/bin" $PATH; end
 if test -d "$GOPATH/bin"; set PATH "$GOPATH/bin" $PATH; end
 if test -d "/snap/bin"; set PATH "/snap/bin" $PATH; end
 if test -d "/usr/local/go/bin"; set PATH "/usr/local/go/bin" $PATH; end
+if test -d "$HOME/mobiledev/flutter/bin"; set PATH "$HOME/mobiledev/flutter/bin" $PATH; end
+if test -d "$HOME/mobiledev/android-studio/bin"; set PATH "$HOME/mobiledev/android-studio/bin" $PATH; end
 
 set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 if test ! -e $SSH_AUTH_SOCK
