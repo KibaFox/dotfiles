@@ -1,8 +1,8 @@
 " Run Neomake on every write
 call neomake#configure#automake('rw')
-let g:neomake_go_enabled_makers = ['go', 'gometalinter']
+let g:neomake_go_enabled_makers = ['go', 'golangci_lint']
 let g:neomake_go_gometalinter_maker = {
-	\ 'exe': 'gometalinter.v2',
+	\ 'exe': 'gometalinter',
 	\ 'args': [
 		\ '--tests',
 		\ '--disable-all',
