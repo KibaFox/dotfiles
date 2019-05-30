@@ -27,6 +27,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " fuzzy finder
 Plug 'jremmen/vim-ripgrep'
+Plug 'Alok/notational-fzf-vim'
 " }}}
 
 " Coding {{{
@@ -122,6 +123,10 @@ au FileType plantuml let g:plantuml_previewer#plantuml_jar_path = get(
 	\  1,
 	\  0
 	\)
+" }}}
+
+" notational-fzf-vim {{{
+let g:nv_search_paths = ['~/sync/Notes', './docs']
 " }}}
 
 " }}}
@@ -262,6 +267,10 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
+" }}}
+
+" notational-fzf-vim {{{
+nmap <silent> <leader>nn :NV<CR>
 " }}}
 
 " }}}
