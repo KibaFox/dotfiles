@@ -126,7 +126,7 @@ au FileType plantuml let g:plantuml_previewer#plantuml_jar_path = get(
 " }}}
 
 " notational-fzf-vim {{{
-let g:nv_search_paths = ['~/sync/Notes', './docs']
+let g:nv_search_paths = ['~/sync/Notes', '~/work/notes', './docs']
 " }}}
 
 " }}}
@@ -273,6 +273,13 @@ omap <leader><tab> <plug>(fzf-maps-o)
 nmap <silent> <leader>nn :NV<CR>
 " }}}
 
+" }}}
+
+" Local Config {{{
+let $LOCALFILE=expand("~/.config/nvim/init_local.vim")
+if filereadable($LOCALFILE)
+    source $LOCALFILE
+endif
 " }}}
 
 " vim:foldmethod=marker
