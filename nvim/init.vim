@@ -33,8 +33,8 @@ Plug 'Alok/notational-fzf-vim'
 " Coding {{{
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim', { 'tag': '5.0', 'do': ':UpdateRemotePlugins' }
+Plug 'w0rp/ale', { 'commit': '27146ade32d6686fefde27de76b65bcdf353eab5' }
 " }}}
 
 " Writing {{{
@@ -50,7 +50,6 @@ Plug 'weirongxu/plantuml-previewer.vim' " live preview
 " Language & Syntax {{{
 Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
 Plug 'fatih/vim-go', { 'tag': 'v1.20', 'do': ':GoUpdateBinaries' } " Golang
-	Plug 'deoplete-plugins/deoplete-go', { 'do': 'make' }
 " }}}
 
 call plug#end()
@@ -86,19 +85,24 @@ let g:pencil#wrapModeDefault = 'soft'   " Use soft wrap
 let g:pencil#joinspaces = 1             " Use two spaces after a period
 " }}}
 
-" Neomake {{{
-let g:neomake_ft_maker_remove_invalid_entries = 1
+" w0rp/ale {{{
+let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 750
+let g:ale_fix_on_save = 1
+let g:ale_linters_explicit = 1
+let g:ale_linters = {'go': ['gopls', 'golangci-lint']}
+let g:ale_fixers = {'go': ['goimports']}
+
+" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
 " }}}
 
 " Deoplete.nvim {{{
 let g:deoplete#enable_at_startup = 1
-" }}}
 
-" Deoplete-go {{{
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#use_cache = 1
-let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go/$GOOS_$GOARCH'
+" Use ALE as completion sources all code.
+let g:deoplete#sources = {'_': ['ale']}
 " }}}
 
 " Vim-Go {{{
@@ -178,6 +182,9 @@ set termguicolors
 " Enable mouse
 set mouse=a
 
+" Fix w0rp/ale completion automatically inserting text
+set completeopt=menu,menuone,preview,noselect,noinsert
+
 " }}}
 
 " Mappings {{{
@@ -216,30 +223,9 @@ nnoremap <silent> <leader>q gqap
 xnoremap <silent> <leader>q gq
 " }}}
 
-" Error / Warning Nav {{{
-" https://stackoverflow.com/a/27204000
-" wrap :cnext/:cprevious and :lnext/:lprevious
-function! WrapCommand(direction, prefix)
-    if a:direction == "up"
-        try
-            execute a:prefix . "previous"
-        catch /^Vim\%((\a\+)\)\=:E553/
-            execute a:prefix . "last"
-        catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
-        endtry
-    elseif a:direction == "down"
-        try
-            execute a:prefix . "next"
-        catch /^Vim\%((\a\+)\)\=:E553/
-            execute a:prefix . "first"
-        catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
-        endtry
-    endif
-endfunction
-
-" <Home> and <End> go up and down the quickfix list and wrap around
-nmap <silent> <leader>k :call WrapCommand('up', 'l')<CR>
-nmap <silent> <leader>j :call WrapCommand('down', 'l')<CR>
+" Moving between errors (w0rp/ale) {{{
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+nmap <silent> <leader>j <Plug>(ale_next_wrap)
 " }}}
 
 " Go-Specific {{{
