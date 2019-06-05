@@ -130,7 +130,7 @@ au FileType plantuml let g:plantuml_previewer#plantuml_jar_path = get(
 " }}}
 
 " notational-fzf-vim {{{
-let g:nv_search_paths = ['~/sync/Notes', '~/work/notes', './docs']
+let g:nv_search_paths = ['~/sync/Notes', '~/work/notes', './doc']
 " }}}
 
 " }}}
