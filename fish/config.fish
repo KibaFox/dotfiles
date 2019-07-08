@@ -42,11 +42,6 @@ alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
 # Clean out neovim swp files
 alias clean-swp "rm -f ~/.local/share/nvim/swap/*.swp"
 
-# Tinyfugue
-# Don't auto-connect on start
-# Load config in xdg style
-alias tf "tf -n -f~/.config/tinyfugue/config.tf"
-
 # WeeChat
 alias weechat "weechat -d $HOME/.config/weechat"
 
