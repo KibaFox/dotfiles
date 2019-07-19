@@ -180,6 +180,10 @@ set mouse=a
 " Fix w0rp/ale completion automatically inserting text
 set completeopt=menu,menuone,preview,noselect,noinsert
 
+if has("nvim-0.3.8") || has("patch-8.1.0360")
+    set diffopt+=internal,algorithm:histogram
+endif
+
 " }}}
 
 " Mappings {{{
