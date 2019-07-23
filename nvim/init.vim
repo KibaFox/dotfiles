@@ -88,6 +88,7 @@ let g:pencil#joinspaces = 1             " Use two spaces after a period
 let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 750
 let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'never' " save CPU and batery
 let g:ale_linters_explicit = 1
 let g:ale_linters = {'go': ['gopls', 'golangci-lint']}
 let g:ale_fixers = {'go': ['goimports']}
@@ -101,7 +102,7 @@ let g:ale_sign_warning = '⚠'
 let g:deoplete#enable_at_startup = 1
 
 " Use ALE as completion sources all code.
-let g:deoplete#sources = {'_': ['ale']}
+let g:deoplete#sources = {'go': ['ale']}
 " }}}
 
 " Vim-Go {{{
