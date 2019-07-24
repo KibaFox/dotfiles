@@ -33,7 +33,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/deoplete.nvim', { 'tag': '5.0', 'do': ':UpdateRemotePlugins' }
-Plug 'w0rp/ale', { 'commit': '27146ade32d6686fefde27de76b65bcdf353eab5' }
+Plug 'w0rp/ale', { 'tag': 'v2.5.0' }
 " }}}
 
 " Writing {{{
