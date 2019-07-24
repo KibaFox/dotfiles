@@ -6,6 +6,7 @@
 - clean:
     - '~'
     - '~/.config'
+    - '~/.config/aerc'
     - '~/.config/fish'
     - '~/.config/fish/functions'
     - '~/.config/git'
@@ -14,6 +15,8 @@
     - '~/.local/bin'
 
 - link:
+    ~/.config/aerc/aerc.conf: aerc/aerc.conf
+    ~/.config/aerc/binds.conf: aerc/binds.conf
     ~/.config/fish/config.fish: fish/config.fish
     ~/.config/fish/functions/dkr.fish: fish/functions/dkr.fish
     ~/.config/fish/functions/fish_greeting.fish: fish/functions/fish_greeting.fish
