@@ -1,19 +1,21 @@
 " Minimal Vim config
+" ==================
 "
 " Useful settings and features for a basic Vim install without external plugins.
 " Intended to be a single file for easy deployment to remote machines.
 
-" Leader mapping {{{
+" Leader mapping
+" ==============
 " Map <Leader> to space-bar
 " Set this before everything else.
 let mapleader = "\<Space>"
-" }}}
 
-" Colorscheme {{{
+" Colorscheme
+" ===========
 silent! colorscheme elflord
-" }}}
 
-" Neovim defaults {{{
+" Neovim defaults
+" ===============
 if !has('nvim')
   " Settings based on :help nvim-defaults
 
@@ -77,9 +79,9 @@ if !has('nvim')
     call mkdir(&undodir, "p")
   endif
 endif
-" }}}
 
-" Plugin: christoomey/vim-tmux-navigator {{{
+" Plugin: christoomey/vim-tmux-navigator
+" ======================================
 " Maps <C-h/j/k/l> to switch vim splits in the given direction. If there are
 " no more windows in that direction, forwards the operation to tmux.
 " Additionally, <C-\> toggles between last active vim splits/tmux panes.
@@ -201,10 +203,8 @@ function! s:TmuxAwareNavigate(direction)
   endif
 endfunction
 
-
-" }}}
-
-" Options {{{
+" Options
+" =======
 
 " Turn on persistent undo
 set undofile
@@ -242,19 +242,14 @@ augroup END
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
 
-" }}}
+" Mappings
+" ========
 
-" Mappings {{{
-
-" Spell check {{{
+" Spell check
+" -----------
 " Toggle spell check
 nnoremap <Leader>s :set spell!<CR>
-" }}}
 
-" Buffers {{{
+" Buffers
+" -------
 nnoremap <C-x> :bdelete<CR>
-" }}}
-
-" }}}
-
-" vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker:

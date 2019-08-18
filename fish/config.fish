@@ -1,11 +1,12 @@
-# Prompt settings {{{
+# Prompt settings
+# ===============
 # bobthefish prompt options
 set -g theme_color_scheme gruvbox
 set -g theme_display_date no
 set -g theme_display_cmd_duration no
-# }}}
 
-# Environment Variables {{{
+# Environment Variables
+# =====================
 set -x EDITOR nvim
 set -x GOPATH "$HOME/go"
 set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
@@ -25,17 +26,18 @@ if test ! -e $SSH_AUTH_SOCK
 	gpg-connect-agent /bye
 	set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 end
-# }}}
 
-# Completions {{{
+# Completions
+# ===========
 
 # kitty completion
+# ----------------
 if type -fq kitty
 	kitty + complete setup fish | source
 end
-# }}}
 
-# Aliases {{{
+# Aliases
+# =======
 alias rdp "xfreerdp +compression +clipboard +fonts /home-drive /cert-ignore /size:1400x1050"
 alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
 
@@ -48,12 +50,8 @@ alias weechat "weechat -d $HOME/.config/weechat"
 # Search DuckDuckGo
 alias ddg "sr duckduckgo -browser=w3m"
 
-# }}}
-
-# Local config {{{
+# Local config
+# ============
 if test -f ~/.config/fish/config_local.fish
 	source ~/.config/fish/config_local.fish
 end
-# }}}
-
-# vim:foldmethod=marker
