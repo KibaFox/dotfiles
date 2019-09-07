@@ -13,6 +13,7 @@
 
 [diff]
 	tool = vimdiff
+	guitool = kdiff3
 	algorithm = histogram
 
 [difftool]
@@ -22,14 +23,7 @@
 	path = nvim
 
 [merge]
-	tool = vimdiff
 	conflictstyle = diff3
-
-[mergetool]
-	prompt = false
-
-[mergetool "vimdiff"]
-	path = nvim
 
 [sendemail]
 	annotate = yes
