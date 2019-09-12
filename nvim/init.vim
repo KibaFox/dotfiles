@@ -52,7 +52,7 @@ Plug 'weirongxu/plantuml-previewer.vim' " live preview
 " Language & Syntax
 " -----------------
 Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
-Plug 'fatih/vim-go', { 'tag': 'v1.20', 'do': ':GoUpdateBinaries' } " Golang
+Plug 'fatih/vim-go', { 'tag': 'v1.21', 'do': ':GoUpdateBinaries' } " Golang
 
 call plug#end()
 
