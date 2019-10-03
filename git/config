@@ -24,6 +24,7 @@
 
 [merge]
 	conflictstyle = diff3
+	guitool = kdiff3
 
 [sendemail]
 	annotate = yes
