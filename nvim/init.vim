@@ -36,7 +36,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/deoplete.nvim', { 'tag': '5.1', 'do': ':UpdateRemotePlugins' }
-Plug 'w0rp/ale', { 'tag': 'v2.5.0' }
+Plug 'dense-analysis/ale', { 'tag': 'v2.5.0' }
 
 " Writing
 " -------
