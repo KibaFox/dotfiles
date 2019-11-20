@@ -1,0 +1,1 @@
+../../fish_plugins/bobthefish/fish_mode_prompt.fish
