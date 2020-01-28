@@ -28,6 +28,12 @@ if test ! -e $SSH_AUTH_SOCK
 	set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 end
 
+set -l pinentry_mac \
+	'/usr/local/MacGPG2/libexec/pinentry-mac.app/Contents/MacOS/pinentry-mac'
+if test -e $pinentry_mac
+	alias pinentry "$pinentry_mac"
+end
+
 # Completions
 # ===========
 
