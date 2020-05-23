@@ -12,12 +12,18 @@ set -x GOPATH "$HOME/go"
 set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
 
 # Set PATH so it includes user's private bin directories (if they exist)
-if test -d "$HOME/.local/bin"; set PATH "$HOME/.local/bin" $PATH; end
-if test -d "$GOPATH/bin"; set PATH "$GOPATH/bin" $PATH; end
-if test -d "/snap/bin"; set PATH "/snap/bin" $PATH; end
-if test -d "/usr/local/go/bin"; set PATH "/usr/local/go/bin" $PATH; end
-if test -d "$HOME/mobiledev/flutter/bin"; set PATH "$HOME/mobiledev/flutter/bin" $PATH; end
-if test -d "$HOME/mobiledev/android-studio/bin"; set PATH "$HOME/mobiledev/android-studio/bin" $PATH; end
+set -la user_paths "$HOME/.local/bin"
+set -la user_paths "$GOPATH/bin"
+set -la user_paths "/snap/bin"
+set -la user_paths "/usr/local/go/bin"
+set -la user_paths "$HOME/mobiledev/flutter/bin"
+set -la user_paths "$HOME/mobiledev/android-studio/bin"
+set -la user_paths "/usr/local/opt/mysql-client/bin"
+for dir in $user_paths
+	if test -d "$dir"
+		set -ga fish_user_paths "$dir"
+	end
+end
 
 set -x GPG_TTY (tty)
 set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
