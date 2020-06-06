@@ -25,14 +25,14 @@ for dir in $user_paths
 	end
 end
 
-set -x GPG_TTY (tty)
-set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
-if test ! -e $SSH_AUTH_SOCK
-	# If the socket doesn't exist...
-	# Start the gpg-agent
-	gpgconf --launch gpg-agent
-	set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
-end
+#set -x GPG_TTY (tty)
+#set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+#if test ! -e $SSH_AUTH_SOCK
+#	# If the socket doesn't exist...
+#	# Start the gpg-agent
+#	gpgconf --launch gpg-agent
+#	set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+#end
 
 set -l pinentry_mac \
 	'/usr/local/MacGPG2/libexec/pinentry-mac.app/Contents/MacOS/pinentry-mac'
