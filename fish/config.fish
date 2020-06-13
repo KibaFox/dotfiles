@@ -25,6 +25,10 @@ for dir in $user_paths
 	end
 end
 
+# SSH Agent
+# =========
+fish_ssh_agent
+
 #set -x GPG_TTY (tty)
 #set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 #if test ! -e $SSH_AUTH_SOCK

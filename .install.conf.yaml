@@ -28,6 +28,7 @@
     ~/.config/fish/functions/fish_mode_prompt.fish: fish/functions/fish_mode_prompt.fish
     ~/.config/fish/functions/fish_prompt.fish: fish/functions/fish_prompt.fish
     ~/.config/fish/functions/fish_right_prompt.fish: fish/functions/fish_right_prompt.fish
+    ~/.config/fish/functions/fish_ssh_agent.fish: fish/functions/fish_ssh_agent.fish
     ~/.config/fish/functions/fish_title.fish: fish/functions/fish_title.fish
     ~/.config/fish/functions/fzman.fish: fish/functions/fzman.fish
     ~/.config/fish/functions/ssh.fish: fish/functions/ssh.fish
