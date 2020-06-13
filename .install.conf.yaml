@@ -13,6 +13,7 @@
     - '~/.config/nvim'
     - '~/.gnupg'
     - '~/.local/bin'
+    - '~/.ssh'
 
 - link:
     ~/.config/aerc/aerc.conf: aerc/aerc.conf
@@ -42,6 +43,7 @@
     ~/.gnupg/gpg.conf: gnupg/gpg.conf
     ~/.local/bin/neovim-update.sh: bin/neovim-update.sh
     ~/.profile: profile
+    ~/.ssh/config: ssh/config
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
 

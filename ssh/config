@@ -1,0 +1,12 @@
+# SSH Config
+# vim: ft=sshconfig
+
+# Exit automatically on network interruptions
+ServerAliveInterval 5
+ServerAliveCountMax 1
+
+# Automatically add keys to ssh-agent
+AddKeysToAgent yes
+
+# Include host files
+Include hosts.d/*
