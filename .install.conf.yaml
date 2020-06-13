@@ -48,12 +48,6 @@
     # Update git submodules
     - git submodule update --init --recursive
     # Install terminfo
-    - |
-        tic term/screen.terminfo
-        tic term/screen-256color.terminfo
-        tic term/tmux.terminfo
-        tic term/tmux-256color.terminfo
-        tic term/xterm.terminfo
-        tic term/xterm-256color.terminfo
+    - ./bin/terminfo.sh
     # Update neovim
     - ~/.local/bin/neovim-update.sh
