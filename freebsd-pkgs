@@ -1,6 +1,7 @@
 bash
 fish
 git-lfs
+go
 mosh
 neovim
 py37-ranger
