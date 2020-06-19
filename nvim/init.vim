@@ -35,8 +35,8 @@ Plug 'jremmen/vim-ripgrep'
 " ------
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'Shougo/deoplete.nvim', { 'tag': '5.1', 'do': ':UpdateRemotePlugins' }
-Plug 'dense-analysis/ale', { 'tag': 'v2.6.0' }
+Plug 'Shougo/deoplete.nvim', { 'tag': '5.2', 'do': ':UpdateRemotePlugins' }
+Plug 'dense-analysis/ale', { 'tag': 'v2.7.0' }
 
 " Writing
 " -------
@@ -89,7 +89,7 @@ let g:pencil#joinspaces = 1             " Use two spaces after a period
 
 " w0rp/ale
 " --------
-let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 750
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never' " save CPU and batery
@@ -103,7 +103,7 @@ let g:ale_sign_warning = '⚠'
 
 " Deoplete.nvim
 " -------------
-let g:deoplete#enable_at_startup = 0
+let g:deoplete#enable_at_startup = 1
 
 " Use ALE as completion sources all code.
 let g:deoplete#sources = {'go': ['ale']}
