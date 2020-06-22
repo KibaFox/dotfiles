@@ -7,6 +7,9 @@
 [push]
 	default = simple
 
+[pull]
+	ff = only
+
 # Allow local customizations
 [include]
 	path = ~/.config/git/config_local
