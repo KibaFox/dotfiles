@@ -8,6 +8,7 @@ set -g theme_color_scheme gruvbox
 # Environment Variables
 # =====================
 set -x EDITOR nvim
+set -x PAGER less
 set -x GOPATH "$HOME/go"
 set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
 
