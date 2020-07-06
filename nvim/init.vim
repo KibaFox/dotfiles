@@ -155,16 +155,9 @@ set hidden
 " Make it obvious where 80 characters is
 set colorcolumn=81
 
-" Line Numbers
-" Relative in Normal, Absolute in Insert
-" https://jeffkreeftmeijer.com/vim-number/
+" Line Numbers + reserve column width
 set numberwidth=5
-set number relativenumber
-augroup numbertoggle
-	autocmd!
-	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
+set number norelativenumber
 
 " Terminal
 au TermOpen * setlocal nonumber norelativenumber
@@ -234,7 +227,7 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <leader>l :GoLint<CR>
-au FileType go nmap <leader>q :GoImport<space>
+" au FileType go nmap <leader>q :GoImport<space>
 au FileType go nmap <Leader>g <Plug>(go-implements)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <Leader>s <Plug>(go-install)
