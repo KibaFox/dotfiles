@@ -12,6 +12,11 @@ set -x PAGER less
 set -x GOPATH "$HOME/go"
 set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
 
+# mosh-server sessions timeout after one week
+set -x MOSH_SERVER_NETWORK_TMOUT '604800'
+# mosh-server inactive sessions can be killed with: pkill -SIGUSR1 mosh-server
+set -x MOSH_SERVER_SIGNAL_TMOUT '28800'
+
 # Set PATH so it includes user's private bin directories (if they exist)
 set -la user_paths "$HOME/.local/bin"
 set -la user_paths "$GOPATH/bin"
