@@ -186,6 +186,10 @@ endif
 " Toggle spell check
 nnoremap <Leader>s :set spell!<CR>
 
+" Toggle Numbers and Gutters
+" -------------------
+nnoremap <Leader>n :set number!<CR>:ALEToggle<CR>:GitGutterToggle<CR>
+
 " Files
 " -----
 " fzf fuzzy file find
