@@ -175,7 +175,7 @@ set mouse=a
 set completeopt=menu,menuone,preview,noselect,noinsert
 
 if has("nvim-0.3.8") || has("patch-8.1.0360")
-    set diffopt+=internal,algorithm:histogram
+	set diffopt+=internal,algorithm:histogram
 endif
 
 " Mappings
@@ -259,5 +259,5 @@ omap <leader><tab> <plug>(fzf-maps-o)
 " ============
 let $LOCALFILE=expand("~/.config/nvim/init_local.vim")
 if filereadable($LOCALFILE)
-    source $LOCALFILE
+	source $LOCALFILE
 endif
