@@ -244,6 +244,10 @@ au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>gs <Plug>(go-doc-split)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
+" json-specific
+" ------------
+au FileType json nmap <Leader>p :%!python -m json.tool<CR>
+
 " fzf
 " ---
 " fzf mapping selecting mappings
