@@ -103,7 +103,7 @@ let g:ale_sign_warning = '⚠'
 
 " Deoplete.nvim
 " -------------
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 
 " Use ALE as completion sources all code.
 let g:deoplete#sources = {'go': ['ale']}
