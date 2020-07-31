@@ -1,0 +1,9 @@
+# ripgrep (rg) config file
+
+# case insensitive if the pattern is all lowercase
+# disable with: `-s` or `--case-sensitive`
+--smart-case
+
+# search hidden files and directories
+# disable with: `--no-hidden`
+--hidden

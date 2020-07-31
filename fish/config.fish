@@ -11,6 +11,7 @@ set -x EDITOR nvim
 set -x PAGER less
 set -x GOPATH "$HOME/go"
 set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
+set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/rgrc"
 
 # mosh-server sessions timeout after one week
 set -x MOSH_SERVER_NETWORK_TMOUT '604800'

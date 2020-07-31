@@ -39,6 +39,7 @@
     ~/.config/nvim/ftdetect: nvim/ftdetect/
     ~/.config/nvim/ftplugin: nvim/ftplugin/
     ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.config/ripgrep/rgrc: ripgrep/rgrc
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     ~/.gnupg/gpg.conf: gnupg/gpg.conf
     ~/.local/bin/neovim-update.sh: bin/neovim-update.sh
