@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eux
 
 # Only run if neovim is installed
 if type nvim > /dev/null 2>&1; then
@@ -19,16 +19,16 @@ if type nvim > /dev/null 2>&1; then
 	nvim -i NONE -c PlugClean! -c PlugUpdate -c quitall > /dev/null
 
 	# Install python neovim interface
-	if type pip3 > /dev/null 2>&1; then
-		pip3 install --upgrade neovim
-	else
-		echo 'pip3 was not detected. Skipping neovim python3 update...'
-	fi
-	if type pip2 > /dev/null 2>&1; then
-		pip2 install --upgrade neovim
-	else
-		echo 'pip2 was not detected. Skipping neovim python2 update...'
-	fi
+	#if type pip3 > /dev/null 2>&1; then
+	#	pip3 install --upgrade neovim
+	#else
+	#	echo 'pip3 was not detected. Skipping neovim python3 update...'
+	#fi
+	#if type pip2 > /dev/null 2>&1; then
+	#	pip2 install --upgrade neovim
+	#else
+	#	echo 'pip2 was not detected. Skipping neovim python2 update...'
+	#fi
 else
 	echo 'neovim was not detected. Skipping neovim update...'
 fi

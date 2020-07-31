@@ -35,13 +35,14 @@ Plug 'jremmen/vim-ripgrep'
 " ------
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'Shougo/deoplete.nvim', { 'tag': '5.2', 'do': ':UpdateRemotePlugins' }
+Plug 'lifepillar/vim-mucomplete', { 'tag': 'v1.4.1' }
 Plug 'dense-analysis/ale', { 'tag': 'v2.7.0' }
 
 " Writing
 " -------
 Plug 'reedes/vim-pencil'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'Konfekt/complete-common-words.vim'
 
 " PlantUML
 " --------
@@ -101,12 +102,26 @@ let g:ale_fixers = {'go': ['goimports']}
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 
-" Deoplete.nvim
-" -------------
-let g:deoplete#enable_at_startup = 0
+" complete-common-words
+" ---------------------
+let g:common_words_dicts_dir = expand('~/.config/nvim/plugged/complete-common-words.vim/dicts')
 
-" Use ALE as completion sources all code.
-let g:deoplete#sources = {'go': ['ale']}
+" mucomplete
+" --------------
+"let g:mucomplete#enable_auto_at_startup = 1
+
+" Setup for prose
+" https://github.com/lifepillar/vim-mucomplete/wiki/Suggested-Setup-for-Prose
+let g:mucomplete#chains = {
+	\ 'default':    ['file', 'keyn', 'omni', 'user', 'defs', 'incl', 'c-n', 'uspl'],
+	\ 'vim':        ['file', 'keyn', 'cmd',  'omni', 'user', 'c-n', 'uspl'],
+	\ 'text':       ['file', 'c-n',  'uspl', 'omni', 'user'],
+	\ }
+let g:mucomplete#can_complete = {}
+let g:mucomplete#can_complete.default = {
+	\     'c-n' : { t -> t =~# '\v\k{2,}$' },
+	\     'uspl': { t -> t =~# '\v\k{3,}$' && &l:spell && !empty(&l:spelllang) },
+	\ }
 
 " Vim-Go
 " ------
@@ -173,6 +188,9 @@ set mouse=a
 
 " Fix w0rp/ale completion automatically inserting text
 set completeopt=menu,menuone,preview,noselect,noinsert
+
+" turn off completion messages
+set shortmess+=c
 
 if has("nvim-0.3.8") || has("patch-8.1.0360")
 	set diffopt+=internal,algorithm:histogram
