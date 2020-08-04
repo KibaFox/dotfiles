@@ -61,6 +61,9 @@ end
 
 # Aliases
 # =======
+alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias ldot='git --git-dir=$HOME/.dotfiles-local/ --work-tree=$HOME'
+
 # rsync archive but exclude git repo
 alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
 
