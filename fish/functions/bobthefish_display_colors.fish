@@ -1,1 +1,0 @@
-../../fish_plugins/bobthefish/functions/bobthefish_display_colors.fish

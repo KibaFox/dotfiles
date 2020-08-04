@@ -1,1 +1,0 @@
-../../fish_plugins/bobthefish/functions/__bobthefish_glyphs.fish

@@ -22,16 +22,23 @@ set -x MOSH_SERVER_SIGNAL_TMOUT '28800'
 # Set PATH so it includes user's private bin directories (if they exist)
 set -la user_paths "$HOME/.local/bin"
 set -la user_paths "$GOPATH/bin"
-set -la user_paths "/snap/bin"
 set -la user_paths "/usr/local/go/bin"
-set -la user_paths "$HOME/mobiledev/flutter/bin"
-set -la user_paths "$HOME/mobiledev/android-studio/bin"
-set -la user_paths "/usr/local/opt/mysql-client/bin"
 for dir in $user_paths
 	if test -d "$dir"
 		set -ga fish_user_paths "$dir"
 	end
 end
+
+# Fisher
+# ======
+if not functions -q fisher
+	set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+	curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+	fish -c fisher
+end
+
+# To install prompt...
+# fisher add github.com/oh-my-fish/theme-bobthefish
 
 # SSH Agent
 # =========
@@ -52,28 +59,13 @@ if test -e $pinentry_mac
 	alias pinentry "$pinentry_mac"
 end
 
-# Completions
-# ===========
-
-# kitty completion
-# ----------------
-if type -fq kitty
-	kitty + complete setup fish | source
-end
-
 # Aliases
 # =======
-alias rdp "xfreerdp +compression +clipboard +fonts /home-drive /cert-ignore /size:1400x1050"
+# rsync archive but exclude git repo
 alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
 
 # Clean out neovim swp files
 alias clean-swp "rm -f ~/.local/share/nvim/swap/*.swp"
-
-# WeeChat
-alias weechat "weechat -d $HOME/.config/weechat"
-
-# Search DuckDuckGo
-alias ddg "sr duckduckgo -browser=w3m"
 
 # Local config
 # ============

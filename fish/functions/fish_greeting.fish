@@ -1,1 +1,0 @@
-../../fish_plugins/bobthefish/fish_greeting.fish

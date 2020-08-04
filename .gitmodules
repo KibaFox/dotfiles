@@ -1,6 +1,3 @@
 [submodule ".dotbot"]
 	path = .dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule "fish_plugins/bobthefish"]
-	path = fish_plugins/bobthefish
-	url = https://github.com/oh-my-fish/theme-bobthefish.git
