@@ -1,0 +1,22 @@
+# ripgrep (rg) ignore file
+#
+# This file is used to ignore file for ripgrep to search in addition to the
+# .gitignore file.
+#
+# You can disable this for a run of ripgrep by using the `-u` flag.
+#
+# See `man rg` for more details. Also see: https://github.com/BurntSushi/ripgrep
+
+!/.config/
+!/.gnupg/
+!/.local/bin/
+**/.git/
+*-token
+.DS_Store
+._sync_*
+/.*/
+/.*_history
+/.config/nvim/plugged/
+/.viminfo
+/Library/
+/go/
