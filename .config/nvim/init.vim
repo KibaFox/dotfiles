@@ -157,6 +157,9 @@ set undofile
 " Show whitespace
 set list
 
+" Default to nowrap (helps when coding side-by-side)
+set nowrap
+
 " Soft indent for soft wrap lines
 let &showbreak = '+   '
 
