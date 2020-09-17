@@ -10,7 +10,9 @@ if ! command -v brew; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-brew install \
+brew upgrade --ignore-pinned
+
+brew install --quiet \
 	awscli \
 	bat \
 	dep \
@@ -21,6 +23,7 @@ brew install \
 	git-lfs \
 	go \
 	hashcat \
+	httpie \
 	jq \
 	libpq \
 	mage \
@@ -40,7 +43,7 @@ brew install \
 	vault \
 	;
 
-brew upgrade
+brew cask upgrade
 
 brew cask install \
 	blackhole \
@@ -59,5 +62,3 @@ brew cask install \
 	viscosity \
 	wireshark \
 	;
-
-brew cask upgrade
