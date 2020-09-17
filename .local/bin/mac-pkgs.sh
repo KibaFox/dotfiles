@@ -56,7 +56,6 @@ brew cask install \
 	gpg-suite \
 	keepassxc \
 	keepingyouawake \
-	nextcloud \
 	prolific-pl2303 \
 	uhk-agent \
 	viscosity \
