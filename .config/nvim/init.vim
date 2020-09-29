@@ -29,7 +29,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " fuzzy finder
-Plug 'jremmen/vim-ripgrep'
+Plug 'wincent/ferret' " search w/ ripgrep (rg)
 
 " Coding
 " ------
