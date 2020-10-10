@@ -3,6 +3,7 @@
 pkg install \
 	bash \
 	bat \
+	bind-tools \
 	fish \
 	git-lfs \
 	go \
