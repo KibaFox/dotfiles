@@ -38,6 +38,7 @@ brew cask install \
 	font-fira-code \
 	font-source-code-pro \
 	keepingyouawake \
+	meld \
 	uhk-agent \
 	viscosity \
 	;
