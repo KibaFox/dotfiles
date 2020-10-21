@@ -59,6 +59,27 @@ if test -e $pinentry_mac
 	alias pinentry "$pinentry_mac"
 end
 
+# SSH keys
+# ========
+set -la user_keys "$HOME/.ssh/id_ed25519"
+set -la user_keys "$HOME/.ssh/id_rsa"
+
+# See if the key is already loaded into ssh-agent
+# Checks the public key comment against the comment displayed in `ssh-add -l`
+set -l loaded_keys (ssh-add -l | cut -d ' ' -f 3)
+for key in $user_keys
+	if not test -f "$key"; continue; end
+
+	set -l key_comment (cut -d ' ' -f 3 "$key.pub")
+	if not contains "$key_comment" $loaded_keys
+		if test (uname) = "darwin"
+			ssh-add -K "$key"
+		else
+			ssh-add "$key"
+		end
+	end
+end
+
 # Aliases
 # =======
 alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
