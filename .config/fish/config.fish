@@ -96,3 +96,7 @@ alias clean-swp "rm -f ~/.local/share/nvim/swap/*.swp"
 if test -f ~/.config/fish/config_local.fish
 	source ~/.config/fish/config_local.fish
 end
+
+# Password Practice
+# =================
+pwrem
