@@ -55,6 +55,11 @@ function pwrem -d 'Password remember.  Practice a password to remember it.'
 		_get
 		or return 1
 	else
+		if not isatty
+			# escape if we aren't in a TTY
+			return
+		end
+
 		set -l pw (_get)
 		or return 0 # no password
 
@@ -64,7 +69,7 @@ function pwrem -d 'Password remember.  Practice a password to remember it.'
 
 			if test "$pw" = "$passwd"
 				echo 'Correct!  Run `pwrem --del` to delete your password.'
-				break
+				continue
 			end
 
 			echo 'Incorrect!  Reveal password?)'
