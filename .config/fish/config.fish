@@ -72,7 +72,7 @@ for key in $user_keys
 
 	set -l key_comment (cut -d ' ' -f 3 "$key.pub")
 	if not contains "$key_comment" $loaded_keys
-		if test (uname) = "darwin"
+		if test (uname) = "Darwin"
 			ssh-add -K "$key"
 		else
 			ssh-add "$key"
