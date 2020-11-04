@@ -16,6 +16,7 @@ brew tap homebrew/cask-fonts d12frosted/emacs-plus
 
 brew install --quiet \
 	bat \
+	cmake \
 	coreutils \
 	emacs-plus \
 	fd \
