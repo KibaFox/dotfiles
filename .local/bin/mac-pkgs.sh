@@ -12,8 +12,13 @@ fi
 
 brew upgrade --ignore-pinned
 
+brew tap homebrew/cask-fonts d12frosted/emacs-plus
+
 brew install --quiet \
 	bat \
+	coreutils \
+	emacs-plus \
+	fd \
 	fish \
 	git \
 	git-lfs \
