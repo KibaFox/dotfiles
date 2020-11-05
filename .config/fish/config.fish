@@ -30,20 +30,14 @@ for dir in $user_paths
 	end
 end
 
-# Fisher
+# Fundle - https://github.com/danhper/fundle
 # ======
-if not functions -q fisher
-	set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-	curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-	fish -c fisher
-end
+if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 
-# To install prompt...
-# fisher add github.com/oh-my-fish/theme-bobthefish
+fundle plugin 'danhper/fish-ssh-agent'
+fundle plugin 'oh-my-fish/theme-bobthefish'
 
-# SSH Agent
-# =========
-fish_ssh_agent
+fundle init
 
 #set -x GPG_TTY (tty)
 #set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
@@ -100,4 +94,6 @@ end
 
 # Password Practice
 # =================
-pwrem
+if test (uname) = "Darwin"
+	pwrem
+end

@@ -60,6 +60,11 @@ function pwrem -d 'Password remember.  Practice a password to remember it.'
 			return
 		end
 
+		if not test (uname) = "Darwin"
+			echo 'pwrem only supports macOS curently'
+			return
+		end
+
 		set -l pw (_get)
 		or return 0 # no password
 
