@@ -36,7 +36,7 @@ Plug 'wincent/ferret' " search w/ ripgrep (rg)
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'lifepillar/vim-mucomplete', { 'tag': 'v1.4.1' }
-Plug 'dense-analysis/ale', { 'tag': 'v2.7.0' }
+Plug 'dense-analysis/ale', { 'tag': 'v3.0.0' }
 
 " Writing
 " -------
@@ -53,7 +53,7 @@ Plug 'weirongxu/plantuml-previewer.vim' " live preview
 " Language & Syntax
 " -----------------
 Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
-Plug 'fatih/vim-go', { 'tag': 'v1.23', 'do': ':GoUpdateBinaries' } " Golang
+Plug 'fatih/vim-go', { 'tag': 'v1.24', 'do': ':GoUpdateBinaries' } " Golang
 
 call plug#end()
 
