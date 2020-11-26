@@ -82,7 +82,8 @@ alias ldot='git --git-dir=$HOME/.dotfiles-local/ --work-tree=$HOME'
 alias dom='emacs -nw'
 
 # rsync archive but exclude git repo
-alias rsyncg "rsync -a --exclude='.git/' --exclude-from='.gitignore'"
+#alias rsyncg="rsync -a --exclude='.git/' --exclude-from='.gitignore'"
+alias rsyncg="rsync -a --exclude='.git/'"
 
 # Clean out neovim swp files
 alias clean-swp "rm -f ~/.local/share/nvim/swap/*.swp"
