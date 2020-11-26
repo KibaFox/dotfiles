@@ -1,0 +1,40 @@
+- defaults:
+    link:
+      create: true
+      glob: true
+      relative: true
+      relink: true
+
+- clean:
+  - '~/'
+  - '~/.config/fish/functions'
+  - '~/.config/nvim/autoload'
+  - '~/.config/nvim/ftdetect'
+  - '~/.config/nvim/ftplugin'
+  - '~/.gnupg'
+  - '~/.local/bin'
+
+- link:
+    ~/.config/bat/batrc: config/bat/batrc
+    ~/.config/doom/: config/doom/*
+    ~/.config/fish/config.fish: config/fish/config.fish
+    ~/.config/fish/functions/: config/fish/functions/*
+    ~/.config/git/: config/git/*
+    ~/.config/nvim/autoload/: config/nvim/autoload/*
+    ~/.config/nvim/ftdetect/: config/nvim/ftdetect/*
+    ~/.config/nvim/ftplugin/: config/nvim/ftplugin/*
+    ~/.config/nvim/init.vim: config/nvim/init.vim
+    ~/.config/ripgrep/rgrc: config/ripgrep/rgrc
+    ~/.gnupg/: gnupg/*
+    ~/.local/bin/: local/bin/*
+    ~/.rgignore:
+    ~/.ssh/config: ssh/config
+    ~/.tmux.conf:
+    ~/.vimrc:
+
+- create:
+    - ~/.config/nvim/spell
+    - ~/.ssh/hosts.d
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
