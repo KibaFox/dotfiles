@@ -54,6 +54,7 @@ Plug 'weirongxu/plantuml-previewer.vim' " live preview
 " -----------------
 Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
 Plug 'fatih/vim-go', { 'tag': 'v1.24', 'do': ':GoUpdateBinaries' } " Golang
+Plug 'https://tildegit.org/sloum/gemini-vim-syntax' " gemini
 
 call plug#end()
 
