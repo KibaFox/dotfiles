@@ -43,6 +43,7 @@ Plug 'dense-analysis/ale', { 'tag': 'v3.0.0' }
 Plug 'reedes/vim-pencil'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'Konfekt/complete-common-words.vim'
+Plug 'junegunn/goyo.vim'
 
 " PlantUML
 " --------
@@ -153,6 +154,10 @@ au FileType plantuml let g:plantuml_previewer#plantuml_jar_path = get(
 	\  1,
 	\  0
 	\)
+
+" Goyo
+" ----
+let g:goyo_height = '100%'
 
 " Options
 " =======
@@ -284,6 +289,11 @@ au FileType json nmap <Leader>p :%!python -m json.tool<CR>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
+
+" Goyo
+" ----
+" Toggle distraction-free mode
+nnoremap <leader>w :Goyo<CR>
 
 " Filetype Configuration
 " ======================
