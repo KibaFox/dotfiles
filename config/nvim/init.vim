@@ -285,6 +285,13 @@ nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
+" Filetype Configuration
+" ======================
+augroup gemini
+au FileType gmi call pencil#init({'wrap': 'soft'})
+au FileType gmi setlocal spell
+augroup END
+
 " Local Config
 " ============
 let $LOCALFILE=expand("~/.config/nvim/init_local.vim")
