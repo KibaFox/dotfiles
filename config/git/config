@@ -16,7 +16,7 @@
 
 [diff]
 	tool = vimdiff
-	guitool = meld
+	guitool = kdiff3
 	algorithm = histogram
 
 [difftool]
@@ -27,7 +27,7 @@
 
 [merge]
 	conflictstyle = diff3
-	guitool = meld
+	guitool = kdiff3
 
 [sendemail]
 	annotate = yes

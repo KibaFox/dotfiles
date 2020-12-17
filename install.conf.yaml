@@ -9,8 +9,6 @@
   - '~/'
   - '~/.config/fish/functions'
   - '~/.config/nvim/autoload'
-  - '~/.config/nvim/ftdetect'
-  - '~/.config/nvim/ftplugin'
   - '~/.gnupg'
   - '~/.local/bin'
 
@@ -21,8 +19,6 @@
     ~/.config/fish/functions/: config/fish/functions/*
     ~/.config/git/: config/git/*
     ~/.config/nvim/autoload/: config/nvim/autoload/*
-    ~/.config/nvim/ftdetect/: config/nvim/ftdetect/*
-    ~/.config/nvim/ftplugin/: config/nvim/ftplugin/*
     ~/.config/nvim/init.vim: config/nvim/init.vim
     ~/.config/ripgrep/rgrc: config/ripgrep/rgrc
     ~/.gnupg/: gnupg/*

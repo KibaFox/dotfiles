@@ -1,61 +1,42 @@
-" Leader mapping
-" ==============
+set nocompatible
+let mapleader = "\<Space>" " Map <Leader> to space-bar
 
-" Map <Leader> to space-bar
-" Set this before everything else.
-let mapleader = "\<Space>"
-
-" Load Plugins
-" ============
+" Plugins
+" =======
 
 call plug#begin()
 
 " Look and feel
-" -------------
-Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'               " colorscheme
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'qpkorr/vim-bufkill'
-Plug 'justincampbell/vim-eighties' " Automatically resizes your windows
-Plug 'tpope/vim-eunuch' " Unix helpers
-Plug 'tpope/vim-unimpaired' " Paired keybindings
-Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with '.'
-Plug 'vim-scripts/scratch.vim' " Scratch buffer
-Plug 'majutsushi/tagbar' " a class outline viewer
+Plug 'justincampbell/vim-eighties'   " automatically resize windows
+Plug 'tpope/vim-eunuch'              " unix helpers
+Plug 'tpope/vim-unimpaired'          " paired keybindings
+Plug 'tpope/vim-repeat'              " enable repeating supported plugin maps with '.'
+Plug 'vim-scripts/scratch.vim'       " scratch buffer
 
 " Navigation
-" ----------
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-dirvish'
+Plug 'wincent/ferret'                " search w/ ripgrep (rg) using :Ack
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim' " fuzzy finder
-Plug 'wincent/ferret' " search w/ ripgrep (rg)
+Plug 'junegunn/fzf.vim'              " fuzzy finder
 
 " Coding
-" ------
-Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-fugitive'
-Plug 'lifepillar/vim-mucomplete', { 'tag': 'v1.4.1' }
-Plug 'dense-analysis/ale', { 'tag': 'v3.0.0' }
+Plug 'editorconfig/editorconfig-vim' " per-project editor configuration
+Plug 'tpope/vim-fugitive'            " git commands
 
 " Writing
-" -------
-Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-pencil'             " handle hard and soft line wrap
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-Plug 'Konfekt/complete-common-words.vim'
-Plug 'junegunn/goyo.vim'
-
-" PlantUML
-" --------
-Plug 'weirongxu/plantuml-previewer.vim' " live preview
-	Plug 'aklt/plantuml-syntax'     " syntax and :make
-	Plug 'tyru/open-browser.vim'    " open browser
+Plug 'junegunn/goyo.vim'             " distraction-free writing
 
 " Language & Syntax
-" -----------------
-Plug 'sheerun/vim-polyglot' " Provides basic support for a variety of languages
+Plug 'sheerun/vim-polyglot'          " syntax highlighting for many languages
+Plug 'https://tildegit.org/sloum/gemini-vim-syntax' " gemini syntax highlights
 Plug 'fatih/vim-go', { 'tag': 'v1.24', 'do': ':GoUpdateBinaries' } " Golang
-Plug 'https://tildegit.org/sloum/gemini-vim-syntax' " gemini
 
 call plug#end()
 
@@ -63,7 +44,6 @@ call plug#end()
 " ====================
 
 " Gruvbox colorscheme
-" -------------------
 if !empty(glob("~/.config/nvim/plugged/gruvbox"))
 	let g:gruvbox_contrast_dark = 'hard'
 	let g:gruvbox_italic = 1
@@ -72,12 +52,10 @@ if !empty(glob("~/.config/nvim/plugged/gruvbox"))
 endif
 
 " Airline
-" -------
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
 
 " plasticboy/vim-markdown
-" -----------------------
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_conceal = 2
@@ -85,131 +63,50 @@ let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_folding_disabled = 1
 
 " Pencil
-" ------
 let g:pencil#textwidth = 80             " Set pencil's width
-let g:pencil#wrapModeDefault = 'soft'   " Use soft wrap
+let g:pencil#wrapModeDefault = 'soft'   " Use soft wrap by default
 let g:pencil#joinspaces = 1             " Use two spaces after a period
 
-" w0rp/ale
-" --------
-let g:ale_completion_enabled = 1
-let g:ale_completion_delay = 750
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_text_changed = 'never' " save CPU and batery
-let g:ale_linters_explicit = 1
-let g:ale_linters = {'go': ['gopls', 'golangci-lint']}
-let g:ale_fixers = {'go': ['goimports']}
-
-" Error and warning signs.
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
-
-" complete-common-words
-" ---------------------
-let g:common_words_dicts_dir = expand('~/.config/nvim/plugged/complete-common-words.vim/dicts')
-
-" mucomplete
-" --------------
-"let g:mucomplete#enable_auto_at_startup = 1
-
-" Setup for prose
-" https://github.com/lifepillar/vim-mucomplete/wiki/Suggested-Setup-for-Prose
-let g:mucomplete#chains = {
-	\ 'default':    ['file', 'keyn', 'omni', 'user', 'defs', 'incl', 'c-n', 'uspl'],
-	\ 'vim':        ['file', 'keyn', 'cmd',  'omni', 'user', 'c-n', 'uspl'],
-	\ 'text':       ['file', 'c-n',  'uspl', 'omni', 'user'],
-	\ }
-let g:mucomplete#can_complete = {}
-let g:mucomplete#can_complete.default = {
-	\     'c-n' : { t -> t =~# '\v\k{2,}$' },
-	\     'uspl': { t -> t =~# '\v\k{3,}$' && &l:spell && !empty(&l:spelllang) },
-	\ }
-
 " Vim-Terraform - included w/ vim-polyglot
-" -------------
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 
+" eighties.vim
+let g:eighties_extra_width = 2
+
+" goyo.vim
+let g:goyo_height = '100%'
+
 " Vim-Go
-" ------
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = 'gopls'
-let g:go_imports_mode = 'gopls'
-let g:go_implements_mode = 'gopls'
-let g:go_rename_command = 'gopls'
-
-" eighties.vim
-" ------------
-let g:eighties_extra_width = 2
-
-" planuml-previewer.vim
-" ---------------------
-" MacOS get plantuml.jar path after brew install plantuml`
-au FileType plantuml let g:plantuml_previewer#plantuml_jar_path = get(
-	\  matchlist(system('grep plantuml.jar /usr/local/bin/plantuml'), '\v.* (\S+plantuml\.jar).*'),
-	\  1,
-	\  0
-	\)
-
-" Goyo
-" ----
-let g:goyo_height = '100%'
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_format_strings = 1
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "gofumports"
 
 " Options
 " =======
+set undofile            " turn on persistent undo
+set list                " show whitespace
+set nowrap              " default to nowrap (helps when coding side-by-side)
+let &showbreak = '+   ' " soft indent for soft wrap lines
+set ruler               " show position in file
+set ignorecase          " case-insensitive search
+set smartcase           " smart case-insensitive search
+set hidden              " allow buffers with unsaved changes to be hidden
+set colorcolumn=81      " make it obvious where 80 characters is
+set numberwidth=5       " reserve column width for line numbers
+set number norelativenumber " show fixed line numbers
+set complete+=kspell    " autocomplete with dictionary words when spell check is on
+set termguicolors       " turn on 24-bit truecolor
+set mouse=a             " enable mouse
 
-" Turn on persistent undo
-set undofile
-
-" Show whitespace
-set list
-
-" Default to nowrap (helps when coding side-by-side)
-set nowrap
-
-" Soft indent for soft wrap lines
-let &showbreak = '+   '
-
-" Show position in file
-set ruler
-
-" Smart case-insensitive search
-set ignorecase
-set smartcase
-
-" Allow buffers with unsaved changes to be hidden
-set hidden
-
-" Make it obvious where 80 characters is
-set colorcolumn=81
-
-" Line Numbers + reserve column width
-set numberwidth=5
-set number norelativenumber
-
-" Terminal
-au TermOpen * setlocal nonumber norelativenumber
-
-" Autocomplete with dictionary words when spell check is on
-set complete+=kspell
-
-" Turn on 24-bit truecolor
-set termguicolors
-
-" Enable mouse
-set mouse=a
-
-" Fix w0rp/ale completion automatically inserting text
-set completeopt=menu,menuone,preview,noselect,noinsert
-
-" turn off completion messages
-set shortmess+=c
-
-if has("nvim-0.3.8") || has("patch-8.1.0360")
+if has("nvim-0.3.8") || has("patch-8.1.0360") " histogram diffs are easier to read
 	set diffopt+=internal,algorithm:histogram
 endif
 
@@ -218,6 +115,7 @@ endif
 
 " Spell check
 " -----------
+
 " Toggle spell check
 nnoremap <Leader>s :set spell!<CR>
 
@@ -230,9 +128,6 @@ nnoremap <Leader>n :set number!<CR>:ALEToggle<CR>:GitGutterToggle<CR>
 " fzf fuzzy file find
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fg :GFiles?<CR>
-
-" open Ranger
-nnoremap <leader>fr :Ranger<CR>
 
 " open Dirvish
 nnoremap <leader>fd :Dirvish<CR>
@@ -254,41 +149,10 @@ nnoremap <silent> <leader>q gqap
 " Format selection (visual mode)
 xnoremap <silent> <leader>q gq
 
-" Moving between errors (w0rp/ale)
-" --------------------------------
-nmap <silent> <leader>k <Plug>(ale_previous_wrap)
-nmap <silent> <leader>j <Plug>(ale_next_wrap)
-
-" Go-Specific
-" -----------
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>e <Plug>(go-rename)
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <leader>l :GoLint<CR>
-" au FileType go nmap <leader>q :GoImport<space>
-au FileType go nmap <Leader>g <Plug>(go-implements)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <Leader>s <Plug>(go-install)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>v <Plug>(go-vet)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-au FileType go nmap <Leader>gs <Plug>(go-doc-split)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-
 " json-specific
 " ------------
+" prettyify json
 au FileType json nmap <Leader>p :%!python -m json.tool<CR>
-
-" fzf
-" ---
-" fzf mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
 
 " Goyo
 " ----
@@ -297,9 +161,23 @@ nnoremap <leader>w :Goyo<CR>
 
 " Filetype Configuration
 " ======================
-augroup gemini
-au FileType gmi call pencil#init({'wrap': 'soft'})
-au FileType gmi setlocal spell
+augroup git
+	au FileType gitcommit setlocal textwidth=72
+	au FileType gitcommit setlocal colorcolumn=+1
+	au FileType gitcommit setlocal spell
+	au FileType gitconfig setlocal noexpandtab
+	au FileType gitconfig setlocal tabstop=4
+augroup END
+
+augroup text
+	au FileType gmi call pencil#init({'wrap': 'soft'})
+	au FileType gmi setlocal spell
+	au FileType markdown call pencil#init({'wrap': 'hard'})
+	au FileType markdown setlocal spell
+	au FileType rst call pencil#init({'wrap': 'hard'})
+	au FileType rst setlocal spell
+	au FileType text call pencil#init({'wrap': 'soft'})
+	au FileType text setlocal spell
 augroup END
 
 " Local Config
