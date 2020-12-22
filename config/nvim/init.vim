@@ -30,7 +30,6 @@ Plug 'tpope/vim-fugitive'            " git commands
 
 " Writing
 Plug 'reedes/vim-pencil'             " handle hard and soft line wrap
-Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim'             " distraction-free writing
 
 " Language & Syntax
@@ -56,11 +55,10 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
 
 " plasticboy/vim-markdown
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_conceal = 2
-let g:vim_markdown_folding_style_pythonic = 1
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1      " frontmatter hightlights
+let g:vim_markdown_toml_frontmatter = 1 " TOML frontmatter highlights
+let g:vim_markdown_conceal = 0          " Don't conceal syntax
+let g:vim_markdown_folding_disabled = 1 " Diable folding at headers
 
 " Pencil
 let g:pencil#textwidth = 80             " Set pencil's width
@@ -172,10 +170,8 @@ augroup END
 augroup text
 	au FileType gmi call pencil#init({'wrap': 'soft'})
 	au FileType gmi setlocal spell
-	au FileType markdown call pencil#init({'wrap': 'hard'})
-	au FileType markdown setlocal spell
-	au FileType rst call pencil#init({'wrap': 'hard'})
-	au FileType rst setlocal spell
+	" au FileType markdown call pencil#init({'wrap': 'hard'})
+	" au FileType markdown setlocal spell
 	au FileType text call pencil#init({'wrap': 'soft'})
 	au FileType text setlocal spell
 augroup END
