@@ -12,18 +12,19 @@ fi
 
 brew upgrade --ignore-pinned
 
-brew tap homebrew/cask-fonts d12frosted/emacs-plus
+brew tap homebrew/cask-fonts
+brew tap skyjake/lagrange
 
 brew install --quiet \
 	bat \
 	cmake \
 	coreutils \
-	emacs-plus \
 	fd \
 	fish \
 	git \
 	git-lfs \
 	go \
+	lagrange \
 	mage \
 	mosh \
 	neovim \
@@ -33,7 +34,7 @@ brew install --quiet \
 	ripgrep \
 	shellcheck \
 	tmux \
-	tree  \
+	tree \
 	;
 
 brew cask upgrade
