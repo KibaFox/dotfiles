@@ -10,12 +10,13 @@ if ! command -v brew; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-brew upgrade --ignore-pinned
+brew upgrade --formula --ignore-pinned
 
+brew tap homebrew/cask-drivers
 brew tap homebrew/cask-fonts
 brew tap skyjake/lagrange
 
-brew install --quiet \
+brew install --formula --quiet \
 	bat \
 	cmake \
 	coreutils \
@@ -24,7 +25,7 @@ brew install --quiet \
 	git \
 	git-lfs \
 	go \
-	lagrange \
+	golangci-lint \
 	mage \
 	mosh \
 	neovim \
@@ -37,14 +38,15 @@ brew install --quiet \
 	tree \
 	;
 
-brew cask upgrade
+brew upgrade --cask
 
-brew cask install \
+brew install --cask --quiet \
 	dash \
 	drawio \
 	font-fira-code \
 	font-source-code-pro \
 	keepingyouawake \
+	lagrange \
 	meld \
 	uhk-agent \
 	viscosity \
