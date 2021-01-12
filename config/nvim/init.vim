@@ -159,20 +159,24 @@ nnoremap <leader>w :Goyo<CR>
 
 " Filetype Configuration
 " ======================
-augroup git
+augroup gitcommit
 	au FileType gitcommit setlocal textwidth=72
 	au FileType gitcommit setlocal colorcolumn=+1
 	au FileType gitcommit setlocal spell
+augroup END
+
+augroup gitconfig
 	au FileType gitconfig setlocal noexpandtab
 	au FileType gitconfig setlocal tabstop=4
 augroup END
 
-augroup text
+augroup gmi
 	au BufRead,BufNewFile *.gmi.txt set filetype=gmi
 	au FileType gmi call pencil#init({'wrap': 'soft'})
 	au FileType gmi setlocal spell
-	" au FileType markdown call pencil#init({'wrap': 'hard'})
-	" au FileType markdown setlocal spell
+augroup END
+
+augroup text
 	au FileType text call pencil#init({'wrap': 'soft'})
 	au FileType text setlocal spell
 augroup END
