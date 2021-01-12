@@ -168,6 +168,7 @@ augroup git
 augroup END
 
 augroup text
+	au BufRead,BufNewFile *.gmi.txt set filetype=gmi
 	au FileType gmi call pencil#init({'wrap': 'soft'})
 	au FileType gmi setlocal spell
 	" au FileType markdown call pencil#init({'wrap': 'hard'})
