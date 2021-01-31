@@ -177,6 +177,11 @@ augroup gmi
 	au FileType gmi setlocal spell
 augroup END
 
+augroup markdown
+	au FileType markdown call pencil#init({'wrap': 'soft'})
+	au FileType markdown setlocal spell
+augroup END
+
 augroup text
 	au FileType text call pencil#init({'wrap': 'soft'})
 	au FileType text setlocal spell
