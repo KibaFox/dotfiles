@@ -86,7 +86,7 @@ let g:go_highlight_generate_tags = 1
 let g:go_highlight_string_spellcheck = 1
 let g:go_highlight_format_strings = 1
 let g:go_fmt_autosave = 1
-let g:go_fmt_command = "gopls"
+let g:go_fmt_command = "goimports"
 
 " Options
 " =======
