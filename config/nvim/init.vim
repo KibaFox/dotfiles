@@ -37,6 +37,7 @@ Plug 'sheerun/vim-polyglot'          " syntax highlighting for many languages
 	Plug 'godlygeek/tabular'     " plasticboy/vim-markdown :TableFormat
 Plug 'https://tildegit.org/sloum/gemini-vim-syntax' " gemini syntax highlights
 Plug 'fatih/vim-go', { 'tag': 'v1.24', 'do': ':GoUpdateBinaries' } " Golang
+Plug 'dense-analysis/ale', { 'tag': 'v3.1.0' } " Asynchronous Lint Engine
 
 call plug#end()
 
@@ -85,8 +86,15 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_string_spellcheck = 1
 let g:go_highlight_format_strings = 1
-let g:go_fmt_autosave = 1
-let g:go_fmt_command = "goimports"
+
+" Ale
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'never' " save CPU and batery
+let g:ale_linters_explicit = 1
+let g:ale_linters = {'go': ['gopls', 'golangci-lint']}
+let g:ale_fixers = {'go': ['goimports']}
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
 
 " Options
 " =======
