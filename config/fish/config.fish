@@ -88,6 +88,18 @@ alias rsyncg="rsync -a --exclude='.git/'"
 # Clean out neovim swp files
 alias clean-swp "rm -f ~/.local/share/nvim/swap/*.swp"
 
+# bat is the new cat, if it exists
+if command -q bat
+	alias cat=bat
+end
+
+# vi = neovim or vim, depending on which exists
+if command -q nvim
+	alias vi=nvim
+else if command -q vim
+	alias vi=vim
+end
+
 # Local config
 # ============
 if test -f ~/.config/fish/config_local.fish
