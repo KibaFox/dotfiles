@@ -41,6 +41,11 @@
 	process = git-lfs filter-process
 	required = true
 
+[instaweb]
+	local = true
+	httpd = python
+	port = 4321
+
 [alias]
 	# Pretty log graphs from http://stackoverflow.com/a/34467298
 	lg = !"git lg1"
