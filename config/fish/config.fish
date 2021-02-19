@@ -100,6 +100,9 @@ else if command -q vim
 	alias vi=vim
 end
 
+# less - case insensitive search, highlight all matches, wrap search
+alias less='less --ignore-case --hilite-search --search-skip-screen'
+
 # Local config
 # ============
 if test -f ~/.config/fish/config_local.fish
