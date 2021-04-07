@@ -9,6 +9,7 @@ function pwrem -d 'Password remember.  Practice a password to remember it.'
 		echo '-a, --add         to add a new password'
 		echo '-d, --del         to delete the password'
 		echo '-r, --reveal      to reveal the password'
+		echo '-q, --query       silently checks if a password is stored'
 		echo '-h, --help        to show this help text'
 	end
 
@@ -37,7 +38,7 @@ function pwrem -d 'Password remember.  Practice a password to remember it.'
 		echo 'Password deleted from keychain.'
 	end
 
-	argparse --name=pwrem 'a/add' 'd/del' 'r/reveal' 'h/help' -- $argv
+	argparse --name=pwrem 'a/add' 'd/del' 'r/reveal' 'q/query' 'h/help' -- $argv
 	or return
 
 	if test -n "$_flag_h"
@@ -54,6 +55,12 @@ function pwrem -d 'Password remember.  Practice a password to remember it.'
 	else if test -n "$_flag_r"
 		_get
 		or return 1
+	else if test -n "$_flag_q"
+		if test (uname) = "Darwin" && _get 2&> /dev/null
+			return 0 # if on Mac and we have a password
+		else
+			return 1
+		end
 	else
 		if not isatty
 			# escape if we aren't in a TTY

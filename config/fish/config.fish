@@ -108,6 +108,6 @@ end
 
 # Password Practice
 # =================
-if test (uname) = "Darwin"
+if pwrem -q
 	pwrem
 end
