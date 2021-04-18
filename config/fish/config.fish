@@ -7,12 +7,25 @@ set -g theme_display_cmd_duration no
 
 # Environment Variables
 # =====================
-set -x EDITOR nvim
+# EDITOR is neovim, vim, or vii; whichever is installed.
+if command -q nvim
+	set -x EDITOR nvim
+else if command -q vim
+	set -x EDITOR vim
+else if command -q vi
+	set -x EDITOR vi
+end
 set -x PAGER less
 set -x GOPATH "$HOME/go"
-set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
 set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/rgrc"
 set -x BAT_CONFIG_PATH "$HOME/.config/bat/batrc"
+
+# FZF_DEFAULT_COMMAND prefer ripgrep, use silver searcher as a fallback.
+if command -q rg
+	set -x FZF_DEFAULT_COMMAND 'rg --color never --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
+else if command -q ag
+	set -x FZF_DEFAULT_COMMAND 'ag --nocolor -l --hidden --follow --ignore-dir .git --ignore-dir vendor'
+end
 
 # mosh-server sessions timeout after one week
 set -x MOSH_SERVER_NETWORK_TMOUT '604800'
