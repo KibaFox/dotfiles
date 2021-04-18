@@ -43,15 +43,6 @@ for dir in $user_paths
 	end
 end
 
-# Fundle - https://github.com/danhper/fundle
-# ======
-if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
-
-fundle plugin 'danhper/fish-ssh-agent'
-fundle plugin 'oh-my-fish/theme-bobthefish'
-
-fundle init
-
 #set -x GPG_TTY (tty)
 #set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 #if test ! -e $SSH_AUTH_SOCK
