@@ -1,9 +1,17 @@
 # Prompt settings
 # ===============
-# bobthefish prompt options
-set -g theme_color_scheme gruvbox
-set -g theme_display_date no
-set -g theme_display_cmd_duration no
+# fish_git_prompt
+# https://fishshell.com/docs/current/cmds/fish_git_prompt.html
+set __fish_git_prompt_show_informative_status
+set __fish_git_prompt_showstashstate
+
+# fish_git_prompt colors
+set __fish_git_prompt_showcolorhints
+set __fish_git_prompt_color_branch blue --bold
+set __fish_git_prompt_color_cleanstate green --bold
+set __fish_git_prompt_color_merging red
+set __fish_git_prompt_color_stagedstate yellow
+set __fish_git_prompt_color_upstream yellow
 
 # Environment Variables
 # =====================
