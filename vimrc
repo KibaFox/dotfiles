@@ -8,7 +8,7 @@ call plug#begin()
 
 " Look and feel
 Plug 'morhetz/gruvbox'               " colorscheme
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'qpkorr/vim-bufkill'
 Plug 'justincampbell/vim-eighties'   " automatically resize windows
@@ -51,10 +51,6 @@ if !empty(glob("~/.vim/plugged/gruvbox"))
 	set background=dark
 	colorscheme gruvbox
 endif
-
-" Airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'gruvbox'
 
 " plasticboy/vim-markdown
 let g:vim_markdown_frontmatter = 1      " frontmatter hightlights
@@ -112,6 +108,7 @@ set number norelativenumber " show fixed line numbers
 set complete+=kspell    " autocomplete with dictionary words when spell check is on
 set termguicolors       " turn on 24-bit truecolor
 set mouse=a             " enable mouse
+set laststatus=2        " always enable status line (required for lightline)
 
 if has("nvim-0.3.8") || has("patch-8.1.0360") " histogram diffs are easier to read
 	" for some reason this doesn't work for the VIM that comes with MacOS
