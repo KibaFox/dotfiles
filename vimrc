@@ -52,6 +52,9 @@ if !empty(glob("~/.vim/plugged/gruvbox"))
 	colorscheme gruvbox
 endif
 
+" jusinmk/vim-dirvish
+let g:dirvish_relative_paths = 1
+
 " plasticboy/vim-markdown
 let g:vim_markdown_frontmatter = 1      " frontmatter hightlights
 let g:vim_markdown_toml_frontmatter = 1 " TOML frontmatter highlights
