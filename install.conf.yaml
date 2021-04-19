@@ -9,22 +9,23 @@
   - '~/'
   - '~/.config/fish/functions'
   - '~/.config/nvim/autoload'
+  - '~/.config/vim/autoload'
   - '~/.gnupg'
   - '~/.local/bin'
+  - '~/.vim/autoload'
 
 - link:
     ~/.config/bat/batrc: config/bat/batrc
     ~/.config/fish/config.fish: config/fish/config.fish
     ~/.config/fish/functions/: config/fish/functions/*
     ~/.config/git/: config/git/*
-    ~/.config/nvim/autoload/: config/nvim/autoload/*
-    ~/.config/nvim/init.vim: config/nvim/init.vim
     ~/.config/ripgrep/rgrc: config/ripgrep/rgrc
     ~/.gnupg/: gnupg/*
     ~/.local/bin/: local/bin/*
     ~/.rgignore:
     ~/.ssh/config: ssh/config
     ~/.tmux.conf:
+    ~/.vim/autoload/: config/vim/autoload/*
     ~/.vimrc:
 
 - create:

@@ -15,10 +15,8 @@ set __fish_git_prompt_color_upstream yellow
 
 # Environment Variables
 # =====================
-# EDITOR is neovim, vim, or vii; whichever is installed.
-if command -q nvim
-	set -x EDITOR nvim
-else if command -q vim
+# EDITOR is vim, or vi; whichever is installed.
+if command -q vim
 	set -x EDITOR vim
 else if command -q vi
 	set -x EDITOR vi
@@ -102,10 +100,8 @@ if command -q bat
 	alias cat=bat
 end
 
-# vi = neovim or vim, depending on which exists
-if command -q nvim
-	alias vi=nvim
-else if command -q vim
+# vi = vim, if it exists
+if command -q vim
 	alias vi=vim
 end
 
