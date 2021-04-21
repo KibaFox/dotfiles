@@ -9,6 +9,7 @@ call plug#begin()
 " Look and feel
 Plug 'morhetz/gruvbox'               " colorscheme
 Plug 'itchyny/lightline.vim'
+	Plug 'shinchu/lightline-gruvbox.vim' " colorscheme for lightline
 Plug 'airblade/vim-gitgutter'
 Plug 'qpkorr/vim-bufkill'
 Plug 'justincampbell/vim-eighties'   " automatically resize windows
@@ -52,6 +53,10 @@ if !empty(glob("~/.vim/plugged/gruvbox"))
 	set background=dark
 	colorscheme gruvbox
 endif
+
+" lineline
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
 
 " jusinmk/vim-dirvish
 let g:dirvish_relative_paths = 1
