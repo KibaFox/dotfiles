@@ -48,6 +48,7 @@ call plug#end()
 if !empty(glob("~/.vim/plugged/gruvbox"))
 	let g:gruvbox_contrast_dark = 'hard'
 	let g:gruvbox_italic = 0
+	"let g:gruvbox_termcolors = 16 " use terminal palette
 	set background=dark
 	colorscheme gruvbox
 endif
@@ -109,7 +110,7 @@ set colorcolumn=81      " make it obvious where 80 characters is
 set numberwidth=5       " reserve column width for line numbers
 set number norelativenumber " show fixed line numbers
 set complete+=kspell    " autocomplete with dictionary words when spell check is on
-set termguicolors       " turn on 24-bit truecolor
+set notermguicolors     " turn off 24-bit truecolor
 set mouse=a             " enable mouse
 set laststatus=2        " always enable status line (required for lightline)
 
