@@ -10,6 +10,7 @@ call plug#begin()
 Plug 'morhetz/gruvbox'               " colorscheme
 Plug 'itchyny/lightline.vim'
 	Plug 'shinchu/lightline-gruvbox.vim' " colorscheme for lightline
+	Plug 'maximbaz/lightline-ale'        " integration with ale
 Plug 'airblade/vim-gitgutter'
 Plug 'qpkorr/vim-bufkill'
 Plug 'justincampbell/vim-eighties'   " automatically resize windows
@@ -57,6 +58,30 @@ endif
 " lineline
 let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'
+let g:lightline.component_expand = {
+	\ 'linter_checking': 'lightline#ale#checking',
+	\ 'linter_infos': 'lightline#ale#infos',
+	\ 'linter_warnings': 'lightline#ale#warnings',
+	\ 'linter_errors': 'lightline#ale#errors',
+	\ 'linter_ok': 'lightline#ale#ok',
+	\ 'tabs': 'lightline#tabs',
+	\ }
+let g:lightline.component_type = {
+	\ 'linter_checking': 'right',
+	\ 'linter_infos': 'right',
+	\ 'linter_warnings': 'warning',
+	\ 'linter_errors': 'error',
+	\ 'linter_ok': 'right',
+	\ 'tabs': 'tabsel',
+	\ 'close': 'raw',
+	\ }
+let g:lightline.active = {
+	\ 'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
+	\ 'right': [
+		\ ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
+		\ ['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype'],
+	\ ]
+\ }
 
 " jusinmk/vim-dirvish
 let g:dirvish_relative_paths = 1
