@@ -23,7 +23,7 @@ Plug 'vim-scripts/scratch.vim'       " scratch buffer
 Plug 'justinmk/vim-dirvish'
 Plug 'wincent/ferret'                " search w/ ripgrep (rg) using :Ack
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-bash --no-zsh' }
 Plug 'junegunn/fzf.vim'              " fuzzy finder
 
 " Coding
