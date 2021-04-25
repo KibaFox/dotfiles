@@ -132,7 +132,6 @@ set undofile            " turn on persistent undo
 set list                " show whitespace
 set nowrap              " default to nowrap (helps when coding side-by-side)
 let &showbreak = '+   ' " soft indent for soft wrap lines
-set ruler               " show position in file
 set ignorecase          " case-insensitive search
 set smartcase           " smart case-insensitive search
 set hidden              " allow buffers with unsaved changes to be hidden
@@ -142,7 +141,41 @@ set number norelativenumber " show fixed line numbers
 set complete+=kspell    " autocomplete with dictionary words when spell check is on
 set notermguicolors     " turn off 24-bit truecolor
 set mouse=a             " enable mouse
-set laststatus=2        " always enable status line (required for lightline)
+
+" Use NeoVIM Defaults
+" https://neovim.io/doc/user/vim_diff.html
+set autoindent          " copy indent from current line when starting a new line
+set autoread            " auto read when a file change is detected outside vim
+set backspace=indent,eol,start " allow backspace in these scenarios
+set belloff=all         " turn off bell for all events
+set complete-=i         " do not scan current and included files for keyword completion
+set cscopeverbose       " give messages when adding a cscope database
+set display=lastline    " display as much as possible & use '@@@' at end if more
+set encoding=utf-8      " uft-8 text encoding
+set fillchars=vert:\|,fold:· " chars to fill statuslines and vertical separators
+set formatoptions=tcqj  " t=textwidth; c=comments; q=`gq`; j=join comments
+set history=10000       " history of ':' commands.
+set hlsearch            " highlight all search matches
+set incsearch           " show first match of search while typing
+set nolangremap         " no keyboard language remapping
+set laststatus=2        " always show the status line
+set listchars=tab:>\ ,trail:-,nbsp:+
+set ruler               " show position in file
+set sessionoptions+=unix,slash " unix=with new line at EOF; slash=forward slash
+set sessionoptions-=options " don't save options with :mksession
+set shortmess+=F        " don't give file info when editing a file, like :silent
+set shortmess-=S        " show search count when searching
+set showcmd             " show (partial) command in the last line of the screen
+set sidescroll=1        " minimal # of columns to scroll horizontally
+set smarttab            " smart tab replacement when indenting with spaces
+set tabpagemax=50       " max # of pages to be opened by the -p flag or `:tab all`
+set tags=./tags;,tags   " filenames for the tag command
+set ttimeoutlen=50      " time(ms) to wait for key code or mapped sequence
+set ttyfast             " assume a fast terminal connection
+set viewoptions=unix,slash " unix=with new line at EOF; slash=forward slash
+set viminfo+=!          " add saving global variables that start with uppercase
+set wildmenu            " tab completion for commands
+packadd! matchit        " enable match enhancements when using '%'
 
 if has("nvim-0.3.8") || has("patch-8.1.0360") " histogram diffs are easier to read
 	" for some reason this doesn't work for the VIM that comes with MacOS
