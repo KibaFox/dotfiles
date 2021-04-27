@@ -182,6 +182,23 @@ if has("nvim-0.3.8") || has("patch-8.1.0360") " histogram diffs are easier to re
 	silent! set diffopt+=filler,internal,algorithm:histogram,indent-heuristic
 endif
 
+" Directories for backup, swap, and undo.  Create them if they do not exist.
+let $BACKUP_DIR=expand("~/.vim/backup")
+let $SWAP_DIR=expand("~/.vim/swap")
+let $UNDO_DIR=expand("~/.vim/undo")
+if !isdirectory($BACKUP_DIR)
+	call mkdir($BACKUP_DIR, "p")
+endif
+if !isdirectory($SWAP_DIR)
+	call mkdir($SWAP_DIR, "p")
+endif
+if !isdirectory($UNDO_DIR)
+	call mkdir($UNDO_DIR, "p")
+endif
+set backupdir=$BACKUP_DIR
+set directory=$SWAP_DIR//
+set undodir=$UNDO_DIR
+
 " Mappings
 " ========
 
