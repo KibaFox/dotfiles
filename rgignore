@@ -17,6 +17,7 @@
 /.*/
 /.*_history
 /.config/nvim/plugged/
+/.vim/plugged/
 /.viminfo
 /Library/
 /go/
