@@ -8,8 +8,6 @@
 - clean:
   - '~/'
   - '~/.config/fish/functions'
-  - '~/.config/nvim/autoload'
-  - '~/.config/vim/autoload'
   - '~/.gnupg'
   - '~/.local/bin'
   - '~/.vim/autoload'
@@ -25,11 +23,11 @@
     ~/.rgignore:
     ~/.ssh/config: ssh/config
     ~/.tmux.conf:
-    ~/.vim/autoload/: config/vim/autoload/*
+    ~/.vim/autoload/: vim/autoload/*
     ~/.vimrc:
 
 - create:
-    - ~/.config/nvim/spell
+    - ~/.vim/spell
     - ~/.ssh/hosts.d
 
 - shell:
