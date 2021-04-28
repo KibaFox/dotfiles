@@ -12,23 +12,14 @@ fi
 
 brew upgrade --formula --ignore-pinned
 
-brew tap homebrew/cask-drivers
-brew tap homebrew/cask-fonts
-brew tap skyjake/lagrange
-
 brew install --formula --quiet \
 	bat \
-	cmake \
-	coreutils \
-	fd \
 	fish \
-	git \
 	git-lfs \
 	go \
 	golangci-lint \
 	mage \
 	mosh \
-	neovim \
 	pandoc \
 	pngquant \
 	pwgen \
@@ -40,11 +31,14 @@ brew install --formula --quiet \
 
 brew upgrade --cask
 
+brew tap homebrew/cask-drivers
+brew tap homebrew/cask-fonts
+brew tap skyjake/lagrange
+
 brew install --cask --quiet \
 	dash \
 	drawio \
 	font-fira-code \
-	font-source-code-pro \
 	keepingyouawake \
 	lagrange \
 	meld \
