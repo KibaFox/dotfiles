@@ -25,9 +25,6 @@
 [difftool]
 	prompt = false
 
-[difftool "vimdiff"]
-	path = nvim
-
 [merge]
 	conflictstyle = diff3
 	guitool = kdiff3
