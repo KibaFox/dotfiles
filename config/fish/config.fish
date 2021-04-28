@@ -92,8 +92,8 @@ end
 #alias rsyncg="rsync -a --exclude='.git/' --exclude-from='.gitignore'"
 alias rsyncg="rsync -a --exclude='.git/'"
 
-# Clean out neovim swp files
-alias clean-swp "rm -f ~/.local/share/nvim/swap/*.swp"
+# Clean out (neo)vim swap files
+alias clean-swp "rm -f ~/.local/share/nvim/swap/*.swp ~/.vim/swap/*.swp"
 
 # bat is the new cat, if it exists
 if command -q bat
