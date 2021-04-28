@@ -279,7 +279,7 @@ augroup END
 
 " Local Config
 " ============
-let $LOCALFILE=expand("~/.vim/init_local.vim")
+let $LOCALFILE=expand("~/.vim/local.vim")
 if filereadable($LOCALFILE)
 	source $LOCALFILE
 endif
