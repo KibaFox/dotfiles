@@ -27,7 +27,6 @@
     ~/.vimrc:
 
 - create:
-    - ~/.vim/spell
     - ~/.ssh/hosts.d
 
 - shell:
