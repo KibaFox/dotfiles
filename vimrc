@@ -82,6 +82,10 @@ let g:lightline.active = {
 		\ ['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype'],
 	\ ]
 \ }
+let g:lightline#ale#indicator_infos = 'ℹ '
+let g:lightline#ale#indicator_warnings = '⤫ '
+let g:lightline#ale#indicator_errors = '⚠ '
+let g:lightline#ale#indicator_ok = '✔︎'
 
 " jusinmk/vim-dirvish
 let g:dirvish_relative_paths = 1
