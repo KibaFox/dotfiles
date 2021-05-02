@@ -91,9 +91,9 @@ func link(dest, target string) error {
 
 	// ensure destination directory is made and is a directory
 	if destInfo, err := os.Stat(dstDir); err != nil {
-		if os.MkdirAll(dstDir, 0o644) != nil {
+		if err = os.MkdirAll(dstDir, 0o755); err != nil {
 			return fmt.Errorf(
-				"could not make destination dir `%s`", dest)
+				"could not make destination dir `%s`: %w", dest, err)
 		}
 	} else if !destInfo.IsDir() {
 		return fmt.Errorf("destination `%s` is not a directory", dest)
