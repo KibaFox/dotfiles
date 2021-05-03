@@ -65,6 +65,17 @@ if test -e $pinentry_mac
 	alias pinentry "$pinentry_mac"
 end
 
+# SSH agent
+# =========
+# Source: https://github.com/danhper/fish-ssh-agent
+if test -z "$SSH_ENV"
+	set -xg SSH_ENV $HOME/.ssh/environment
+end
+
+if not __ssh_agent_is_started
+	__ssh_agent_start
+end
+
 # SSH keys
 # ========
 set -la user_keys "$HOME/.ssh/id_ed25519"
