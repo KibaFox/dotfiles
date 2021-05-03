@@ -25,6 +25,7 @@ set -x PAGER less
 set -x GOPATH "$HOME/go"
 set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/rgrc"
 set -x BAT_CONFIG_PATH "$HOME/.config/bat/batrc"
+set -x LC_ALL "en_US.UTF-8"
 
 # FZF_DEFAULT_COMMAND prefer ripgrep, use silver searcher as a fallback.
 if command -q rg
