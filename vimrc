@@ -23,8 +23,7 @@ Plug 'vim-scripts/scratch.vim'       " scratch buffer
 Plug 'justinmk/vim-dirvish'
 Plug 'wincent/ferret'                " search w/ ripgrep (rg) using :Ack
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-bash --no-zsh' }
-Plug 'junegunn/fzf.vim'              " fuzzy finder
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Coding
 Plug 'editorconfig/editorconfig-vim' " per-project editor configuration
@@ -89,6 +88,15 @@ let g:lightline#ale#indicator_ok = '✔︎'
 
 " jusinmk/vim-dirvish
 let g:dirvish_relative_paths = 1
+
+" ctrlpvim/ctrlp.vim
+let g:ctrlp_map = '<Leader>ff'
+let g:ctrlp_reuse_window = 'netrw\|dirvish'
+if executable('rg')
+	set grepprg=rg\ --color=never
+	let g:ctrlp_user_command = 'rg %s --color never --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
+	let g:ctrlp_use_caching = 0
+endif
 
 " plasticboy/vim-markdown
 let g:vim_markdown_frontmatter = 1      " frontmatter hightlights
@@ -224,18 +232,13 @@ nnoremap <Leader>n :set number!<CR>:ALEToggle<CR>:GitGutterToggle<CR>
 
 " Files
 " -----
-" fzf fuzzy file find
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>fg :GFiles?<CR>
-
 " open Dirvish
 nnoremap <leader>fd :Dirvish<CR>
 
 " Buffers
 " -------
 " Buffer navigation and management
-" fzf fuzzy buffer navigation
-nnoremap <leader>bb :Buffers<CR>
+nnoremap <leader>bb :CtrlPBuffer<CR>
 " Delete a buffer without closing the split using vim-buffkill
 nnoremap <C-x> :BD<CR>
 nnoremap <leader>bx :BD<CR>
