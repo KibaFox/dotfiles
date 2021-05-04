@@ -91,7 +91,7 @@ for key in $user_keys
 	if not contains "$key_comment" $loaded_keys
 		if test (uname) = "Darwin"
 			ssh-add -K "$key"
-		else
+		else if test -n "$TMUX" # let tmux start first, esp. for remote sessions
 			ssh-add "$key"
 		end
 	end
