@@ -20,7 +20,6 @@ Plug 'tpope/vim-repeat'              " enable repeating supported plugin maps wi
 Plug 'vim-scripts/scratch.vim'       " scratch buffer
 
 " Navigation
-Plug 'wincent/ferret'                " search w/ ripgrep (rg) using :Ack
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 
