@@ -20,7 +20,6 @@ Plug 'tpope/vim-repeat'              " enable repeating supported plugin maps wi
 Plug 'vim-scripts/scratch.vim'       " scratch buffer
 
 " Navigation
-Plug 'justinmk/vim-dirvish'
 Plug 'wincent/ferret'                " search w/ ripgrep (rg) using :Ack
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -86,12 +85,12 @@ let g:lightline#ale#indicator_warnings = '⤫ '
 let g:lightline#ale#indicator_errors = '⚠ '
 let g:lightline#ale#indicator_ok = '✔︎'
 
-" jusinmk/vim-dirvish
-let g:dirvish_relative_paths = 1
+" netrw - native file/directory explorer
+let g:netrw_banner = 0
+autocmd FileType netrw set nolist " do not show whitespace in netrw windows
 
 " ctrlpvim/ctrlp.vim
 let g:ctrlp_map = '<Leader>ff'
-let g:ctrlp_reuse_window = 'netrw\|dirvish'
 if executable('rg')
 	set grepprg=rg\ --color=never
 	let g:ctrlp_user_command = 'rg %s --color never --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
@@ -232,8 +231,9 @@ nnoremap <Leader>n :set number!<CR>:ALEToggle<CR>:GitGutterToggle<CR>
 
 " Files
 " -----
-" open Dirvish
-nnoremap <leader>fd :Dirvish<CR>
+" open netrw
+nnoremap - :Explore<CR>
+nnoremap <leader>fd :Explore<CR>
 
 " Buffers
 " -------
