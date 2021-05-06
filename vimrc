@@ -35,7 +35,7 @@ Plug 'junegunn/goyo.vim'             " distraction-free writing
 Plug 'sheerun/vim-polyglot'          " syntax highlighting for many languages
 	Plug 'godlygeek/tabular'     " plasticboy/vim-markdown :TableFormat
 Plug 'https://tildegit.org/sloum/gemini-vim-syntax' " gemini syntax highlights
-Plug 'fatih/vim-go', { 'tag': 'v1.24', 'do': ':GoUpdateBinaries' } " Golang
+Plug 'fatih/vim-go', { 'tag': 'v1.25', 'do': ':GoUpdateBinaries' } " Golang
 Plug 'dense-analysis/ale', { 'tag': 'v3.1.0' } " Asynchronous Lint Engine
 
 call plug#end()
