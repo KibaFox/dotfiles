@@ -17,6 +17,7 @@ Plug 'justincampbell/vim-eighties'   " automatically resize windows
 Plug 'tpope/vim-eunuch'              " unix helpers
 Plug 'tpope/vim-unimpaired'          " paired keybindings
 Plug 'tpope/vim-repeat'              " enable repeating supported plugin maps with '.'
+Plug 'tpope/vim-vinegar'             " enhance netrw
 Plug 'vim-scripts/scratch.vim'       " scratch buffer
 
 " Navigation
@@ -83,10 +84,6 @@ let g:lightline#ale#indicator_infos = 'ℹ '
 let g:lightline#ale#indicator_warnings = '⤫ '
 let g:lightline#ale#indicator_errors = '⚠ '
 let g:lightline#ale#indicator_ok = '✔︎'
-
-" netrw - native file/directory explorer
-let g:netrw_banner = 0
-autocmd FileType netrw set nolist " do not show whitespace in netrw windows
 
 " ctrlpvim/ctrlp.vim
 let g:ctrlp_map = '<Leader>ff'
@@ -227,12 +224,6 @@ nnoremap <Leader>s :set spell!<CR>
 " Toggle Numbers and Gutters
 " -------------------
 nnoremap <Leader>n :set number!<CR>:ALEToggle<CR>:GitGutterToggle<CR>
-
-" Files
-" -----
-" open netrw
-nnoremap - :Explore<CR>
-nnoremap <leader>fd :Explore<CR>
 
 " Buffers
 " -------
