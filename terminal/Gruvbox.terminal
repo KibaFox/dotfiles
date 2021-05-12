@@ -208,6 +208,8 @@
 	</data>
 	<key>ShouldLimitScrollback</key>
 	<integer>1</integer>
+	<key>ShouldRestoreContent</key>
+	<false/>
 	<key>ShowActiveProcessArgumentsInTitle</key>
 	<true/>
 	<key>ShowActiveProcessInTitle</key>
@@ -276,7 +278,7 @@
 	<key>rowCount</key>
 	<integer>36</integer>
 	<key>shellExitAction</key>
-	<integer>2</integer>
+	<integer>1</integer>
 	<key>type</key>
 	<string>Window Settings</string>
 </dict>
