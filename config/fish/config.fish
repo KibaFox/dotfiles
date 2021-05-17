@@ -120,6 +120,9 @@ end
 # less - case insensitive search, highlight all matches, wrap search
 alias less='less --ignore-case --hilite-search --search-skip-screen'
 
+# fsl = fossil (distributed version control)
+alias fsl='fossil'
+
 # Local config
 # ============
 if test -f ~/.config/fish/config_local.fish
