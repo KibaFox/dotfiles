@@ -74,7 +74,7 @@ let g:lightline.component_type = {
 	\ 'close': 'raw',
 	\ }
 let g:lightline.active = {
-	\ 'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
+	\ 'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
 	\ 'right': [
 		\ ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
 		\ ['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype'],
