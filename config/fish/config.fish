@@ -44,6 +44,7 @@ set -la user_paths "$HOME/.local/bin"
 set -la user_paths "$HOME/.config/emacs/bin"
 set -la user_paths "$GOPATH/bin"
 set -la user_paths "/usr/local/go/bin"
+set -la user_paths "/usr/local/opt/mozjpeg/bin" # brew install mozjpeg
 for dir in $user_paths
 	if test -d "$dir"
 		set -ga fish_user_paths "$dir"
