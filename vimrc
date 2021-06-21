@@ -280,6 +280,10 @@ augroup text
 	au FileType text setlocal spell
 augroup END
 
+augroup packer
+	au BufWritePost *.pkr.hcl silent! execute "!packer fmt % >/dev/null 2>&1" | redraw!
+augroup END
+
 " Local Config
 " ============
 let $LOCALFILE=expand("~/.vim/local.vim")
