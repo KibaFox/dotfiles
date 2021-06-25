@@ -45,7 +45,7 @@ call plug#end()
 " ====================
 
 " Gruvbox colorscheme
-if !empty(glob("~/.vim/plugged/gruvbox"))
+if has('nvim') && !empty(glob("~/.config/nvim/plugged/gruvbox")) || !empty(glob("~/.vim/plugged/gruvbox"))
 	let g:gruvbox_contrast_dark = 'hard'
 	let g:gruvbox_italic = 0
 	"let g:gruvbox_termcolors = 16 " use terminal palette
@@ -157,60 +157,63 @@ set mouse=a             " enable mouse
 
 " Use NeoVIM Defaults
 " https://neovim.io/doc/user/vim_diff.html
-set autoindent          " copy indent from current line when starting a new line
-set autoread            " auto read when a file change is detected outside vim
-set backspace=indent,eol,start " allow backspace in these scenarios
-set belloff=all         " turn off bell for all events
-set complete-=i         " do not scan current and included files for keyword completion
-set cscopeverbose       " give messages when adding a cscope database
-set display=lastline    " display as much as possible & use '@@@' at end if more
-set encoding=utf-8      " uft-8 text encoding
-set fillchars=vert:\|,fold:· " chars to fill statuslines and vertical separators
-set formatoptions=tcqj  " t=textwidth; c=comments; q=`gq`; j=join comments
-set history=10000       " history of ':' commands.
-set hlsearch            " highlight all search matches
-set incsearch           " show first match of search while typing
-set nolangremap         " no keyboard language remapping
-set laststatus=2        " always show the status line
-set listchars=tab:>\ ,trail:-,nbsp:+
-set ruler               " show position in file
-set sessionoptions+=unix,slash " unix=with new line at EOF; slash=forward slash
-set sessionoptions-=options " don't save options with :mksession
-set shortmess+=F        " don't give file info when editing a file, like :silent
-set shortmess-=S        " show search count when searching
-set showcmd             " show (partial) command in the last line of the screen
-set sidescroll=1        " minimal # of columns to scroll horizontally
-set smarttab            " smart tab replacement when indenting with spaces
-set tabpagemax=50       " max # of pages to be opened by the -p flag or `:tab all`
-set tags=./tags;,tags   " filenames for the tag command
-set ttimeoutlen=50      " time(ms) to wait for key code or mapped sequence
-set ttyfast             " assume a fast terminal connection
-set viewoptions=unix,slash " unix=with new line at EOF; slash=forward slash
-set viminfo+=!          " add saving global variables that start with uppercase
-set wildmenu            " tab completion for commands
-packadd! matchit        " enable match enhancements when using '%'
+if !has('nvim')
+	set autoindent          " copy indent from current line when starting a new line
+	set autoread            " auto read when a file change is detected outside vim
+	set backspace=indent,eol,start " allow backspace in these scenarios
+	set belloff=all         " turn off bell for all events
+	set complete-=i         " do not scan current and included files for keyword completion
+	set cscopeverbose       " give messages when adding a cscope database
+	set display=lastline    " display as much as possible & use '@@@' at end if more
+	set encoding=utf-8      " uft-8 text encoding
+	set fillchars=vert:\|,fold:· " chars to fill statuslines and vertical separators
+	set formatoptions=tcqj  " t=textwidth; c=comments; q=`gq`; j=join comments
+	set history=10000       " history of ':' commands.
+	set hlsearch            " highlight all search matches
+	set incsearch           " show first match of search while typing
+	set nolangremap         " no keyboard language remapping
+	set laststatus=2        " always show the status line
+	set listchars=tab:>\ ,trail:-,nbsp:+
+	set ruler               " show position in file
+	set sessionoptions+=unix,slash " unix=with new line at EOF; slash=forward slash
+	set sessionoptions-=options " don't save options with :mksession
+	set shortmess+=F        " don't give file info when editing a file, like :silent
+	set shortmess-=S        " show search count when searching
+	set showcmd             " show (partial) command in the last line of the screen
+	set sidescroll=1        " minimal # of columns to scroll horizontally
+	set smarttab            " smart tab replacement when indenting with spaces
+	set tabpagemax=50       " max # of pages to be opened by the -p flag or `:tab all`
+	set tags=./tags;,tags   " filenames for the tag command
+	set ttimeoutlen=50      " time(ms) to wait for key code or mapped sequence
+	set ttyfast             " assume a fast terminal connection
+	set viewoptions=unix,slash " unix=with new line at EOF; slash=forward slash
+	set viminfo+=!          " add saving global variables that start with uppercase
+	set wildmenu            " tab completion for commands
+	packadd! matchit        " enable match enhancements when using '%'
+
+	" Directories for backup, swap, and undo.  Create them if they do not exist.
+	let $BACKUP_DIR=expand("~/.vim/backup")
+	let $SWAP_DIR=expand("~/.vim/swap")
+	let $UNDO_DIR=expand("~/.vim/undo")
+	if !isdirectory($BACKUP_DIR)
+		call mkdir($BACKUP_DIR, "p")
+	endif
+	if !isdirectory($SWAP_DIR)
+		call mkdir($SWAP_DIR, "p")
+	endif
+	if !isdirectory($UNDO_DIR)
+		call mkdir($UNDO_DIR, "p")
+	endif
+	set backupdir=$BACKUP_DIR
+	set directory=$SWAP_DIR//
+	set undodir=$UNDO_DIR
+endif
 
 if has("nvim-0.3.8") || has("patch-8.1.0360") " histogram diffs are easier to read
 	" for some reason this doesn't work for the VIM that comes with MacOS
 	silent! set diffopt+=filler,internal,algorithm:histogram,indent-heuristic
 endif
 
-" Directories for backup, swap, and undo.  Create them if they do not exist.
-let $BACKUP_DIR=expand("~/.vim/backup")
-let $SWAP_DIR=expand("~/.vim/swap")
-let $UNDO_DIR=expand("~/.vim/undo")
-if !isdirectory($BACKUP_DIR)
-	call mkdir($BACKUP_DIR, "p")
-endif
-if !isdirectory($SWAP_DIR)
-	call mkdir($SWAP_DIR, "p")
-endif
-if !isdirectory($UNDO_DIR)
-	call mkdir($UNDO_DIR, "p")
-endif
-set backupdir=$BACKUP_DIR
-set directory=$SWAP_DIR//
-set undodir=$UNDO_DIR
 
 " Mappings
 " ========
@@ -286,7 +289,11 @@ augroup END
 
 " Local Config
 " ============
-let $LOCALFILE=expand("~/.vim/local.vim")
+if has('nvim')
+	let $LOCALFILE=expand("~/.config/nvim/local.vim")
+else
+	let $LOCALFILE=expand("~/.vim/local.vim")
+endif
 if filereadable($LOCALFILE)
 	source $LOCALFILE
 endif

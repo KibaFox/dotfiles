@@ -12,13 +12,15 @@ var links = map[string]string{
 	"~/.config/fish/config.fish": "config/fish/config.fish",
 	"~/.config/fish/functions/":  "config/fish/functions/*",
 	"~/.config/git/":             "config/git/*",
+	"~/.config/nvim/autoload/":   "config/nvim/autoload/*",
+	"~/.config/nvim/init.vim":    "config/nvim/init.vim",
 	"~/.config/ripgrep/":         "config/ripgrep/*",
 	"~/.local/bin/":              "local/bin/*",
 	"~/.rgignore":                "rgignore",
 	"~/.ssh/config":              "ssh/config",
 	"~/.tmux.conf":               "tmux.conf",
-	"~/.vim/autoload/":           "vim/autoload/*",
-	"~/.vimrc":                   "vimrc",
+	"~/.vim/autoload/":           "config/nvim/autoload/*",
+	"~/.vimrc":                   "config/nvim/init.vim",
 }
 
 // home is the user's home directory.
