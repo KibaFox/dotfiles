@@ -16,7 +16,9 @@ set __fish_git_prompt_color_upstream yellow
 # Environment Variables
 # =====================
 # EDITOR is vim, or vi; whichever is installed.
-if command -q vim
+if command -q nvim
+	set -x EDITOR nvim
+else if command -q vim
 	set -x EDITOR vim
 else if command -q vi
 	set -x EDITOR vi
@@ -113,10 +115,8 @@ if command -q bat
 	alias cat=bat
 end
 
-# vi = vim, if it exists
-if command -q vim
-	alias vi=vim
-end
+# vi is aliased to preferred editor
+alias vi "$EDITOR"
 
 # less - case insensitive search, highlight all matches, wrap search
 alias less='less --ignore-case --hilite-search --search-skip-screen'
