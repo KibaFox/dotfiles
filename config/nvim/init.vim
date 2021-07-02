@@ -22,7 +22,13 @@ Plug 'vim-scripts/scratch.vim'       " scratch buffer
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ctrlpvim/ctrlp.vim'
+if has("nvim-0.5.0")
+	Plug 'nvim-telescope/telescope.nvim'
+		Plug 'nvim-lua/popup.nvim'
+		Plug 'nvim-lua/plenary.nvim'
+else
+	Plug 'ctrlpvim/ctrlp.vim'
+endif
 
 " Coding
 Plug 'editorconfig/editorconfig-vim' " per-project editor configuration
@@ -230,8 +236,15 @@ nnoremap <Leader>n :set number!<CR>:ALEToggle<CR>:GitGutterToggle<CR>
 
 " Buffers
 " -------
-" Buffer navigation and management
-nnoremap <leader>bb :CtrlPBuffer<CR>
+if has("nvim-0.5.0")
+	nnoremap <leader>ff <cmd>Telescope find_files<cr>
+	nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+	nnoremap <leader>fb <cmd>Telescope buffers<cr>
+	nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+else
+	" Buffer navigation and management
+	nnoremap <leader>bb :CtrlPBuffer<CR>
+endif
 " Delete a buffer without closing the split using vim-buffkill
 nnoremap <C-x> :BD<CR>
 nnoremap <leader>bx :BD<CR>
