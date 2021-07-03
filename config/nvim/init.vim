@@ -22,13 +22,6 @@ Plug 'vim-scripts/scratch.vim'       " scratch buffer
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
-if has("nvim-0.5.0")
-	Plug 'nvim-telescope/telescope.nvim'
-		Plug 'nvim-lua/popup.nvim'
-		Plug 'nvim-lua/plenary.nvim'
-else
-	Plug 'ctrlpvim/ctrlp.vim'
-endif
 
 " Coding
 Plug 'editorconfig/editorconfig-vim' " per-project editor configuration
@@ -42,8 +35,20 @@ Plug 'junegunn/goyo.vim'             " distraction-free writing
 Plug 'sheerun/vim-polyglot'          " syntax highlighting for many languages
 	Plug 'godlygeek/tabular'     " plasticboy/vim-markdown :TableFormat
 Plug 'https://tildegit.org/sloum/gemini-vim-syntax' " gemini syntax highlights
-Plug 'fatih/vim-go', { 'tag': 'v1.25', 'do': ':GoUpdateBinaries' } " Golang
-Plug 'dense-analysis/ale', { 'tag': 'v3.1.0' } " Asynchronous Lint Engine
+
+" Neovim 0.5.0+ required
+if has("nvim-0.5.0")
+	Plug 'neovim/nvim-lspconfig' " Replaces ALE and vim-go
+	Plug 'nvim-telescope/telescope.nvim' " Replaces CtrlP/fzf
+		Plug 'nvim-lua/popup.nvim'
+		Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+	Plug 'hrsh7th/nvim-compe' " Code completion suggestions
+else
+	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'fatih/vim-go', { 'tag': 'v1.25', 'do': ':GoUpdateBinaries' } " Golang
+	Plug 'dense-analysis/ale', { 'tag': 'v3.1.0' } " Asynchronous Lint Engine
+endif
 
 call plug#end()
 
@@ -145,6 +150,24 @@ let g:ale_fixers = {
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 
+if has("nvim-0.5.0")
+lua << EOF
+require'lspconfig'.gopls.setup{}
+require'nvim-treesitter.configs'.setup {
+	ensure_installed = "maintained",
+	highlight = {
+		enable = true,
+	}
+}
+require'compe'.setup {
+	enabled = true;
+	autocomplete = true;
+	debug = false;
+	min_length = 1;
+}
+EOF
+endif
+
 " Options
 " =======
 set undofile            " turn on persistent undo
@@ -160,6 +183,7 @@ set number norelativenumber " show fixed line numbers
 set complete+=kspell    " autocomplete with dictionary words when spell check is on
 set notermguicolors     " turn off 24-bit truecolor
 set mouse=a             " enable mouse
+set completeopt=menuone,noselect " required for hrsh7th/nvim-compe
 
 " Use NeoVIM Defaults
 " https://neovim.io/doc/user/vim_diff.html
