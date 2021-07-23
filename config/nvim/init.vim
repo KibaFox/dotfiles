@@ -44,6 +44,7 @@ if has("nvim-0.5.0")
 		Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 	Plug 'hrsh7th/nvim-compe' " Code completion suggestions
+	Plug 'lukas-reineke/format.nvim' " format the current buffer w/ exe
 else
 	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'fatih/vim-go', { 'tag': 'v1.25', 'do': ':GoUpdateBinaries' } " Golang
@@ -164,6 +165,13 @@ require'compe'.setup {
 	autocomplete = true;
 	debug = false;
 	min_length = 1;
+}
+require'format'.setup {
+	go = {
+		{
+			cmd = {"goimports -w"},
+		}
+	},
 }
 EOF
 endif
@@ -322,6 +330,10 @@ augroup END
 
 augroup packer
 	au BufWritePost *.pkr.hcl silent! execute "!packer fmt % >/dev/null 2>&1" | redraw!
+augroup END
+
+augroup Format
+	au BufWritePost *.go FormatWrite
 augroup END
 
 " Local Config
