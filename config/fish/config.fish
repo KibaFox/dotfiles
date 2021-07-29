@@ -84,14 +84,13 @@ end
 set -la user_keys "$HOME/.ssh/id_ed25519"
 set -la user_keys "$HOME/.ssh/id_rsa"
 
-# See if the key is already loaded into ssh-agent
-# Checks the public key comment against the comment displayed in `ssh-add -l`
-set -l loaded_keys (ssh-add -l | cut -d ' ' -f 3)
-for key in $user_keys
-	if not test -f "$key"; continue; end
+# Add keys to agent if agent has no identities.
+if not ssh-add -l > /dev/null
+	for key in $user_keys
+		# skip if key file doesn't exist
+		if not test -f "$key"; continue; end
 
-	set -l key_comment (cut -d ' ' -f 3 "$key.pub")
-	if not contains "$key_comment" $loaded_keys
+		# load key
 		if test (uname) = "Darwin"
 			ssh-add -K "$key"
 		else if test -n "$TMUX" # let tmux start first, esp. for remote sessions
