@@ -20,9 +20,6 @@ Plug 'tpope/vim-repeat'              " enable repeating supported plugin maps wi
 Plug 'tpope/vim-vinegar'             " enhance netrw
 Plug 'vim-scripts/scratch.vim'       " scratch buffer
 
-" Navigation
-Plug 'christoomey/vim-tmux-navigator'
-
 " Coding
 Plug 'editorconfig/editorconfig-vim' " per-project editor configuration
 Plug 'tpope/vim-fugitive'            " git commands
