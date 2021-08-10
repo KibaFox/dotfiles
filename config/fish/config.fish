@@ -16,7 +16,9 @@ set __fish_git_prompt_color_upstream yellow
 # Environment Variables
 # =====================
 # EDITOR is vim, or vi; whichever is installed.
-if command -q vim
+if command -q nvim
+	set -x EDITOR nvim
+else if command -q vim
 	set -x EDITOR vim
 else if command -q vi
 	set -x EDITOR vi
