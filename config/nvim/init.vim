@@ -268,7 +268,7 @@ nnoremap <Leader>n :set number!<CR>:ALEToggle<CR>:GitGutterToggle<CR>
 if has("nvim-0.5.0")
 	nnoremap <leader>ff <cmd>Telescope find_files<cr>
 	nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-	nnoremap <leader>fb <cmd>Telescope buffers<cr>
+	nnoremap <leader>bb <cmd>Telescope buffers<cr>
 	nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 else
 	" Buffer navigation and management
