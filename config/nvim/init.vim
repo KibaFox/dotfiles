@@ -170,6 +170,16 @@ require'format'.setup {
 		}
 	},
 }
+require('telescope').setup{
+	pickers = {
+		buffers = {
+			theme = 'dropdown',
+		},
+		find_files = {
+			theme = 'dropdown',
+		},
+	},
+}
 EOF
 endif
 
