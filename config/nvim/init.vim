@@ -5,34 +5,6 @@ let mapleader = "\<Space>" " Map <Leader> to space-bar
 " =======
 
 call plug#begin()
-
-" Look and feel
-Plug 'morhetz/gruvbox'               " colorscheme
-Plug 'itchyny/lightline.vim'
-	Plug 'shinchu/lightline-gruvbox.vim' " colorscheme for lightline
-	Plug 'maximbaz/lightline-ale'        " integration with ale
-Plug 'airblade/vim-gitgutter'
-Plug 'qpkorr/vim-bufkill'
-Plug 'justincampbell/vim-eighties'   " automatically resize windows
-Plug 'tpope/vim-eunuch'              " unix helpers
-Plug 'tpope/vim-unimpaired'          " paired keybindings
-Plug 'tpope/vim-repeat'              " enable repeating supported plugin maps with '.'
-Plug 'tpope/vim-vinegar'             " enhance netrw
-Plug 'vim-scripts/scratch.vim'       " scratch buffer
-
-" Coding
-Plug 'editorconfig/editorconfig-vim' " per-project editor configuration
-Plug 'tpope/vim-fugitive'            " git commands
-
-" Writing
-Plug 'reedes/vim-pencil'             " handle hard and soft line wrap
-Plug 'junegunn/goyo.vim'             " distraction-free writing
-
-" Language & Syntax
-Plug 'sheerun/vim-polyglot'          " syntax highlighting for many languages
-	Plug 'godlygeek/tabular'     " plasticboy/vim-markdown :TableFormat
-Plug 'https://tildegit.org/sloum/gemini-vim-syntax' " gemini syntax highlights
-
 " Neovim 0.5.0+ required
 if has("nvim-0.5.0")
 	Plug 'neovim/nvim-lspconfig' " Replaces ALE and vim-go
@@ -46,6 +18,7 @@ else
 	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'fatih/vim-go', { 'tag': 'v1.25', 'do': ':GoUpdateBinaries' } " Golang
 	Plug 'dense-analysis/ale', { 'tag': 'v3.1.0' } " Asynchronous Lint Engine
+	Plug 'maximbaz/lightline-ale'        " integration with ale
 endif
 
 call plug#end()

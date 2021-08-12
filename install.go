@@ -14,6 +14,7 @@ var links = map[string]string{
 	"~/.config/git/":             "config/git/*",
 	"~/.config/nvim/autoload/":   "config/nvim/autoload/*",
 	"~/.config/nvim/init.vim":    "config/nvim/init.vim",
+	"~/.config/nvim/pack/mypkg/": "config/nvim/pack/mypkg/*",
 	"~/.config/ripgrep/":         "config/ripgrep/*",
 	"~/.local/bin/":              "local/bin/*",
 	"~/.rgignore":                "rgignore",
