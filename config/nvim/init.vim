@@ -27,13 +27,11 @@ call plug#end()
 " ====================
 
 " Gruvbox colorscheme
-if has('nvim') && !empty(glob("~/.config/nvim/plugged/gruvbox")) || !empty(glob("~/.vim/plugged/gruvbox"))
-	let g:gruvbox_contrast_dark = 'hard'
-	let g:gruvbox_italic = 0
-	"let g:gruvbox_termcolors = 16 " use terminal palette
-	set background=dark
-	colorscheme gruvbox
-endif
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italic = 0
+"let g:gruvbox_termcolors = 16 " use terminal palette
+set background=dark
+colorscheme gruvbox
 
 " lineline
 let g:lightline = {}
