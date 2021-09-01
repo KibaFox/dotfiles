@@ -140,6 +140,11 @@ require'format'.setup {
 			cmd = {"goimports -w"},
 		}
 	},
+	hcl = {
+		{
+			cmd = {"packer fmt"},
+		}
+	},
 }
 require('telescope').setup{
 	pickers = {
@@ -318,7 +323,7 @@ augroup packer
 augroup END
 
 augroup Format
-	au BufWritePost *.go FormatWrite
+	au BufWritePost * FormatWrite
 augroup END
 
 " Local Config
