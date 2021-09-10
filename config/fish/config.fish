@@ -60,7 +60,7 @@ set -la proj_paths "$HOME/excl/repos"
 set -la proj_paths "$HOME/excl/proj"
 for dir in $proj_paths
 	if test -d "$dir"
-		set -gxa PROJECT_PATHS "$dir"
+		set -gxa PROJECT_PATHS (find "$dir" -type d -maxdepth 1)
 	end
 end
 
