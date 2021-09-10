@@ -53,6 +53,17 @@ for dir in $user_paths
 	end
 end
 
+# Set PROJECT_PATHS for the `pj` command.
+# Source: https://github.com/oh-my-fish/plugin-pj
+set -la proj_paths "$HOME/proj"
+set -la proj_paths "$HOME/excl/repos"
+set -la proj_paths "$HOME/excl/proj"
+for dir in $proj_paths
+	if test -d "$dir"
+		set -gxa PROJECT_PATHS "$dir"
+	end
+end
+
 #set -x GPG_TTY (tty)
 #set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 #if test ! -e $SSH_AUTH_SOCK
