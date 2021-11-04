@@ -2,20 +2,20 @@ function vipk --description 'Update NeoVIM packages'
 	set -l start 'config/nvim/pack/mypkg/start'
 	set -l opt 'config/nvim/pack/mypkg/opt'
 
-	# clean the pack directory
+	# clean the pack directory (it should be stored in git)
 	rm -rf 'config/nvim/pack'
 
-	function _dl
-		set -l dest "$argv[1]"
-		set -l url "$argv[2]"
-		set -l tmp (mktemp -t (basename "$dest"))
+	function _dl --description "Download and expand a .tar.gz"
+		set -l dest "$argv[1]" # destination directory
+		set -l url "$argv[2]"  # URL of .tar.gz to download
+		set -l tmp (mktemp -t (basename "$dest")) # create temporary path
 
 		echo "$dest"
-		curl -sSfL -o "$tmp" "$url"
-		rm -rf "$dest"
-		mkdir -p "$dest"
-		tar -xzf "$tmp" -C "$dest" --strip-components=1
-		rm "$tmp"
+		curl -sSfL -o "$tmp" "$url" # download to temporary path
+		rm -rf "$dest"              # remove destination directory
+		mkdir -p "$dest"            # create destination directory
+		tar -xzf "$tmp" -C "$dest" --strip-components=1 # extract to dest
+		rm "$tmp"                   # cleanup temporary path
 	end
 
 	# Color scheme
