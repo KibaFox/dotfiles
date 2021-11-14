@@ -8,14 +8,10 @@ call plug#begin()
 " Neovim 0.5.0+ required
 if has("nvim-0.5.0")
 	Plug 'neovim/nvim-lspconfig' " Replaces ALE and vim-go
-	Plug 'nvim-telescope/telescope.nvim' " Replaces CtrlP/fzf
-		Plug 'nvim-lua/popup.nvim'
-		Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 	Plug 'hrsh7th/nvim-compe' " Code completion suggestions
 	Plug 'lukas-reineke/format.nvim' " format the current buffer w/ exe
 else
-	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'fatih/vim-go', { 'tag': 'v1.25', 'do': ':GoUpdateBinaries' } " Golang
 	Plug 'dense-analysis/ale', { 'tag': 'v3.1.0' } " Asynchronous Lint Engine
 	Plug 'maximbaz/lightline-ale'        " integration with ale
@@ -25,6 +21,9 @@ call plug#end()
 
 " Plugin Configuration
 " ====================
+
+" fzf - runtimepath - https://github.com/junegunn/fzf/blob/master/README-VIM.md
+set rtp+=/usr/local/opt/fzf " Homebrew location
 
 " Gruvbox colorscheme
 let g:gruvbox_contrast_dark = 'hard'
@@ -64,14 +63,6 @@ let g:lightline#ale#indicator_infos = 'ℹ '
 let g:lightline#ale#indicator_warnings = '⤫ '
 let g:lightline#ale#indicator_errors = '⚠ '
 let g:lightline#ale#indicator_ok = '✔︎'
-
-" ctrlpvim/ctrlp.vim
-let g:ctrlp_map = '<Leader>ff'
-if executable('rg')
-	set grepprg=rg\ --color=never
-	let g:ctrlp_user_command = 'rg %s --color never --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
-	let g:ctrlp_use_caching = 0
-endif
 
 " plasticboy/vim-markdown
 let g:vim_markdown_frontmatter = 1      " frontmatter hightlights
@@ -144,16 +135,6 @@ require'format'.setup {
 		{
 			cmd = {"packer fmt"},
 		}
-	},
-}
-require('telescope').setup{
-	pickers = {
-		buffers = {
-			theme = 'dropdown',
-		},
-		find_files = {
-			theme = 'dropdown',
-		},
 	},
 }
 EOF
@@ -258,15 +239,8 @@ nnoremap <Leader>n :set number!<CR>:ALEToggle<CR>:GitGutterToggle<CR>
 
 " Buffers
 " -------
-if has("nvim-0.5.0")
-	nnoremap <leader>ff <cmd>Telescope find_files<cr>
-	nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-	nnoremap <leader>bb <cmd>Telescope buffers<cr>
-	nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-else
-	" Buffer navigation and management
-	nnoremap <leader>bb :CtrlPBuffer<CR>
-endif
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>bb :Buffers<CR>
 " Delete a buffer without closing the split using vim-buffkill
 nnoremap <C-x> :BD<CR>
 nnoremap <leader>bx :BD<CR>

@@ -90,4 +90,8 @@ function vipk --description 'Update NeoVIM packages'
 	_dl "$start/gemini-vim-syntax" \
 	   'https://tildegit.org/sloum/gemini-vim-syntax/archive/master.tar.gz'
 
+	# fzf integration for fuzzy file search
+	_dl "$start/fzf.vim" \
+	   'https://github.com/junegunn/fzf.vim/archive/refs/heads/master.tar.gz'
+
 end
