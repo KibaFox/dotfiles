@@ -256,13 +256,15 @@ function! fugitive#Autowrite() abort
 endfunction
 
 function! fugitive#Wait(job_or_jobs, ...) abort
-  let jobs = type(a:job_or_jobs) == type([]) ? copy(a:job_or_jobs) : [a:job_or_jobs]
-  call map(jobs, 'type(v:val) ==# type({}) ? get(v:val, "job", "") : v:val')
+  let original = type(a:job_or_jobs) == type([]) ? copy(a:job_or_jobs) : [a:job_or_jobs]
+  let jobs = map(copy(original), 'type(v:val) ==# type({}) ? get(v:val, "job", "") : v:val')
   call filter(jobs, 'type(v:val) !=# type("")')
   let timeout_ms = a:0 ? a:1 : -1
   if exists('*jobwait')
     call map(copy(jobs), 'chanclose(v:val, "stdin")')
     call jobwait(jobs, timeout_ms)
+    let jobs = map(copy(original), 'type(v:val) ==# type({}) ? get(v:val, "job", "") : v:val')
+    call filter(jobs, 'type(v:val) !=# type("")')
     if len(jobs)
       sleep 1m
     endif
@@ -341,12 +343,19 @@ function! s:JobExecute(argv, jopts, stdin, callback, ...) abort
     let cmd = s:shellesc(a:argv)
     let outfile = tempname()
     try
-      let dict.stderr = split(system(' (' . cmd . ' >' . outfile . ') ', join(a:stdin, "\n")), "\n", 1)
+      if len(a:stdin)
+        call writefile(a:stdin, outfile . '.in', 'b')
+        let cmd = ' (' . cmd . ' >' . outfile . ' <' . outfile . '.in) '
+      else
+        let cmd = ' (' . cmd . ' >' . outfile . ') '
+      endif
+      let dict.stderr = split(system(cmd), "\n", 1)
       let dict.exit_status = v:shell_error
       let dict.stdout = readfile(outfile, 'b')
       call call(cb[0], [dict] + cb[1:-1])
     finally
       call delete(outfile)
+      call delete(outfile . '.in')
     endtry
   endif
   if empty(a:callback)
@@ -471,10 +480,8 @@ function! fugitive#CommonDir(dir) abort
     return ''
   endif
   if !has_key(s:commondirs, a:dir)
-    if getfsize(a:dir . '/HEAD') < 10
-      let s:commondirs[a:dir] = ''
-    elseif filereadable(a:dir . '/commondir')
-      let cdir = get(readfile(a:dir . '/commondir', 1), 0, '')
+    if filereadable(a:dir . '/commondir') && getfsize(a:dir . '/HEAD') >= 10
+      let cdir = get(readfile(a:dir . '/commondir', '', 1), 0, '')
       if cdir =~# '^/\|^\a:/'
         let s:commondirs[a:dir] = s:Slash(FugitiveVimPath(cdir))
       else
@@ -1441,7 +1448,7 @@ function! s:QuickfixStream(nr, event, title, cmd, first, mods, callback, ...) ab
   let opts = {'title': a:title, 'context': {'items': []}}
   call s:QuickfixCreate(a:nr, opts)
   let event = (a:nr < 0 ? 'c' : 'l') . 'fugitive-' . a:event
-  silent exe s:DoAutocmd('QuickFixCmdPre ' . event)
+  exe s:DoAutocmd('QuickFixCmdPre ' . event)
   let winnr = winnr()
   exe s:QuickfixOpen(a:nr, a:mods)
   if winnr != winnr()
@@ -1468,7 +1475,7 @@ function! s:QuickfixStream(nr, event, title, cmd, first, mods, callback, ...) ab
   lockvar opts.context.items
   call s:QuickfixSet(a:nr, buffer, 'a')
 
-  silent exe s:DoAutocmd('QuickFixCmdPost ' . event)
+  exe s:DoAutocmd('QuickFixCmdPost ' . event)
   if a:first && len(s:QuickfixGet(a:nr))
     return (a:nr < 0 ? 'cfirst' : 'lfirst')
   else
@@ -2480,6 +2487,9 @@ endfunction
 augroup fugitive_dummy_events
   autocmd!
   autocmd User Fugitive* "
+  autocmd BufWritePre,FileWritePre,FileWritePost * "
+  autocmd BufNewFile * "
+  autocmd QuickfixCmdPre,QuickfixCmdPost * "
 augroup END
 
 function! s:ReplaceCmd(cmd) abort
@@ -2489,7 +2499,7 @@ function! s:ReplaceCmd(cmd) abort
     throw 'fugitive: ' . (len(err) ? substitute(err, "\n$", '', '') : 'unknown error running ' . string(a:cmd))
   endif
   setlocal noswapfile
-  silent exe 'lockmarks keepalt 0read ++edit' s:fnameescape(temp)
+  silent exe 'lockmarks keepalt noautocmd 0read ++edit' s:fnameescape(temp)
   if &foldenable && foldlevel('$') > 0
     set nofoldenable
     silent keepjumps $delete _
@@ -2499,7 +2509,7 @@ function! s:ReplaceCmd(cmd) abort
   endif
   call delete(temp)
   if s:cpath(fnamemodify(bufname('$'), ':p'), temp)
-    silent! execute bufnr('$') . 'bwipeout'
+    silent! noautocmd execute bufnr('$') . 'bwipeout'
   endif
 endfunction
 
@@ -2586,7 +2596,7 @@ function! fugitive#BufReadStatus(...) abort
   let amatch = s:Slash(expand('%:p'))
   unlet! b:fugitive_reltime b:fugitive_type
   try
-    silent doautocmd BufReadPre
+    doautocmd BufReadPre
     let config = fugitive#Config()
 
     let cmd = [fnamemodify(amatch, ':h')]
@@ -2706,11 +2716,11 @@ function! fugitive#BufReadStatus(...) abort
     let diff = {'Staged': {'stdout': ['']}, 'Unstaged': {'stdout': ['']}}
     if len(staged)
       let diff['Staged'] =
-          \ fugitive#Execute(['diff', '--color=never', '--no-ext-diff', '--no-prefix', '--cached'], function('len'))
+          \ fugitive#Execute(['-c', 'diff.suppressBlankEmpty=false', 'diff', '--color=never', '--no-ext-diff', '--no-prefix', '--cached'], function('len'))
     endif
     if len(unstaged)
       let diff['Unstaged'] =
-          \ fugitive#Execute(['diff', '--color=never', '--no-ext-diff', '--no-prefix'], function('len'))
+          \ fugitive#Execute(['-c', 'diff.suppressBlankEmpty=false', 'diff', '--color=never', '--no-ext-diff', '--no-prefix'], function('len'))
     endif
 
     for dict in staged
@@ -2835,7 +2845,7 @@ function! fugitive#BufReadStatus(...) abort
     endif
 
     setlocal nomodified readonly noswapfile
-    silent doautocmd BufReadPost
+    doautocmd BufReadPost
     setlocal nomodifiable
     if &bufhidden ==# ''
       setlocal bufhidden=delete
@@ -2879,9 +2889,6 @@ function! fugitive#BufReadStatus(...) abort
     call s:Map('x', 'p', ":<C-U>execute <SID>StagePatch(line(\"'<\"),line(\"'>\"))<CR>", '<silent>')
     call s:Map('n', 'I', ":<C-U>execute <SID>StagePatch(line('.'),line('.'))<CR>", '<silent>')
     call s:Map('x', 'I', ":<C-U>execute <SID>StagePatch(line(\"'<\"),line(\"'>\"))<CR>", '<silent>')
-    if empty(mapcheck('q', 'n'))
-      nnoremap <buffer> <silent> q :<C-U>echoerr "fugitive: q is removed in favor of gq (or :q)"<CR>
-    endif
     call s:Map('n', 'gq', ":<C-U>if bufnr('$') == 1<Bar>quit<Bar>else<Bar>bdelete<Bar>endif<CR>", '<silent>')
     call s:Map('n', 'R', ":echohl WarningMsg<Bar>echo 'Reloading is automatic.  Use :e to force'<Bar>echohl NONE<CR>", '<silent>')
     call s:Map('n', 'g<Bar>', ":<C-U>echoerr 'Changed to X'<CR>", '<silent><unique>')
@@ -2998,10 +3005,10 @@ function! fugitive#BufReadCmd(...) abort
         endif
         if rev =~# '^:\d:'
           let &l:readonly = !filewritable(fugitive#Find('.git/index', dir))
-          return 'silent doautocmd BufNewFile'
+          return 'doautocmd BufNewFile'
         else
           setlocal readonly nomodifiable
-          return 'silent doautocmd BufNewFile|echo ' . string(error)
+          return 'doautocmd BufNewFile|echo ' . string(error)
         endif
       elseif b:fugitive_type !~# '^\%(tag\|commit\|tree\|blob\)$'
         return "echoerr ".string("fugitive: unrecognized git type '".b:fugitive_type."'")
@@ -3026,7 +3033,7 @@ function! fugitive#BufReadCmd(...) abort
       if b:fugitive_type !=# 'blob'
         setlocal foldmarker=<<<<<<<<,>>>>>>>>
       endif
-      silent exe s:DoAutocmd('BufReadPre')
+      exe s:DoAutocmd('BufReadPre')
       if b:fugitive_type ==# 'tree'
         let b:fugitive_display_format = b:fugitive_display_format % 2
         if b:fugitive_display_format
@@ -3092,7 +3099,7 @@ function! fugitive#BufReadCmd(...) abort
 
     setlocal modifiable
 
-    return 'silent ' . s:DoAutocmd('BufReadPost') .
+    return s:DoAutocmd('BufReadPost') .
           \ (modifiable ? '' : '|setl nomodifiable') . '|' .
           \ call('s:DoAutocmd', events)
   catch /^fugitive:/
@@ -3177,6 +3184,7 @@ function! s:TempReadPre(file) abort
       call extend(b:, {'fugitive_type': 'temp'}, 'keep')
     endif
   endif
+  return ''
 endfunction
 
 function! s:TempReadPost(file) abort
@@ -3201,9 +3209,6 @@ function! s:TempReadPost(file) abort
     endif
     setlocal foldmarker=<<<<<<<<,>>>>>>>>
     if !&modifiable
-      if empty(mapcheck('q', 'n'))
-        nnoremap <buffer> <silent> q    :<C-U>echoerr "fugitive: q is removed in favor of gq (or :q)"<CR>
-      endif
       call s:Map('n', 'gq', ":<C-U>bdelete<CR>", '<silent> <unique>')
     endif
   endif
@@ -3266,7 +3271,17 @@ function! s:RunEdit(state, tmp, job) abort
   call remove(a:state, 'request')
   let sentinel = a:state.file . '.edit'
   let file = FugitiveVimPath(readfile(sentinel, '', 1)[0])
-  exe substitute(a:state.mods, '\<tab\>', '-tab', 'g') 'keepalt split' s:fnameescape(file)
+  try
+    if !&equalalways && a:state.mods !~# '\<tab\>' && 3 > (a:state.mods =~# '\<vert' ? winwidth(0) : winheight(0))
+      let noequalalways = 1
+      setglobal equalalways
+    endif
+    exe substitute(a:state.mods, '\<tab\>', '-tab', 'g') 'keepalt split' s:fnameescape(file)
+  finally
+    if exists('l:noequalalways')
+      setglobal noequalalways
+    endif
+  endtry
   set bufhidden=wipe
   let bufnr = bufnr('')
   let s:edit_jobs[bufnr] = [a:state, a:tmp, a:job, sentinel]
@@ -3512,9 +3527,10 @@ if !exists('s:resume_queue')
 endif
 function! fugitive#Resume() abort
   while len(s:resume_queue)
-    if s:resume_queue[0][2] isnot# ''
+    let enqueued = remove(s:resume_queue, 0)
+    if enqueued[2] isnot# ''
       try
-        call call('s:RunWait', remove(s:resume_queue, 0))
+        call call('s:RunWait', enqueued)
       endtry
     endif
   endwhile
@@ -3534,7 +3550,7 @@ function! s:RunBufDelete(bufnr) abort
   endif
   if has_key(s:edit_jobs, a:bufnr) |
     call add(s:resume_queue, remove(s:edit_jobs, a:bufnr))
-    call feedkeys(":redraw!|call delete(" . string(s:resume_queue[-1][0].file . '.edit') .
+    call feedkeys("\<C-\>\<C-N>:redraw!|call delete(" . string(s:resume_queue[-1][0].file . '.edit') .
           \ ")|call fugitive#Resume()|silent checktime\r", 'n')
   endif
 endfunction
@@ -5123,11 +5139,14 @@ function! s:StagePatch(lnum1,lnum2) abort
   for lnum in range(a:lnum1,a:lnum2)
     let info = s:StageInfo(lnum)
     if empty(info.paths) && info.section ==# 'Staged'
-      return 'tab Git reset --patch'
+      execute 'tab Git reset --patch'
+      break
     elseif empty(info.paths) && info.section ==# 'Unstaged'
-      return 'tab Git add --patch'
+      execute 'tab Git add --patch'
+      break
     elseif empty(info.paths) && info.section ==# 'Untracked'
-      return 'tab Git add --interactive'
+      execute 'tab Git add --interactive'
+      break
     elseif empty(info.paths)
       continue
     endif
@@ -5655,7 +5674,7 @@ function! s:GrepSubcommand(line1, line2, range, bang, mods, options) abort
         \ 'mods': s:Mods(a:mods),
         \ 'file': s:Resolve(tempfile)}
   let event = listnr < 0 ? 'grep-fugitive' : 'lgrep-fugitive'
-  silent exe s:DoAutocmd('QuickFixCmdPre ' . event)
+  exe s:DoAutocmd('QuickFixCmdPre ' . event)
   try
     if !quiet && &more
       let more = 1
@@ -5679,7 +5698,7 @@ function! s:GrepSubcommand(line1, line2, range, bang, mods, options) abort
     endif
   endtry
   call s:RunFinished(state)
-  silent exe s:DoAutocmd('QuickFixCmdPost ' . event)
+  exe s:DoAutocmd('QuickFixCmdPost ' . event)
   if quiet
     let bufnr = bufnr('')
     exe s:QuickfixOpen(listnr, a:mods)
@@ -5780,7 +5799,7 @@ function! s:LogParse(state, dir, prefix, line) abort
     endif
   elseif a:state.follow &&
         \ a:line =~# '^ \%(mode change \d\|\%(create\|delete\) mode \d\|\%(rename\|copy\|rewrite\) .* (\d\+%)$\)'
-    let rename = matchstr(a:line, '^ rename \zs.* => .*\ze (\d\+%)$')
+    let rename = matchstr(a:line, '^ \%(copy\|rename\) \zs.* => .*\ze (\d\+%)$')
     if len(rename)
       let rename = rename =~# '{.* => .*}' ? rename : '{' . rename . '}'
       if a:state.target ==# simplify('/' . substitute(rename, '{.* => \(.*\)}', '\1', ''))
@@ -6175,7 +6194,7 @@ function! fugitive#WriteCommand(line1, line2, range, bang, mods, arg, ...) abort
 
   unlet! restorewinnr
   let zero = fugitive#Find(':0:'.file)
-  silent exe s:DoAutocmd('BufWritePost ' . s:fnameescape(zero))
+  exe s:DoAutocmd('BufWritePost ' . s:fnameescape(zero))
   for tab in range(1,tabpagenr('$'))
     for winnr in range(1,tabpagewinnr(tab,'$'))
       let bufnr = tabpagebuflist(tab)[winnr-1]
@@ -6490,7 +6509,7 @@ function! fugitive#Diffsplit(autodir, keepfocus, mods, arg, ...) abort
     return 'echoerr ' . string(v:exception)
   finally
     if exists('l:equalalways')
-      let &l:equalalways = equalalways
+      let &g:equalalways = equalalways
     endif
     if exists('diffopt')
       let &diffopt = diffopt
@@ -6767,9 +6786,13 @@ function! s:BlameSubcommand(line1, count, range, bang, mods, options) abort
     elseif empty(files) && len(matchstr(s:DirCommitFile(@%)[1], '^\x\x\+$'))
       let cmd += [matchstr(s:DirCommitFile(@%)[1], '^\x\x\+$')]
     elseif empty(files) && !s:HasOpt(flags, '--reverse')
-      let cmd += ['--contents', tempname . '.in']
-      silent execute 'noautocmd keepalt %write ' . s:fnameescape(tempname . '.in')
-      let delete_in = 1
+      if &modified || !empty(s:DirCommitFile(@%)[1])
+        let cmd += ['--contents', tempname . '.in']
+        silent execute 'noautocmd keepalt %write ' . s:fnameescape(tempname . '.in')
+        let delete_in = 1
+      elseif &autoread
+        exe 'checktime ' . bufnr('')
+      endif
     else
       call fugitive#Autowrite()
     endif
@@ -6979,13 +7002,6 @@ function! s:BlameJump(suffix, ...) abort
   let offset = line('.') - line('w0')
   let state = s:TempState()
   let flags = get(state, 'blame_flags', [])
-  if a:0 && a:1
-    if s:HasOpt(flags, '--reverse')
-      call remove(flags, '--reverse')
-    else
-      call add(flags, '--reverse')
-    endif
-  endif
   let blame_bufnr = s:BlameBufnr()
   if blame_bufnr > 0
     let bufnr = bufnr('')
@@ -7102,9 +7118,6 @@ function! s:BlameMaps(is_ftplugin) abort
   let ft = a:is_ftplugin
   call s:Map('n', '<F1>', ':help :Git_blame<CR>', '<silent>', ft)
   call s:Map('n', 'g?',   ':help :Git_blame<CR>', '<silent>', ft)
-  if empty(mapcheck('q', 'n'))
-    nnoremap <buffer> <silent> q :<C-U>echoerr "fugitive: q removed in favor of gq (or :q)"<CR>
-  endif
   call s:Map('n', 'gq',   ':exe <SID>BlameQuit()<CR>', '<silent>', ft)
   call s:Map('n', '<2-LeftMouse>', ':<C-U>exe <SID>BlameCommit("exe <SID>BlameLeave()<Bar>edit")<CR>', '<silent>', ft)
   call s:Map('n', '<CR>', ':<C-U>exe <SID>BlameCommit("exe <SID>BlameLeave()<Bar>edit")<CR>', '<silent>', ft)
@@ -7224,7 +7237,7 @@ function! fugitive#BrowseCommand(line1, count, range, bang, mods, arg, ...) abor
     endif
     exe s:DirCheck(dir)
     if empty(expanded)
-      let bufname = s:BufName('%')
+      let bufname = &buftype =~# '^\%(nofile\|terminal\)$' ? '' : s:BufName('%')
       let expanded = s:DirRev(bufname)[1]
       if empty(expanded)
         let expanded = fugitive#Path(bufname, ':(top)', dir)
@@ -7670,7 +7683,7 @@ endfunction
 function! s:StatusCfile(...) abort
   let tree = s:Tree()
   if empty(tree)
-    return ''
+    return []
   endif
   let lead = s:cpath(tree, getcwd()) ? './' : tree . '/'
   if getline('.') =~# '^.\=\trenamed:.* -> '
