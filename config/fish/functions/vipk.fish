@@ -18,6 +18,15 @@ function vipk --description 'Update NeoVIM packages'
 		rm "$tmp"                   # cleanup temporary path
 	end
 
+	function _dlf --description "Download a file to a destination"
+		set -l dest "$argv[1]" # destination file path
+		set -l url "$argv[2]"  # URL of the file to download
+
+		echo "$dest"
+		mkdir -p (dirname "$dest")   # make the destination directory
+		curl -sSfL -o "$dest" "$url" # download file to destination path
+	end
+
 	# Color scheme
 	_dl "$opt/gruvbox" \
 	   'https://github.com/morhetz/gruvbox/archive/refs/heads/master.tar.gz'
@@ -93,5 +102,13 @@ function vipk --description 'Update NeoVIM packages'
 	# fzf integration for fuzzy file search
 	_dl "$start/fzf.vim" \
 	   'https://github.com/junegunn/fzf.vim/archive/refs/heads/master.tar.gz'
+
+	# fzf requires this from the main repository to work
+	_dlf "$start/fzf/LICENSE" \
+	   'https://raw.githubusercontent.com/junegunn/fzf/master/LICENSE'
+	_dlf "$start/fzf/doc/fzf.txt" \
+	   'https://raw.githubusercontent.com/junegunn/fzf/master/doc/fzf.txt'
+	_dlf "$start/fzf/plugin/fzf.vim" \
+	   'https://raw.githubusercontent.com/junegunn/fzf/master/plugin/fzf.vim'
 
 end

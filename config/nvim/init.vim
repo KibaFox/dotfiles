@@ -22,9 +22,6 @@ call plug#end()
 " Plugin Configuration
 " ====================
 
-" fzf - runtimepath - https://github.com/junegunn/fzf/blob/master/README-VIM.md
-set rtp+=/usr/local/opt/fzf " Homebrew location
-
 " Gruvbox colorscheme
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_italic = 0
