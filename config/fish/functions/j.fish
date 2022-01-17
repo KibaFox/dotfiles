@@ -31,5 +31,9 @@ function j -d "Jump to a project"
 		find $PROJECT_PATHS -maxdepth 3 -type d -name '.git' -prune | sed 's|/\.git$||'
 	end
 
-	cd (__projects | fzf --query="$argv")
+	set -l selection (__projects | fzf --query="$argv")
+
+	if test -n "$selection"
+		cd "$selection"
+	end
 end
