@@ -1,10 +1,10 @@
 function j -d "Jump to a project"
 	function _help
-		echo 'Usage: j'
+		echo 'Usage: j [QUERY ...]'
 		echo ''
 		echo 'Jump to a project.'
 		echo ''
-		echo 'Without any arguments, fzf will be used to select a project.'
+		echo 'fzf is used to select a project. Arguments are used as the initial fzf query.'
 		echo ''
 		echo 'Set variable PROJECT_PATHS with a list of directories to find projects:'
 		echo 'For example:'
@@ -14,11 +14,6 @@ function j -d "Jump to a project"
 		echo 'Default is ~/proj'
 		echo ''
 		echo 'Projects are directories which contain a `.git` directory.'
-	end
-
-	if test (count $argv) -ge 1
-		_help
-		return 0
 	end
 
 	argparse --name=pwrem 'a/add' 'd/del' 'r/reveal' 'q/query' 'h/help' -- $argv
@@ -36,5 +31,5 @@ function j -d "Jump to a project"
 		find $PROJECT_PATHS -maxdepth 3 -type d -name '.git' -prune | sed 's|/\.git$||'
 	end
 
-	cd (__projects | fzf)
+	cd (__projects | fzf --query="$argv")
 end
