@@ -11,7 +11,7 @@ function j -d "Jump to a project"
 		echo ''
 		echo '    set -gx PROJECT_PATHS ~/proj ~/repos'
 		echo ''
-		echo 'Default is ~/proj'
+		echo 'Default is ~/proj ~/dotfiles ~/dotfiles-local'
 		echo ''
 		echo 'Projects are directories which contain a `.git` directory.'
 	end
@@ -26,7 +26,7 @@ function j -d "Jump to a project"
 
 	function __projects
 		if not set -q PROJECT_PATHS
-			set -l PROJECT_PATHS ~/proj
+			set PROJECT_PATHS ~/proj ~/dotfiles ~/dotfiles-local
 		end
 		find $PROJECT_PATHS -maxdepth 3 -type d -name '.git' -prune | sed 's|/\.git$||'
 	end
