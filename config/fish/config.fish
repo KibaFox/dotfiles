@@ -93,7 +93,7 @@ if not ssh-add -l > /dev/null
 
 		# load key
 		if test (uname) = "Darwin"
-			ssh-add -K "$key"
+			ssh-add --apple-use-keychain "$key"
 		else if test -n "$TMUX" # let tmux start first, esp. for remote sessions
 			ssh-add "$key"
 		end
